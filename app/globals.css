@@ -10,6 +10,68 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-rounded: var(--font-rounded);
+}
+
+/* 見出し用の丸ゴシックユーティリティ */
+.font-rounded {
+  font-family: var(--font-rounded), var(--font-geist-sans), sans-serif;
+}
+
+/* アンカー遷移を滑らかに（reduced-motion は下で停止） */
+html {
+  scroll-behavior: smooth;
+}
+
+/* フォーカスリング（キーボード操作時の作り込み） */
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid rgba(251, 191, 36, 0.7);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* 全面に乗せる微細なフィルムグレイン（ダークの奥行き＆高級感） */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* カードの上端に光が当たったようなハイライト */
+.card-surface {
+  position: relative;
+  background-image: linear-gradient(to bottom, #141414, #0f0f0f);
+}
+.card-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding-top: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* 「くるくる」モチーフの低速回転（motion 設定を尊重して停止） */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .spin-ring {
+    animation: none !important;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +84,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
 }
