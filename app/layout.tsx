@@ -16,15 +16,6 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-// 見出し用の丸ゴシック（"Workle = work がくるくる" の親しみやすさを表現）
-const rounded = M_PLUS_Rounded_1c({
-  weight: ["700", "800"],
-  variable: "--font-rounded",
-  subsets: ["latin"],
-  display: "swap",
-  preload: false,
-});
-
 export const metadata: Metadata = {
   title: "Workle — 会議ゼロ。タスクを投げるだけ。",
   description:
