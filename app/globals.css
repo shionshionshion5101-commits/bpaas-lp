@@ -198,7 +198,7 @@ img { max-width: 100%; display: block; }
 .brand { display: inline-flex; align-items: center; gap: 11px; }
 .brand-mark {
   width: 32px; height: 32px;
-  border-radius: 9px;
+  border-radius: 50%;
   display: grid; place-items: center;
   background: linear-gradient(140deg, var(--accent), var(--accent-2));
   color: var(--accent-ink);
@@ -206,6 +206,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   font-size: 15px;
   box-shadow: 0 6px 18px -6px var(--glow);
+  overflow: hidden;
 }
 .brand-name {
   font-family: var(--f-display);
@@ -443,6 +444,9 @@ img { max-width: 100%; display: block; }
   border-radius: 999px;
   padding: 2px 8px;
 }
+.col.req .col-h { color: var(--tx-3); }
+.col.run .col-h { color: var(--accent); }
+.col.run { background: color-mix(in srgb, var(--accent) 4%, transparent); }
 .col.done .col-h { color: var(--accent-2); }
 .col-stack { position: relative; }
 
@@ -493,12 +497,15 @@ img { max-width: 100%; display: block; }
   border-radius: 999px;
   width: 0;
 }
-.kcard.is-active { border-color: var(--accent-line); }
+.kcard.is-active { border-color: color-mix(in srgb, var(--accent) 60%, transparent); box-shadow: 0 8px 22px -12px rgba(0,0,0,0.9), 0 0 20px -6px var(--glow); }
 .kcard.is-active .k-prog i { animation: fill 2.6s ease forwards; }
 @keyframes fill { from { width: 8%; } to { width: 100%; } }
-.kcard.is-done { opacity: 0.62; }
-.kcard.is-done .k-check { color: var(--accent-2); }
-.k-check { font-family: var(--f-mono); font-size: 11px; }
+.kcard.is-done { opacity: 0.52; }
+.kcard.is-done .k-prog i { width: 100%; }
+.kcard.is-done .k-check { color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 12%, transparent); padding: 2px 8px; border-radius: 999px; }
+.k-check { font-family: var(--f-mono); font-size: 10.5px; }
+.board-live { margin-left: auto; display: flex; align-items: center; gap: 6px; font-family: var(--f-mono); font-size: 11px; color: var(--tx-4); }
+.board-live .live { width: 7px; height: 7px; flex-shrink: 0; }
 
 /* ============================================================
    FEATURES (bento)
@@ -627,6 +634,7 @@ img { max-width: 100%; display: block; }
 .plan.feat .plan-price .yen,
 .plan .plan-price .yen { color: var(--accent); }
 .plan-price .per { font-size: 15px; color: var(--tx-3); }
+.plan-scope { font-family: var(--f-mono); font-size: 11px; color: var(--tx-4); margin: 5px 0 0; }
 .plan-quote {
   margin: 22px 0 0;
   padding-left: 14px;

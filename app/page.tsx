@@ -7,7 +7,11 @@ export default function Home() {
       <header className="nav" id="nav">
         <div className="wrap nav-in">
           <a className="brand" href="#top" aria-label="Workle">
-            <span className="brand-mark">&gt;_</span>
+            <span className="brand-mark">
+              <svg width="100%" height="100%" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <path d="M5 9.5 L9.5 20 L14 12 L18.5 20 L23 9.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
             <span className="brand-name">Workle</span>
           </a>
           <nav className="nav-links">
@@ -47,7 +51,7 @@ export default function Home() {
 
             <p className="hero-sub reveal d2">
               プロダクトに集中。マーケも営業も、泥臭い実務はプロチームに丸投げ。
-              元タイミー事業開発・大手人材トップセールス・外資ITエンジニアが、
+              メガベンチャー元事業開発・大手人材業界トップセールス・外資ITエンジニア兼マーケターが、
               <strong style={{ color: "var(--tx)" }}>あなたの稼働ゼロ</strong>
               で完遂します。
             </p>
@@ -137,11 +141,15 @@ export default function Home() {
                 <span className="b-ico" />
                 <b>Workle Board</b>
                 <span className="b-path">
-                  notion.so / your-workspace / tasks
+                  workle / your-workspace / tasks
+                </span>
+                <span className="board-live">
+                  <span className="live" />
+                  non-stop
                 </span>
               </div>
               <div className="board-cols">
-                <div className="col">
+                <div className="col req">
                   <div className="col-h">
                     📥 リクエスト{" "}
                     <span className="cnt" data-cnt="req">
@@ -150,7 +158,7 @@ export default function Home() {
                   </div>
                   <div className="col-stack" id="col-req" />
                 </div>
-                <div className="col">
+                <div className="col run">
                   <div className="col-h">
                     🏃 稼働中{" "}
                     <span className="cnt" data-cnt="run">
@@ -370,7 +378,7 @@ export default function Home() {
                         fontSize: 18,
                       }}
                     >
-                      元タイミー 事業開発
+                      メガベンチャー 元事業開発
                     </div>
                     <div
                       style={{
@@ -415,7 +423,7 @@ export default function Home() {
                         fontSize: 18,
                       }}
                     >
-                      大手人材 トップセールス
+                      大手人材業界 トップセールス
                     </div>
                     <div
                       style={{
@@ -460,7 +468,7 @@ export default function Home() {
                         fontSize: 18,
                       }}
                     >
-                      外資IT エンジニア
+                      外資IT エンジニア兼マーケター
                     </div>
                     <div
                       style={{
@@ -469,12 +477,12 @@ export default function Home() {
                         color: "var(--tx-4)",
                       }}
                     >
-                      eng &amp; automation
+                      eng &amp; marketing
                     </div>
                   </div>
                 </div>
                 <p style={{ marginTop: 18 }}>
-                  実装・自動化・スクレイピングまで。開発者の言語が通じるからこそ、技術的な実務もそのまま投げられます。
+                  実装・自動化・スクレイピングに加え、マーケティングの実務経験・知見も備えたエンジニア兼マーケター。技術もマーケも、まとめて任せられます。
                 </p>
               </article>
             </div>
@@ -553,9 +561,10 @@ export default function Home() {
                 <h3 className="plan-name">Growth Plan</h3>
                 <p className="plan-mode">伴走型 ・ 定期Zoomミーティングあり</p>
                 <div className="plan-price">
-                  <span className="yen">¥98,000</span>
-                  <span className="per">/ 月</span>
+                  <span className="yen">¥150,000</span>
+                  <span className="per">〜 / 月</span>
                 </div>
+                <p className="plan-scope">スコープ・業務量により最終料金を決定</p>
                 <p className="plan-quote">
                   アプリを「どう売るか」の戦略策定から、営業・SNS運用の実行までを共にする。
                 </p>
@@ -628,7 +637,11 @@ export default function Home() {
           <div className="foot-in">
             <div className="foot-brand">
               <a className="brand" href="#top">
-                <span className="brand-mark">&gt;_</span>
+                <span className="brand-mark">
+                  <svg width="100%" height="100%" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                    <path d="M5 9.5 L9.5 20 L14 12 L18.5 20 L23 9.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
                 <span className="brand-name">Workle</span>
               </a>
               <p>
