@@ -4,6 +4,8 @@ Post scheduled tweets from a weekly CSV.
 Usage: python scripts/post_tweet.py [csv_path]
 Slot (12:00 / 21:00) is inferred from current hour (JST).
 """
+from __future__ import annotations
+
 import csv
 import os
 import sys

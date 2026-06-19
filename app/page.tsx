@@ -15,18 +15,17 @@ export default function Home() {
             <span className="brand-name">Workle</span>
           </a>
           <nav className="nav-links">
-            <a href="#how">仕組み</a>
-            <a href="#why">機能</a>
-            <a href="#pricing">料金</a>
+            <a href="#starter">Starter</a>
+            <a href="#growth">Growth</a>
             <a href="#team">チーム</a>
+            <a href="#faq">FAQ</a>
           </nav>
           <div className="nav-cta">
-            <a
-              href="#pricing"
-              className="btn btn-primary"
-              style={{ padding: "10px 18px", fontSize: 14 }}
-            >
-              タスクを投げる
+            <a href="#growth" className="btn btn-ghost nav-ghost-btn">
+              無料診断
+            </a>
+            <a href="https://buy.stripe.com/4gM7sL5unbqh7TpflV3F600" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: "9px 16px", fontSize: 13 }}>
+              Starterを始める
             </a>
           </div>
         </div>
@@ -37,47 +36,32 @@ export default function Home() {
         <section className="hero" id="hero">
           <div className="hero-glow" />
           <div className="wrap hero-in">
-            <span className="pill reveal">
-              <span className="live" />
-              会議ゼロ / 完全非同期 BPaaS for Developers
-            </span>
-
             <h1 className="reveal d1">
-              <span className="ln">会議は、ゼロ。</span>
-              <span className="ln">
-                タスクは、<span className="accent-tx">投げるだけ。</span>
-              </span>
+              <span className="ln">いいプロダクトは、ある。</span>
+              <span className="ln">届ける手が、<span className="accent-tx">足りない。</span></span>
             </h1>
 
             <p className="hero-sub reveal d2">
-              プロダクトに集中。マーケも営業も、泥臭い実務はプロチームに丸投げ。
-              メガベンチャー元事業開発・大手人材業界トップセールス・外資ITエンジニア兼マーケターが、
-              <strong style={{ color: "var(--tx)" }}>あなたの稼働ゼロ</strong>
-              で完遂します。
+              マーケと営業の実務を、まるごと外に出す。<br className="sp-break" /><span className="nowrap">元メガベンチャー事業開発</span>・<br />
+              <span className="nowrap">大手人材業界トップセールス</span>・<span className="nowrap">外資ITエンジニアの実働チームが、</span><br /><br className="sp-break" />
+              あなたの代わりに手を動かします。
             </p>
 
-            <div className="hero-cta reveal d2">
-              <a href="#pricing" className="btn btn-primary">
-                専用Notionボードを受け取る <span className="arr">→</span>
+            <div className="lane-split reveal d2">
+              <a href="#starter" className="lane-card">
+                <div className="lane-label">個人開発者の方へ</div>
+                <div className="lane-name">Starter</div>
+                <div className="lane-desc">会議ゼロ・タスクを投げるだけ</div>
+                <div className="lane-price">¥50,000<span className="lane-per">/月</span></div>
+                <div className="lane-go">詳細を見る <span className="arr">→</span></div>
               </a>
-              <a href="#how" className="btn btn-ghost">
-                仕組みを見る
+              <a href="#growth" className="lane-card lane-feat">
+                <div className="lane-label">法人・事業責任者の方へ</div>
+                <div className="lane-name">Growth</div>
+                <div className="lane-desc">戦略から実行まで伴走</div>
+                <div className="lane-price">¥250,000<span className="lane-per">〜/月</span></div>
+                <div className="lane-go">無料診断を予約 <span className="arr">→</span></div>
               </a>
-            </div>
-
-            <p className="hero-note reveal d3">
-              <s>Zoom</s> ・ <s>定例会議</s> ・ <s>日程調整</s>{" "}
-              — すべて不要。テキストで完結。
-            </p>
-
-            <div className="terminal reveal d3" id="terminal">
-              <div className="term-bar">
-                <span className="term-dot r" />
-                <span className="term-dot y" />
-                <span className="term-dot g" />
-                <span className="term-title">~/workle — task dispatch</span>
-              </div>
-              <div className="term-body" id="termBody" />
             </div>
           </div>
         </section>
@@ -88,61 +72,305 @@ export default function Home() {
           <div className="marquee-track" id="marquee" />
         </section>
 
-        {/* HOW IT WORKS */}
-        <section className="section" id="how">
+        {/* MENU TABLE */}
+        <section className="section" id="menu" style={{ background: "var(--bg-1)" }}>
           <div className="wrap">
-            <div
-              className="center reveal"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                marginBottom: 46,
-              }}
-            >
+            <div className="center reveal" style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 48 }}>
               <span className="eyebrow">
                 <span className="dot" />
-                <span className="num">01</span> / 仕組み
+                <span className="num">01</span> / 実務メニュー
               </span>
+              <h2 className="h-sec">投げられる実務と<span className="accent-tx">クレジット</span></h2>
+              <p className="sub center">
+                Starterは月<strong style={{ color: "var(--tx)" }}>10クレジット</strong>。タスクごとの消費分だけ使えます。Growthは全メニューを月額定額に含みます。
+              </p>
+              <p className="menu-strength center reveal d1">
+                Workleの強みは、マーケと開発を<strong style={{ color: "var(--tx)" }}>同じチーム</strong>が持つこと。<br className="menu-strength-br" />
+                <span className="accent-tx">&ldquo;改善提案で終わらず、その場で実装まで&rdquo;</span>が可能です。
+              </p>
+            </div>
+
+            <div className="menu-tagline reveal d1">
+              <p className="menu-kv">Starterは『タスク』を投げる。Growthは『課題』を投げる。</p>
+              <p className="menu-kv-sub">Starterはメニューから選んで投げる定額タスク消化。Growthは課題ごと渡せば、何をすべきかの設計から巻き取ります。</p>
+            </div>
+
+            {/* Mobile-only tab switcher (CSS :checked driven). Hidden on desktop
+                where all three cards show side by side. */}
+            <input type="radio" id="menu-tab-1" name="menu-tab" className="menu-tab-radio" defaultChecked />
+            <input type="radio" id="menu-tab-2" name="menu-tab" className="menu-tab-radio" />
+            <input type="radio" id="menu-tab-3" name="menu-tab" className="menu-tab-radio" />
+            <div className="menu-tabs">
+              <label htmlFor="menu-tab-1" className="menu-tab">マーケ・営業</label>
+              <label htmlFor="menu-tab-2" className="menu-tab">エンジニアリング</label>
+              <label htmlFor="menu-tab-3" className="menu-tab">戦略・伴走</label>
+            </div>
+
+            <div className="menu-cards">
+              {/* CARD 1 — マーケ・営業 */}
+              <div className="menu-card reveal">
+                <div className="menu-card-head">
+                  <span className="menu-card-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <circle cx="12" cy="12" r="6" />
+                      <circle cx="12" cy="12" r="2" />
+                    </svg>
+                  </span>
+                  <h3 className="menu-card-title">マーケ・営業</h3>
+                  <p className="menu-card-lead">リスト作成から商談獲得まで、売るための実務を丸ごと。</p>
+                </div>
+                <div className="menu-rows">
+                  <div className="menu-rows-head">
+                    <span>メニュー</span>
+                    <span className="menu-col-s">Starter</span>
+                    <span className="menu-col-g">Growth</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">リスト抽出（100件）</span>
+                    <span className="credit-badge">3 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">競合リサーチ（1社）</span>
+                    <span className="credit-badge">2 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">X ターゲット精査型アウトリーチ（50通）</span>
+                    <span className="credit-badge">3 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">B2Bフォーム営業（100社）</span>
+                    <span className="credit-badge">4 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">DM・メール文面作成</span>
+                    <span className="credit-badge">2 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">記事ゴーストライティング（1本）</span>
+                    <span className="credit-badge">4 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">SNS投稿作成（10本）<span className="menu-impl-tag">+実装まで可</span></span>
+                    <span className="credit-badge">3 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">LP改善診断<span className="menu-impl-tag">+実装まで可</span></span>
+                    <span className="credit-badge">5 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">営業トークスクリプト作成（架電・商談用）</span>
+                    <span className="credit-badge">3 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">アウトバウンド架電リスト設計（ターゲット定義＋優先度スコアリング）</span>
+                    <span className="credit-badge">3 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">営業KPI設計・ダッシュボード構築</span>
+                    <span className="credit-badge">4 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">セールスプレイブック簡易版</span>
+                    <span className="credit-badge">5 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* CARD 2 — エンジニアリング */}
+              <div className="menu-card reveal d1">
+                <div className="menu-card-head">
+                  <span className="menu-card-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="4 17 10 11 4 5" />
+                      <line x1="12" y1="19" x2="20" y2="19" />
+                    </svg>
+                  </span>
+                  <h3 className="menu-card-title">エンジニアリング</h3>
+                  <p className="menu-card-lead">計測・改善・自動化。&ldquo;作れるチーム&rdquo;だからできる技術実務。</p>
+                </div>
+                <div className="menu-rows">
+                  <div className="menu-rows-head">
+                    <span>メニュー</span>
+                    <span className="menu-col-s">Starter</span>
+                    <span className="menu-col-g">Growth</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">GA4 / GTM 計測設置<span className="menu-impl-tag">+実装まで可</span></span>
+                    <span className="credit-badge">3 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">テクニカルSEO監査</span>
+                    <span className="credit-badge">4 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">セキュリティ簡易診断<span className="menu-footnote-mark">※</span></span>
+                    <span className="credit-badge">4 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">個人開発プロダクト向けセキュリティチェック<br /><span className="menu-row-sub">認証・権限・依存ライブラリ・公開設定の実務チェック</span></span>
+                    <span className="credit-badge">5 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">スクレイピング・データ収集</span>
+                    <span className="credit-badge">5 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">LP軽微改修</span>
+                    <span className="credit-badge">2 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">自動化構築（小）</span>
+                    <span className="credit-badge">5 pt</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* CARD 3 — 戦略・伴走（Growth） */}
+              <div className="menu-card menu-card-feat reveal d2">
+                <div className="menu-card-head">
+                  <span className="menu-card-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                    </svg>
+                  </span>
+                  <h3 className="menu-card-title">戦略・伴走<span className="menu-card-tag">Growth</span></h3>
+                  <p className="menu-card-lead">課題ごと預けたい法人向け。戦略設計から実行まで。</p>
+                </div>
+                <div className="menu-rows">
+                  <div className="menu-rows-head">
+                    <span>メニュー</span>
+                    <span className="menu-col-s">Starter</span>
+                    <span className="menu-col-g">Growth</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name"><strong>アウトバウンド営業組織の立ち上げ支援</strong><br /><span className="menu-row-sub">戦略・スクリプト・KPI・オンボーディング設計</span></span>
+                    <span className="unavail">—</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">インサイドセールス代行<br /><span className="menu-row-sub">月間コール数上限あり・要相談</span></span>
+                    <span className="unavail">—</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">戦略壁打ち・定期 Zoom（月2回）</span>
+                    <span className="unavail">—</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">SNSアカウント運用代行（週次）<span className="menu-impl-tag">+実装まで可</span></span>
+                    <span className="unavail">—</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                  <div className="menu-row">
+                    <span className="menu-row-name">週次レポーティング</span>
+                    <span className="unavail">—</span>
+                    <span className="incl-badge">included</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="menu-footnotes reveal d1">
+              <p className="menu-fn">
+                <span className="menu-footnote-mark">※</span>
+                公開情報と自動スキャンによる外形診断です。本格的な脆弱性診断は提携専門会社をご紹介します。
+              </p>
+              <p className="menu-fn">
+                商談対応・クロージングを含む営業代行は Growth Plan で承ります。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* STARTER LANE */}
+        <section className="section" id="starter">
+          <div className="wrap">
+            <div className="center reveal" style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 46 }}>
+              <span className="eyebrow">
+                <span className="dot" />
+                <span className="num">02</span> / Starter
+              </span>
+              <span className="section-plan-badge badge-starter">STARTER</span>
               <h2 className="h-sec">
                 投げてから、<span className="accent-tx">寝て待つだけ。</span>
               </h2>
               <p className="sub center">
-                タスクをNotionの専用ボードに置く。あとは裏側のプロチームが非同期で受け取り、稼働し、完了を積み上げていきます。あなたが画面を見ていなくても、ボードは前に進みます。
+                タスクをNotionの専用ボードに置くだけ。裏側のプロチームが非同期で受け取り、稼働し、完了を積み上げていきます。
+              </p>
+              <p className="strike-note reveal d1">
+                <s>Zoom</s> ・ <s>定例会議</s> ・ <s>日程調整</s> — すべて不要。テキストで完結。
               </p>
             </div>
 
             <div className="steps">
               <div className="step reveal">
                 <div className="step-n">STEP 01</div>
-                <h3>📥 投げる</h3>
-                <p>
-                  専用Notionボードの「リクエスト」にタスクカードを置くだけ。仕様も口頭説明も会議もいりません。
-                </p>
+                <div className="step-status request">REQUEST</div>
+                <h3>投げる</h3>
+                <p>専用Notionボードの「リクエスト」にタスクカードを置くだけ。仕様も口頭説明も会議もいりません。</p>
               </div>
               <div className="step reveal d1">
                 <div className="step-n">STEP 02</div>
-                <h3>🏃 稼働する</h3>
-                <p>
-                  プロチームが非同期で受け取り「稼働中」へ。進捗はカード上で静かに可視化されます。
-                </p>
+                <div className="step-status inprogress">IN PROGRESS</div>
+                <h3>稼働する</h3>
+                <p>プロチームが非同期で受け取り稼働中へ。進捗はカード上で静かに可視化されます。</p>
               </div>
               <div className="step reveal d2">
                 <div className="step-n">STEP 03</div>
-                <h3>✅ 積み上がる</h3>
-                <p>
-                  完遂したタスクは「完了」へ。成果物はボードに残り、いつでも確認できます。
-                </p>
+                <div className="step-status done">DONE</div>
+                <h3>積み上がる</h3>
+                <p>完遂したタスクは「完了」へ。成果物はボードに残り、いつでも確認できます。</p>
               </div>
+            </div>
+
+            {/* Static authored HTML — not user input */}
+            <div className="api-mock reveal d1">
+              <div className="api-mock-bar">
+                <span className="api-method">POST</span>
+                <span className="api-path">/v1/tasks</span>
+              </div>
+              <div
+                className="snippet"
+                dangerouslySetInnerHTML={{
+                  __html: [
+                    "{",
+                    '  <span style="color:#c792ea">"type"</span>: <span style="color:#6dd58c">"outreach"</span>,',
+                    '  <span style="color:#c792ea">"target"</span>: <span style="color:#6dd58c">"SaaS founders"</span>,',
+                    '  <span style="color:#c792ea">"volume"</span>: <span style="color:var(--accent-2)">50</span>',
+                    "}",
+                    '<span style="color:var(--tx-4)">→ 202 Accepted · status: "queued" · 非同期で順次完遂</span>',
+                  ].join("\n"),
+                }}
+              />
             </div>
 
             <div className="board reveal d1" id="board">
               <div className="board-top">
                 <span className="b-ico" />
                 <b>Workle Board</b>
-                <span className="b-path">
-                  workle / your-workspace / tasks
-                </span>
+                <span className="b-path">workle / your-workspace / tasks</span>
                 <span className="board-live">
                   <span className="live" />
                   non-stop
@@ -151,448 +379,316 @@ export default function Home() {
               <div className="board-cols">
                 <div className="col req">
                   <div className="col-h">
-                    📥 リクエスト{" "}
-                    <span className="cnt" data-cnt="req">
-                      0
-                    </span>
+                    REQUEST <span className="cnt" data-cnt="req">2</span>
                   </div>
                   <div className="col-stack" id="col-req" />
                 </div>
                 <div className="col run">
                   <div className="col-h">
-                    🏃 稼働中{" "}
-                    <span className="cnt" data-cnt="run">
-                      0
-                    </span>
+                    IN PROGRESS <span className="cnt" data-cnt="run">1</span>
                   </div>
                   <div className="col-stack" id="col-run" />
                 </div>
                 <div className="col done">
                   <div className="col-h">
-                    ✅ 完了{" "}
-                    <span className="cnt" data-cnt="done">
-                      0
-                    </span>
+                    DONE <span className="cnt" data-cnt="done">47</span>
                   </div>
                   <div className="col-stack" id="col-done" />
                 </div>
               </div>
             </div>
+
+            <div className="mid-cta reveal d2">
+              <a href="https://app.notion.com/p/Workle-Board-Demo-37d8c4486f5281ca8a70fe5ac1572dab" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+                サンプルボードを見る
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
+              <p className="mid-cta-note">読み取り専用のデモNotionボードを公開中</p>
+            </div>
+
+            <div className="starter-payment-cta reveal d2">
+              <a href="https://buy.stripe.com/4gM7sL5unbqh7TpflV3F600" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block">
+                Starterを始める（¥50,000/月） <span className="arr">→</span>
+              </a>
+              <p className="starter-cta-note">クレジットカード決済 / 最低契約期間なし / 翌営業日稼働</p>
+            </div>
           </div>
         </section>
 
-        {/* WHY / FEATURES */}
-        <section className="section" id="why" style={{ paddingTop: 0 }}>
+        {/* GROWTH LANE */}
+        <section className="section" id="growth" style={{ background: "var(--bg-1)" }}>
           <div className="wrap">
-            <div className="reveal" style={{ marginBottom: 42 }}>
+            <div className="reveal" style={{ marginBottom: 48 }}>
               <span className="eyebrow">
                 <span className="dot" />
-                <span className="num">02</span> / なぜ開発者に刺さるのか
+                <span className="num">03</span> / Growth
               </span>
+              <span className="section-plan-badge badge-growth">GROWTH</span>
               <h2 className="h-sec">
-                実務を、<span className="accent-tx">APIのように叩く。</span>
+                戦略から、<span className="accent-tx">泥臭い実行まで。</span>
               </h2>
               <p className="sub">
-                慣れ親しんだ開発体験そのまま。型のあるタスクを投げれば、結果が返ってくる。新しいツールも、会議体も、増やしません。
+                採用なし、固定費リスクなし。事業開発・営業・エンジニアの3職種が揃ったプロチームが、マーケと営業の実務をまるごと引き受けます。
               </p>
             </div>
 
-            <div className="bento">
-              <article className="card card-lg span-4 reveal">
-                <div className="ico" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="16 18 22 12 16 6" />
-                    <polyline points="8 6 2 12 8 18" />
-                  </svg>
+            <div className="compare-wrap reveal">
+              <div className="compare-table">
+                <div className="compare-head">
+                  <div className="compare-item-head" />
+                  <div className="compare-col-head hire">マーケ担当を採用</div>
+                  <div className="compare-col-head workle">Workle Growth</div>
                 </div>
-                <h3>APIのような使い心地</h3>
-                <p>
-                  タスクは「型」を持ちます。投げれば受理され、ステータスが返る。ドキュメントのように静かで、予測可能なワークフロー。
-                </p>
-                {/* Static authored HTML — no user input */}
-                <div
-                  className="snippet"
-                  dangerouslySetInnerHTML={{
-                    __html: [
-                      '<span style="color:var(--accent)">POST</span> /v1/tasks',
-                      "{",
-                      '  <span style="color:#c792ea">"type"</span>: <span style="color:#6dd58c">"x_dm_outreach"</span>,',
-                      '  <span style="color:#c792ea">"target"</span>: <span style="color:#6dd58c">"SaaS founders / 個人開発者"</span>,',
-                      '  <span style="color:#c792ea">"volume"</span>: <span style="color:var(--accent-2)">30</span>',
-                      "}",
-                      '<span style="color:var(--tx-4)">→ 202 Accepted · status: "queued" · 非同期で順次完遂</span>',
-                    ].join("\n"),
-                  }}
-                />
-              </article>
+                <div className="compare-row">
+                  <div className="compare-item">初期コスト</div>
+                  <div className="compare-val hire">採用費 50〜100万円</div>
+                  <div className="compare-val workle good">0円</div>
+                </div>
+                <div className="compare-row">
+                  <div className="compare-item">月額コスト</div>
+                  <div className="compare-val hire">給与 40〜50万円＋社保・福利厚生</div>
+                  <div className="compare-val workle good">¥250,000〜<br /><span style={{ fontSize: 11, color: "var(--tx-4)", fontFamily: "var(--f-mono)" }}>スコープ・業務量により最終料金を決定</span></div>
+                </div>
+                <div className="compare-row">
+                  <div className="compare-item">スキルカバー</div>
+                  <div className="compare-val hire">1名分のスキルのみ</div>
+                  <div className="compare-val workle good">事業開発・営業・エンジニア 3職種</div>
+                </div>
+                <div className="compare-row">
+                  <div className="compare-item">契約形態</div>
+                  <div className="compare-val hire">雇用（解雇困難）</div>
+                  <div className="compare-val workle good">月契約・いつでも解約可</div>
+                </div>
+                <div className="compare-row">
+                  <div className="compare-item">稼働開始</div>
+                  <div className="compare-val hire">入社後 3〜6ヶ月</div>
+                  <div className="compare-val workle good">翌営業日から稼働</div>
+                </div>
+              </div>
+            </div>
 
-              <article className="card span-2 reveal d1">
-                <div className="ico" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m22 8-6 4 6 4V8Z" />
-                    <rect x="2" y="6" width="14" height="12" rx="2" />
-                    <line x1="2" y1="2" x2="22" y2="22" />
-                  </svg>
-                </div>
-                <h3>Zoom、不要。</h3>
-                <p>
-                  日程調整のSlack往復も、画面共有の30分もゼロ。すべてテキストで完結します。
-                </p>
-                <div className="status-row">
-                  <span className="stat ok">meetings: 0</span>
-                  <span className="stat">sync_calls: 0</span>
-                </div>
-              </article>
+            <div className="reveal d1" style={{ margin: "56px 0 18px" }}>
+              <h3 className="sub-heading">進め方</h3>
+            </div>
+            <div className="growth-steps reveal d1">
+              <div className="growth-step">
+                <div className="gs-num">01</div>
+                <div className="gs-title">無料診断（15分）</div>
+                <div className="gs-desc">現状をヒアリングし、改善仮説を3つ提示。費用・契約は一切発生しません。</div>
+              </div>
+              <div className="gs-arrow" aria-hidden="true">→</div>
+              <div className="growth-step">
+                <div className="gs-num">02</div>
+                <div className="gs-title">戦略設計</div>
+                <div className="gs-desc">ヒアリング内容をもとに、実行プランをスコープと費用とともに提示します。</div>
+              </div>
+              <div className="gs-arrow" aria-hidden="true">→</div>
+              <div className="growth-step">
+                <div className="gs-num">03</div>
+                <div className="gs-title">実務実行（非同期）</div>
+                <div className="gs-desc">合意後、即日稼働開始。Notionボードで進捗をリアルタイムに確認できます。</div>
+              </div>
+              <div className="gs-arrow" aria-hidden="true">→</div>
+              <div className="growth-step">
+                <div className="gs-num">04</div>
+                <div className="gs-title">週次レポート</div>
+                <div className="gs-desc">毎週、実施内容・数値・翌週の改善仮説をレポート。意思決定の根拠が手元に残ります。</div>
+              </div>
+            </div>
 
-              <article className="card span-2 reveal">
-                <div className="ico" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7v5l3 2" />
-                  </svg>
-                </div>
-                <h3>非同期で前に進む</h3>
-                <p>
-                  あなたが寝ている間も、コードを書いている間も、ボードのタスクは消化されていきます。
-                </p>
-                <div className="status-row">
-                  <span className="stat acc">async: always-on</span>
-                </div>
-              </article>
-
-              <article className="card span-2 reveal d1">
-                <div className="ico" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path d="M9 3v18M3 9h6" />
-                  </svg>
-                </div>
-                <h3>Notionで完結</h3>
-                <p>
-                  新しい管理ツールは増やしません。使い慣れた専用Notionボードが、唯一のインターフェース。
-                </p>
-                <div className="status-row">
-                  <span className="stat">tools_added: 0</span>
-                </div>
-              </article>
-
-              <article className="card span-2 reveal d2">
-                <div className="ico" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </div>
-                <h3>実働するのはプロ</h3>
-                <p>
-                  テンプレ納品でも、AI丸投げでもない。事業開発・営業・実装の現場一流が、実際に手を動かします。
-                </p>
-                <div className="status-row">
-                  <span className="stat ok">status: shipped</span>
-                </div>
-              </article>
+            <div className="reveal d2" style={{ marginTop: 48, textAlign: "center" }}>
+              <a href="#診断予約URLプレースホルダ" className="btn btn-primary">
+                無料診断を予約する <span className="arr">→</span>
+              </a>
+              <p style={{ marginTop: 14, fontFamily: "var(--f-mono)", fontSize: 12, color: "var(--tx-4)" }}>
+                15分 / オンライン / 費用・契約なし
+              </p>
             </div>
           </div>
         </section>
 
         {/* TEAM */}
-        <section className="section" id="team" style={{ paddingTop: 0 }}>
+        <section className="section" id="team">
           <div className="wrap">
-            <div className="reveal" style={{ marginBottom: 40 }}>
+            <div className="reveal" style={{ marginBottom: 48 }}>
               <span className="eyebrow">
                 <span className="dot" />
-                <span className="num">03</span> / 実働チーム
+                <span className="num">04</span> / 実働チーム
               </span>
               <h2 className="h-sec">
-                手を動かすのは、
-                <span className="accent-tx">現場の一流。</span>
+                手を動かすのは、<br className="sp-break" /><span className="accent-tx">現場の一流。</span>
               </h2>
               <p className="sub">
                 「投げるだけ」の裏側にいるのは、各領域で結果を出してきたプロフェッショナル。匿名のクラウドワーカーではありません。
               </p>
             </div>
-            <div
-              className="bento"
-              style={{ gridTemplateColumns: "repeat(3,1fr)" }}
-            >
-              <article
-                className="card span-2 reveal"
-                style={{ gridColumn: "span 2" }}
-              >
-                <div
-                  className="k-foot"
-                  style={{ justifyContent: "flex-start", gap: 14 }}
-                >
-                  <span
-                    className="brand-mark"
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 13,
-                      fontSize: 17,
-                    }}
-                  >
-                    T
-                  </span>
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: "var(--f-display)",
-                        fontWeight: 700,
-                        fontSize: 18,
-                      }}
-                    >
-                      メガベンチャー 元事業開発
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "var(--f-mono)",
-                        fontSize: 12,
-                        color: "var(--tx-4)",
-                      }}
-                    >
-                      growth &amp; biz-dev
-                    </div>
-                  </div>
+
+            <div className="team-grid">
+              {/* 代表 — 実名掲載 */}
+              <article className="team-card reveal">
+                <div className="team-avatar avatar-rep" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 9.5 L9.5 20 L14 12 L18.5 20 L23 9.5"/>
+                  </svg>
                 </div>
-                <p style={{ marginTop: 18 }}>
-                  急成長スタートアップで事業を立ち上げた知見で、グロース設計・事業開発・パートナーシップ構築を担当。
+                <div className="team-meta">
+                  <span className="team-name">片倉詩音</span>
+                  <a
+                    href="https://x.com/Workle_shion"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="team-x-link"
+                    aria-label="片倉詩音のXアカウント"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.736-8.844L1.254 2.25H8.08l4.261 5.632 5.903-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    @Workle_shion
+                  </a>
+                </div>
+                <div className="team-role-tag">Workle 代表 / growth &amp; biz-dev</div>
+                <div className="team-career">大手メガベンチャー / 新規事業開発 · スキマバイトプラットフォーム大手でアウトバウンド営業組織の立ち上げを経験</div>
+                <p className="team-bio">
+                  大手メガベンチャーで新規事業の立ち上げに携わり、グロース・事業開発・パートナーシップ構築に従事。スキマバイト領域では、全国規模のアウトバウンド営業組織の立ち上げに参画し、インサイドセールスの仕組みづくりを経験。
                 </p>
               </article>
 
-              <article
-                className="card span-2 reveal d1"
-                style={{ gridColumn: "span 2" }}
-              >
-                <div
-                  className="k-foot"
-                  style={{ justifyContent: "flex-start", gap: 14 }}
-                >
-                  <span
-                    className="brand-mark"
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 13,
-                      fontSize: 17,
-                    }}
-                  >
-                    S
-                  </span>
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: "var(--f-display)",
-                        fontWeight: 700,
-                        fontSize: 18,
-                      }}
-                    >
-                      大手人材業界 トップセールス
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "var(--f-mono)",
-                        fontSize: 12,
-                        color: "var(--tx-4)",
-                      }}
-                    >
-                      b2b sales
-                    </div>
-                  </div>
+              {/* B2Bセールス担当 */}
+              <article className="team-card reveal d1">
+                <div className="team-avatar avatar-sales" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                    <polyline points="16 7 22 7 22 13"/>
+                  </svg>
                 </div>
-                <p style={{ marginTop: 18 }}>
-                  全国トップ実績の営業力で、B2Bフォーム営業・商談・ターゲットリスト構築を実行。泥臭い営業を肩代わり。
+                <div className="team-meta">
+                  <span className="team-name">B2Bセールス担当</span>
+                </div>
+                <div className="team-role-tag">b2b sales</div>
+                <div className="team-career">大手人材業界で全国トップクラスの営業実績</div>
+                <p className="team-bio">
+                  全国トップ実績の営業力でB2Bフォーム営業・商談・ターゲットリスト構築を実行。泥臭い営業をそのまま肩代わりします。
                 </p>
               </article>
 
-              <article
-                className="card span-2 reveal d2"
-                style={{ gridColumn: "span 2" }}
-              >
-                <div
-                  className="k-foot"
-                  style={{ justifyContent: "flex-start", gap: 14 }}
-                >
-                  <span
-                    className="brand-mark"
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 13,
-                      fontSize: 17,
-                    }}
-                  >
-                    E
-                  </span>
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: "var(--f-display)",
-                        fontWeight: 700,
-                        fontSize: 18,
-                      }}
-                    >
-                      外資IT エンジニア兼マーケター
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "var(--f-mono)",
-                        fontSize: 12,
-                        color: "var(--tx-4)",
-                      }}
-                    >
-                      eng &amp; marketing
-                    </div>
-                  </div>
+              {/* エンジニア兼マーケター */}
+              <article className="team-card reveal d2">
+                <div className="team-avatar avatar-eng" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
+                  </svg>
                 </div>
-                <p style={{ marginTop: 18 }}>
-                  実装・自動化・スクレイピングに加え、マーケティングの実務経験・知見も備えたエンジニア兼マーケター。技術もマーケも、まとめて任せられます。
+                <div className="team-meta">
+                  <span className="team-name">エンジニア兼マーケター</span>
+                </div>
+                <div className="team-role-tag">eng &amp; marketing</div>
+                <div className="team-career">外資大手IT企業でのエンジニア経験・マーケティング実務を兼ね備える</div>
+                <p className="team-bio">
+                  実装・自動化・スクレイピングとマーケティング実務の両方を担当。技術もマーケも、まとめて任せられます。
                 </p>
               </article>
             </div>
           </div>
         </section>
 
-        {/* PRICING */}
-        <section className="section" id="pricing">
+        {/* LIVE DATA — 数値が確定次第、このコメントを外して公開 */}
+        {/*
+        <section className="section" id="data" style={{ background: "var(--bg-1)" }}>
           <div className="wrap">
-            <div
-              className="center reveal"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                marginBottom: 46,
-              }}
-            >
+            <div className="center reveal" style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 48 }}>
               <span className="eyebrow">
                 <span className="dot" />
-                <span className="num">04</span> / 料金
+                <span className="num">05</span> / Live Data
               </span>
-              <h2 className="h-sec">プランを選ぶ</h2>
+              <h2 className="h-sec">自社運用の<span className="accent-tx">リアル実績</span></h2>
               <p className="sub center">
-                非同期で完結させる
-                <strong style={{ color: "var(--tx)" }}>スタート</strong>
-                か、伴走しながら売上まで作る
-                <strong style={{ color: "var(--tx)" }}>グロース</strong>
-                か。月額定額、いつでも解約可能。
+                架空の数字は載せません。自社アウトリーチ運用の実数を毎月更新で公開しています。
               </p>
             </div>
 
-            <div className="price-grid">
-              <article className="plan reveal">
-                <div className="plan-tags">
-                  <span className="plan-aud">個人開発者・Micro-SaaS向け</span>
-                </div>
-                <h3 className="plan-name">Starter Plan</h3>
-                <p className="plan-mode">完全非同期 ・ Zoomミーティング一切なし</p>
-                <div className="plan-price">
-                  <span className="yen">¥50,000</span>
-                  <span className="per">/ 月</span>
-                </div>
-                <p className="plan-quote">タスクを投げたら、あとは寝て待つだけ。</p>
-                <ul className="plan-list">
-                  <li>
-                    <span className="ck">✓</span>
-                    専用Notionボードの提供（タスクカードを積むだけ）
-                  </li>
-                  <li>
-                    <span className="ck">✓</span>
-                    X（Twitter）でのターゲットへのゲリラDM営業代行
-                  </li>
-                  <li>
-                    <span className="ck">✓</span>
-                    Zenn / note 等の技術記事のゴーストライティング・認知拡大
-                  </li>
-                  <li>
-                    <span className="ck">✓</span>
-                    1タスクずつの並行稼働・消化
-                  </li>
-                </ul>
-                <div className="plan-cta">
-                  <a href="#" className="btn btn-primary btn-block">
-                    決済して、専用Notionボードを受け取る
-                  </a>
-                </div>
-                <p className="plan-foot">クレジットカード決済 · 最低契約期間なし</p>
-              </article>
+            <div className="live-dashboard reveal">
+              <div className="live-stat">
+                <div className="live-val">XXX<span className="live-unit">通</span></div>
+                <div className="live-label">送信数</div>
+              </div>
+              <div className="live-stat">
+                <div className="live-val">XX<span className="live-unit">%</span></div>
+                <div className="live-label">返信率</div>
+              </div>
+              <div className="live-stat">
+                <div className="live-val">XX<span className="live-unit">件</span></div>
+                <div className="live-label">商談化数</div>
+              </div>
+            </div>
+            <p className="live-note reveal d1">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+              数値は月次更新。最終更新: YYYY-MM
+            </p>
+          </div>
+        </section>
+        */}
 
-              <article className="plan feat reveal d1">
-                <div className="plan-tags">
-                  <span className="plan-aud">中小企業・新規事業法人向け</span>
-                  <span className="plan-rec">★ おすすめ · 毎月2社限定</span>
+        {/* FAQ */}
+        <section className="section" id="faq" style={{ background: "var(--bg-1)" }}>
+          <div className="wrap">
+            <div className="center reveal" style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 48 }}>
+              <span className="eyebrow">
+                <span className="dot" />
+                <span className="num">05</span> / FAQ
+              </span>
+              <h2 className="h-sec">よくある質問</h2>
+            </div>
+
+            <div className="faq-list reveal">
+              <details className="faq-item">
+                <summary className="faq-q">解約はいつでもできますか？</summary>
+                <div className="faq-a">
+                  <p>はい、最低契約期間はありません。月末までにご連絡いただければ翌月から解約となります。違約金・解約手数料は一切かかりません。</p>
                 </div>
-                <h3 className="plan-name">Growth Plan</h3>
-                <p className="plan-mode">伴走型 ・ 定期Zoomミーティングあり</p>
-                <div className="plan-price">
-                  <span className="yen">¥150,000</span>
-                  <span className="per">〜 / 月</span>
+              </details>
+
+              <details className="faq-item">
+                <summary className="faq-q">タスクの納期の目安を教えてください。</summary>
+                <div className="faq-a">
+                  <p>タスク受理後、原則<strong>3営業日以内</strong>に着手・納品します。内容や量によって変動する場合は、受理時にご連絡します。</p>
                 </div>
-                <p className="plan-scope">スコープ・業務量により最終料金を決定</p>
-                <p className="plan-quote">
-                  アプリを「どう売るか」の戦略策定から、営業・SNS運用の実行までを共にする。
-                </p>
-                <ul className="plan-list">
-                  <li>
-                    <span className="ck">✓</span>
-                    戦略立案のための定期Zoomミーティング・壁打ち
-                  </li>
-                  <li>
-                    <span className="ck">✓</span>
-                    B2Bフォーム営業・ターゲットリストのスクレイピング構築
-                  </li>
-                  <li>
-                    <span className="ck">✓</span>
-                    包括的なマーケティング戦略 &amp; SNSアカウントの運用代行
-                  </li>
-                  <li>
-                    <span className="ck">✓</span>
-                    プロのエンジニアとトップセールスによる実務実行
-                  </li>
-                </ul>
-                <div className="plan-cta">
-                  <a href="#" className="btn btn-ghost btn-block">
-                    詳細を相談する
-                  </a>
+              </details>
+
+              <details className="faq-item">
+                <summary className="faq-q">対応できない業務はありますか？</summary>
+                <div className="faq-a">
+                  <p>法律・税務・労務・医療など専門資格が必要な業務は直接対応しておりません。必要な場合は提携する専門家をご紹介します。また、違法・不正競争・個人情報の不正取得を伴う業務もお断りしています。</p>
                 </div>
-                <p className="plan-foot">枠に限りあり · まずは無料ヒアリングから</p>
-              </article>
+              </details>
+
+              <details className="faq-item">
+                <summary className="faq-q">Starterプランのクレジットは翌月に繰り越せますか？</summary>
+                <div className="faq-a">
+                  <p>クレジットの繰り越しは<strong>できません</strong>。当月末に未消化のクレジットは失効します。ご利用ペースに応じてプランをご検討ください。</p>
+                </div>
+              </details>
+
+              <details className="faq-item">
+                <summary className="faq-q">Growthプランの「スコープにより料金変動」はどう決まりますか？</summary>
+                <div className="faq-a">
+                  <p>無料診断後に、実行内容・工数・期間を明示した見積もりをご提示します。追加費用が発生する場合は必ず事前にご確認いただいてから着手します。口頭合意のみで費用が変わることはありません。</p>
+                </div>
+              </details>
+
+              <details className="faq-item">
+                <summary className="faq-q">ツールやSNSアカウントの情報はどう管理されますか？</summary>
+                <div className="faq-a">
+                  <p>業務に必要な最小限の権限のみをご共有いただきます。情報は業務目的以外に使用せず、契約終了後は速やかに削除・返却します。詳細は<a href="/privacy">プライバシーポリシー</a>をご覧ください。</p>
+                </div>
+              </details>
             </div>
           </div>
         </section>
@@ -604,26 +700,22 @@ export default function Home() {
             <div className="final-card reveal">
               <span className="pill" style={{ marginBottom: 24 }}>
                 <span className="live" />
-                今日から非同期で。
+                今日から、実務を手放す。
               </span>
               <h2>
-                会議の予定で、
-                <br />
+                会議の予定で、<br />
                 カレンダーを埋めるのは終わり。
               </h2>
               <p>
                 タスクを投げて、プロダクトに戻ろう。実務はプロチームが完遂します。
                 <span className="cursor" style={{ verticalAlign: "-3px" }} />
               </p>
-              <div
-                className="hero-cta"
-                style={{ justifyContent: "center", marginTop: 0 }}
-              >
-                <a href="#pricing" className="btn btn-primary">
-                  専用Notionボードを受け取る <span className="arr">→</span>
+              <div className="hero-cta" style={{ justifyContent: "center", marginTop: 0 }}>
+                <a href="https://buy.stripe.com/4gM7sL5unbqh7TpflV3F600" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  Starterを始める <span className="arr">→</span>
                 </a>
-                <a href="#" className="btn btn-ghost">
-                  資料をダウンロード
+                <a href="#診断予約URLプレースホルダ" className="btn btn-ghost">
+                  無料診断を予約する（Growth）
                 </a>
               </div>
             </div>
@@ -634,6 +726,17 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="foot">
         <div className="wrap">
+          {/* X Build in Public — 実在証明 */}
+          <div className="foot-x-bar">
+            <a href="https://x.com/Workle_shion" target="_blank" rel="noopener noreferrer" className="foot-x-inner">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.736-8.844L1.254 2.25H8.08l4.261 5.632 5.903-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              Build in Public — @Workle_shion で運用実績・進捗をリアルタイムに発信しています
+              <span className="arr">→</span>
+            </a>
+          </div>
+
           <div className="foot-in">
             <div className="foot-brand">
               <a className="brand" href="#top">
@@ -644,35 +747,32 @@ export default function Home() {
                 </span>
                 <span className="brand-name">Workle</span>
               </a>
-              <p>
-                開発者特化型BPaaS。会議ゼロ、完全非同期。タスクを投げるだけで、現場一流のプロチームが実務を完遂します。
-              </p>
+              <p>マーケと営業の実務を、まるごと外に出す。元メガベンチャー事業開発・大手人材業界トップセールス・外資ITエンジニアの実働チームが、あなたの代わりに手を動かします。</p>
             </div>
             <div className="foot-cols">
               <div className="foot-col">
                 <h4>Product</h4>
-                <a href="#how">仕組み</a>
-                <a href="#why">機能</a>
-                <a href="#pricing">料金</a>
+                <a href="#starter">Starter</a>
+                <a href="#growth">Growth</a>
                 <a href="#team">実働チーム</a>
+                <a href="#faq">FAQ</a>
               </div>
               <div className="foot-col">
-                <h4>Company</h4>
-                <a href="#">運営会社</a>
-                <a href="#">お問い合わせ</a>
-                <a href="#">採用情報</a>
+                <h4>Contact</h4>
+                <a href="mailto:support@workle-kle.com">お問い合わせ</a>
+                <a href="https://x.com/Workle_shion" target="_blank" rel="noopener noreferrer">X (Build in Public)</a>
               </div>
               <div className="foot-col">
                 <h4>Legal</h4>
-                <a href="#">利用規約</a>
-                <a href="#">プライバシー</a>
-                <a href="#">特定商取引法</a>
+                <a href="/tokushoho">特定商取引法に基づく表記</a>
+                <a href="/terms">利用規約</a>
+                <a href="/privacy">プライバシーポリシー</a>
               </div>
             </div>
           </div>
           <div className="foot-base">
-            <span>© 2026 Workle Inc. — ship product, throw the rest.</span>
-            <span>made async · no meetings were held</span>
+            <span>© 2026 Workle</span>
+            <span style={{ fontFamily: "var(--f-mono)" }}>made async · no meetings were held</span>
           </div>
         </div>
       </footer>

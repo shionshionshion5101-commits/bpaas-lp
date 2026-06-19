@@ -17,9 +17,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Workle — 会議ゼロ。タスクを投げるだけ。",
+  title: "Workle — つくる・売る・本業。ぜんぶは、回らない。",
   description:
-    "開発者特化型BPaaS。Zoomも定例会議もゼロ。Notionの専用ボードにタスクを投げるだけで、現場一流のプロチームが非同期で実務を完遂します。",
+    "マーケと営業の実務を、まるごと外に出す。元メガベンチャー事業開発・大手人材業界トップセールス・外資ITエンジニアの実働チームが、あなたの代わりに手を動かします。会議ゼロの非同期Starterから、伴走型のGrowthまで。",
+  verification: {
+    google: "am8KdpmW-IX04lXlUkB5oLB7MGf-83Q1XANY8BMSMVU",
+  },
 };
 
 export default function RootLayout({

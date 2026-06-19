@@ -88,44 +88,14 @@ export default function WorkleInteractions() {
       reveals.forEach((el) => watch(el, () => el.classList.add("in")));
     }
 
-    // Terminal
-    const termLines = [
-      '<span class="tk-prompt">$</span> <span class="tk-cmd">curl</span> -X <span class="tk-cmd">POST</span> https://api.workle.dev/tasks \\',
-      '   -H <span class="tk-str">"Authorization: Bearer sk_live_••••"</span> \\',
-      "   -d <span class=\"tk-str\">'{\"type\":\"x_dm_outreach\",\"target\":\"SaaS founders\"}'</span>",
-      "",
-      '<span class="tk-ok">←</span> <span class="tk-num">202</span> <span class="tk-ok">Accepted</span>',
-      "{",
-      '  <span class="tk-key">"task_id"</span>: <span class="tk-str">"wk_8f2a91c4"</span>,',
-      '  <span class="tk-key">"status"</span>: <span class="tk-str">"queued"</span>,',
-      '  <span class="tk-key">"assignee"</span>: <span class="tk-str">"growth-team"</span>,',
-      '  <span class="tk-key">"sync_meetings"</span>: <span class="tk-num">0</span>,',
-      '  <span class="tk-key">"eta"</span>: <span class="tk-str">"非同期で順次完遂"</span>',
-      "}",
-    ];
-
-    const termBody = document.getElementById("termBody");
-    if (termBody) {
-      const nodes = termLines.map((html) => {
-        const d = document.createElement("div");
-        d.className = "l";
-        d.innerHTML = html === "" ? "&nbsp;" : html;
-        termBody.appendChild(d);
-        return d;
-      });
-      const cur = document.createElement("span");
-      cur.className = "cursor";
-      nodes[nodes.length - 1].appendChild(cur);
-    }
-
     // Marquee
     const tasks: [string, string][] = [
-      ["POST", "X(Twitter)でターゲットへDM営業"],
-      ["POST", "Zenn / note 技術記事のゴーストライティング"],
-      ["POST", "ターゲットリスト作成 ×200社"],
-      ["PATCH", "LPのCVR改善提案"],
+      ["POST", "X ターゲット精査型アウトリーチ（50通）"],
+      ["POST", "Zenn / note 技術記事 ゴーストライティング"],
+      ["POST", "ターゲットリスト抽出 ×200社"],
+      ["PATCH", "LP 改善提案・CVR診断"],
       ["GET", "競合プライシング調査"],
-      ["POST", "B2Bフォーム営業 ×50"],
+      ["POST", "B2Bフォーム営業 ×50社"],
       ["POST", "SNSアカウント運用代行"],
       ["POST", "プレスリリース配信リスト構築"],
       ["PATCH", "オンボーディング文面の改善"],
@@ -142,7 +112,7 @@ export default function WorkleInteractions() {
       mq.innerHTML = html;
     }
 
-    // Kanban auto-flow board
+    // Kanban board — starts with a busy mid-run state (req=2, run=1, done=47)
     const board = document.getElementById("board");
     const layer = board?.querySelector<HTMLElement>(".board-cols");
     if (board && layer) {
@@ -155,10 +125,10 @@ export default function WorkleInteractions() {
       const GAP = 12;
 
       const pool = [
-        { tag: "x_dm", title: "SaaS創業者へゲリラDM営業 ×30", who: "S", role: "sales" },
-        { tag: "content", title: "Zenn技術記事のゴーストライティング", who: "E", role: "eng" },
-        { tag: "list", title: "ターゲットリスト作成 ×200社", who: "E", role: "eng" },
-        { tag: "growth", title: "LPのCVR改善提案", who: "T", role: "biz-dev" },
+        { tag: "outreach", title: "SaaS創業者へアウトリーチ ×30", who: "S", role: "sales" },
+        { tag: "content", title: "Zenn技術記事 ゴーストライティング", who: "E", role: "eng" },
+        { tag: "list", title: "ターゲットリスト抽出 ×200社", who: "E", role: "eng" },
+        { tag: "growth", title: "LP CVR改善提案", who: "T", role: "biz-dev" },
         { tag: "research", title: "競合プライシング調査レポート", who: "T", role: "biz-dev" },
         { tag: "b2b", title: "B2Bフォーム営業 ×50社", who: "S", role: "sales" },
         { tag: "social", title: "Xアカウント運用・週7投稿", who: "S", role: "sales" },
@@ -169,6 +139,9 @@ export default function WorkleInteractions() {
       type ColKey = "req" | "run" | "done";
       type CardItem = { el: HTMLElement };
       const state: Record<ColKey, CardItem[]> = { req: [], run: [], done: [] };
+
+      // Tracks the cumulative done count including historical tasks not shown on board
+      let totalDoneCount = 47;
 
       const makeCard = (d: (typeof pool)[0]): HTMLElement => {
         const el = document.createElement("div");
@@ -214,7 +187,7 @@ export default function WorkleInteractions() {
         const doneCnt = document.querySelector('[data-cnt="done"]');
         if (reqCnt) reqCnt.textContent = String(state.req.length);
         if (runCnt) runCnt.textContent = String(state.run.length);
-        if (doneCnt) doneCnt.textContent = String(state.done.length);
+        if (doneCnt) doneCnt.textContent = String(totalDoneCount);
       };
 
       const addToReq = () => {
@@ -232,6 +205,7 @@ export default function WorkleInteractions() {
           r.el.classList.add("is-done");
           const kcheck = r.el.querySelector(".k-check");
           if (kcheck) kcheck.textContent = "✓ shipped";
+          totalDoneCount++;
           state.done.push(r);
         }
         if (state.req.length) {
@@ -239,7 +213,7 @@ export default function WorkleInteractions() {
           q.el.classList.add("is-active");
           state.run.push(q);
         }
-        if (state.req.length < 3) addToReq();
+        if (state.req.length < 2) addToReq();
         while (state.done.length > 3) {
           const old = state.done.shift()!;
           old.el.style.opacity = "0";
@@ -254,18 +228,27 @@ export default function WorkleInteractions() {
       const start = () => {
         if (started) return;
         started = true;
+
+        // Populate board with a busy mid-run state
         addToReq();
         addToReq();
-        addToReq();
-        const runItem = state.req.shift()!;
+        addToReq(); // req = [0,1,2]
+
+        const runItem = state.req.shift()!; // req = [1,2], run gets [0]
         runItem.el.classList.add("is-active");
         state.run.push(runItem);
-        const doneData = pool[poolIdx++ % pool.length];
-        const doneItem: CardItem = { el: makeCard(doneData) };
-        doneItem.el.classList.add("is-done");
-        const kcheck = doneItem.el.querySelector(".k-check");
-        if (kcheck) kcheck.textContent = "✓ shipped";
-        state.done.push(doneItem);
+
+        // 2 visual done cards (history: 45 done + 2 visible = 47 total)
+        for (let i = 0; i < 2; i++) {
+          const doneData = pool[poolIdx++ % pool.length];
+          const doneItem: CardItem = { el: makeCard(doneData) };
+          doneItem.el.classList.add("is-done");
+          const kcheck = doneItem.el.querySelector(".k-check");
+          if (kcheck) kcheck.textContent = "✓ shipped";
+          state.done.push(doneItem);
+        }
+        totalDoneCount = 45 + state.done.length; // = 47
+
         reposition(true);
         if (!reduce) kanbanTimer = setInterval(advance, 2600);
       };
