@@ -553,7 +553,9 @@ export default function Home() {
                 <div className="team-role-tag">Workle 代表 / growth &amp; biz-dev</div>
                 <div className="team-career">大手メガベンチャー / 新規事業開発 · スキマバイトプラットフォーム大手でアウトバウンド営業組織の立ち上げを経験</div>
                 <p className="team-bio">
-                  事業開発・グロース設計・パートナーシップ構築を担当。Growthでは「何から手をつけるか」の戦略設計から実行プランの組み立てまで巻き取ります。課題ごと預ければ、事業の伸ばし方ごと設計。
+                  事業開発・グロース設計・パートナーシップ構築を担当。<br />
+                  Growthでは「何から手をつけるか」の戦略設計から実行プランの組み立てまで巻き取ります。<br />
+                  課題ごと預ければ、事業の伸ばし方ごと設計。
                 </p>
               </article>
 
@@ -571,7 +573,9 @@ export default function Home() {
                 <div className="team-role-tag">b2b sales</div>
                 <div className="team-career">大手人材業界で全国トップクラスの営業実績</div>
                 <p className="team-bio">
-                  リスト構築 → アポ獲得 → 商談 → フォローまで、BtoB営業を一気通貫で代行。広告媒体・DXツール・ブランディング・スポンサー営業まで、幅広い商材を売ってきた現場力で、あなたのプロダクトを「売れる導線」に乗せます。泥臭い営業を、そのまま肩代わり。
+                  リスト構築 → アポ獲得 → 商談 → フォローまで、BtoB営業を一気通貫で代行。<br />
+                  広告媒体・DXツール・ブランディング・スポンサー営業まで、幅広い商材を売ってきた現場力で、あなたのプロダクトを「売れる導線」に乗せます。<br />
+                  泥臭い営業を、そのまま肩代わり。
                 </p>
               </article>
 
@@ -589,7 +593,9 @@ export default function Home() {
                 <div className="team-role-tag">eng &amp; marketing</div>
                 <div className="team-career">外資大手IT企業でのエンジニア経験・マーケティング実務を兼ね備える</div>
                 <p className="team-bio">
-                  SNS運用・広報戦略・広告プランニングから撮影・編集まで、マーケの実行を丸ごと。さらにWebアプリ開発・UI/UX・要件定義・AI駆動開発まで対応し、技術側も自走。「作る」と「届ける」を分断せず、一人で最後まで走り切ります。
+                  SNS運用・広報戦略・広告プランニングから撮影・編集まで、マーケの実行を丸ごと。<br />
+                  さらにWebアプリ開発・UI/UX・要件定義・AI駆動開発まで対応し、技術側も自走。<br />
+                  「作る」と「届ける」を分断せず、一人で最後まで走り切ります。
                 </p>
               </article>
             </div>
