@@ -573,8 +573,8 @@ export default function Home() {
                 <div className="team-role-tag">b2b sales</div>
                 <div className="team-career">大手人材業界で全国トップクラスの営業実績</div>
                 <p className="team-bio">
-                  リスト構築 → アポ獲得 → 商談 → フォローまで、BtoB営業を一気通貫で代行。<br />
-                  広告媒体・DXツール・ブランディング・スポンサー営業まで、幅広い商材を売ってきた現場力で、あなたのプロダクトを「売れる導線」に乗せます。<br />
+                  リスト構築 → アポ → 商談 → フォローまで、BtoB営業を一気通貫で代行。<br />
+                  広告からDX・ブランディングまで、幅広い商材を売ってきた現場力で、あなたのプロダクトを売り切ります。<br />
                   泥臭い営業を、そのまま肩代わり。
                 </p>
               </article>
@@ -595,7 +595,7 @@ export default function Home() {
                 <p className="team-bio">
                   SNS運用・広報戦略・広告プランニングから撮影・編集まで、マーケの実行を丸ごと。<br />
                   さらにWebアプリ開発・UI/UX・要件定義・AI駆動開発まで対応し、技術側も自走。<br />
-                  「作る」と「届ける」を分断せず、一人で最後まで走り切ります。
+                  「作る」と「届ける」を分断せず、一人で最後まで。
                 </p>
               </article>
             </div>
