@@ -60,7 +60,7 @@ export default function Home() {
                 <div className="lane-name">Growth</div>
                 <div className="lane-desc">戦略から実行まで伴走</div>
                 <div className="lane-price">¥250,000<span className="lane-per">〜/月</span></div>
-                <div className="lane-go">無料診断を予約 <span className="arr">→</span></div>
+                <div className="lane-go">無料相談を予約 <span className="arr">→</span></div>
               </a>
             </div>
           </div>
@@ -502,7 +502,7 @@ export default function Home() {
 
             <div className="reveal d2" style={{ marginTop: 48, textAlign: "center" }}>
               <a href="#診断予約URLプレースホルダ" className="btn btn-primary">
-                無料診断を予約する <span className="arr">→</span>
+                無料相談を予約する <span className="arr">→</span>
               </a>
               <p style={{ marginTop: 14, fontFamily: "var(--f-mono)", fontSize: 12, color: "var(--tx-4)" }}>
                 15分 / オンライン / 費用・契約なし
@@ -715,7 +715,7 @@ export default function Home() {
                   Starterを始める <span className="arr">→</span>
                 </a>
                 <a href="#診断予約URLプレースホルダ" className="btn btn-ghost">
-                  無料診断を予約する（Growth）
+                  無料相談を予約する（Growth）
                 </a>
               </div>
             </div>
