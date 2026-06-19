@@ -21,7 +21,7 @@ export default function Home() {
             <a href="#faq">FAQ</a>
           </nav>
           <div className="nav-cta">
-            <a href="#growth" className="btn btn-ghost nav-ghost-btn">
+            <a href="https://tally.so/r/5BrZLP" target="_blank" rel="noopener noreferrer" className="btn btn-ghost nav-ghost-btn">
               無料相談を予約
             </a>
             <a href="https://buy.stripe.com/4gM7sL5unbqh7TpflV3F600" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: "9px 16px", fontSize: 13 }}>
@@ -55,7 +55,7 @@ export default function Home() {
                 <div className="lane-price">¥50,000<span className="lane-per">/月</span></div>
                 <div className="lane-go">詳細を見る <span className="arr">→</span></div>
               </a>
-              <a href="#growth" className="lane-card lane-feat">
+              <a href="https://tally.so/r/5BrZLP" target="_blank" rel="noopener noreferrer" className="lane-card lane-feat">
                 <div className="lane-label">法人・事業責任者の方へ</div>
                 <div className="lane-name">Growth</div>
                 <div className="lane-desc">戦略から実行まで伴走</div>
@@ -501,7 +501,7 @@ export default function Home() {
             </div>
 
             <div className="reveal d2" style={{ marginTop: 48, textAlign: "center" }}>
-              <a href="#診断予約URLプレースホルダ" className="btn btn-primary">
+              <a href="https://tally.so/r/5BrZLP" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 無料相談を予約する <span className="arr">→</span>
               </a>
               <p style={{ marginTop: 14, fontFamily: "var(--f-mono)", fontSize: 12, color: "var(--tx-4)" }}>
@@ -714,7 +714,7 @@ export default function Home() {
                 <a href="https://buy.stripe.com/4gM7sL5unbqh7TpflV3F600" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                   Starterを始める <span className="arr">→</span>
                 </a>
-                <a href="#診断予約URLプレースホルダ" className="btn btn-ghost">
+                <a href="https://tally.so/r/5BrZLP" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
                   無料相談を予約する（Growth）
                 </a>
               </div>
