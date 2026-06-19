@@ -22,7 +22,7 @@ export default function Home() {
           </nav>
           <div className="nav-cta">
             <a href="#growth" className="btn btn-ghost nav-ghost-btn">
-              無料診断
+              無料相談を予約
             </a>
             <a href="https://buy.stripe.com/4gM7sL5unbqh7TpflV3F600" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: "9px 16px", fontSize: 13 }}>
               Starterを始める
@@ -477,7 +477,7 @@ export default function Home() {
             <div className="growth-steps reveal d1">
               <div className="growth-step">
                 <div className="gs-num">01</div>
-                <div className="gs-title">無料診断（15分）</div>
+                <div className="gs-title">無料相談を予約（15分）</div>
                 <div className="gs-desc">現状をヒアリングし、改善仮説を3つ提示。費用・契約は一切発生しません。</div>
               </div>
               <div className="gs-arrow" aria-hidden="true">→</div>
@@ -679,7 +679,7 @@ export default function Home() {
               <details className="faq-item">
                 <summary className="faq-q">Growthプランの「スコープにより料金変動」はどう決まりますか？</summary>
                 <div className="faq-a">
-                  <p>無料診断後に、実行内容・工数・期間を明示した見積もりをご提示します。追加費用が発生する場合は必ず事前にご確認いただいてから着手します。口頭合意のみで費用が変わることはありません。</p>
+                  <p>無料相談後に、実行内容・工数・期間を明示した見積もりをご提示します。追加費用が発生する場合は必ず事前にご確認いただいてから着手します。口頭合意のみで費用が変わることはありません。</p>
                 </div>
               </details>
 
