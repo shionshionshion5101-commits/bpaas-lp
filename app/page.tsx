@@ -759,7 +759,7 @@ export default function Home() {
               </div>
               <div className="foot-col">
                 <h4>Contact</h4>
-                <a href="mailto:support@workle-kle.com">お問い合わせ</a>
+                <a href="https://tally.so/r/5BrZLP" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
                 <a href="https://x.com/Workle_shion" target="_blank" rel="noopener noreferrer">X (Build in Public)</a>
               </div>
               <div className="foot-col">
