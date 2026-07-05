@@ -108,29 +108,20 @@ export default function WorkleInteractions() {
     }
 
     // ============================================================
-    // SEAM — signature animation
-    // IntersectionObserver triggers status: REQUEST → IN PROGRESS → DONE
-    // prefers-reduced-motion: show DONE state immediately (no transitions)
+    // SEAM — 白ゾーンが下から斜めにふわっと浮き上がる
     // ============================================================
-    const seamEl = document.getElementById("seam");
-    const seamCard = seamEl?.querySelector<HTMLElement>(".seam-card");
-    if (seamEl && seamCard) {
+    const seamEl = document.querySelector<HTMLElement>(".seam");
+    if (seamEl) {
       if (reduce) {
-        seamCard.setAttribute("data-status", "done");
+        seamEl.classList.add("revealed");
       } else {
-        let played = false;
         const seamObserver = new IntersectionObserver(
           (entries) => {
-            if (!entries[0].isIntersecting || played) return;
-            played = true;
+            if (!entries[0].isIntersecting) return;
+            seamEl.classList.add("revealed");
             seamObserver.disconnect();
-
-            seamCard.setAttribute("data-status", "request");
-            const t1 = setTimeout(() => seamCard.setAttribute("data-status", "progress"), 700);
-            const t2 = setTimeout(() => seamCard.setAttribute("data-status", "done"), 1900);
-            cleanups.push(() => { clearTimeout(t1); clearTimeout(t2); });
           },
-          { threshold: 0.35 }
+          { threshold: 0.1 }
         );
         seamObserver.observe(seamEl);
         cleanups.push(() => seamObserver.disconnect());

@@ -715,12 +715,16 @@ img { max-width: 100%; display: block; }
   background: var(--ink);
   clip-path: polygon(0 0, 100% 0, 100% 38%, 0 58%);
 }
-/* Light bottom */
+/* Light bottom — starts hidden below, floats up on .revealed */
 .seam::after {
   content: '';
   position: absolute;
   inset: 0;
   background: var(--paper);
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transition: clip-path 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.seam.revealed::after {
   clip-path: polygon(0 58%, 100% 38%, 100% 100%, 0 100%);
 }
 
@@ -1273,7 +1277,7 @@ img { max-width: 100%; display: block; }
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  .seam-card { transition: none !important; }
+  .seam::after { transition: none !important; }
   .marquee-track { animation: none !important; }
   .live { animation: none !important; }
   .cursor { animation: none !important; }

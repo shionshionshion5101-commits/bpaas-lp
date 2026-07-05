@@ -263,19 +263,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ====================================================
-            SEAM — 引き渡し演出（シグネチャー）
-            対角の境界でタスクカードが REQUEST → IN PROGRESS → DONE へ
-            ==================================================== */}
-        <div id="seam" className="seam" aria-hidden="true">
-          <div className="seam-inner">
-            <div className="seam-card" data-status="request">
-              <div className="sc-status">REQUEST</div>
-              <p className="sc-title">B2Bフォーム営業 300社</p>
-              <p className="sc-meta">@sales · workle-board</p>
-            </div>
-          </div>
-        </div>
+        {/* 斜め境界 */}
+        <div className="seam" aria-hidden="true" />
 
         {/* ====================================================
             §3 GROWTH (light)
