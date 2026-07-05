@@ -53,7 +53,7 @@ export default function Home() {
           <div className="wrap hero-in">
             <h1 className="reveal">
               <span className="ln">いいプロダクトは、ある。</span>
-              <span className="ln">届ける手が、足りない。</span>
+              <span className="ln">届ける手が、<span style={{ color: "var(--accent)" }}>足りない。</span></span>
             </h1>
 
             <p className="hero-sub reveal d1">
