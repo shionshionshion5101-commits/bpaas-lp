@@ -4,6 +4,12 @@
 
 <!-- entries -->
 
+## 2026-07-13 10:06 JST — ❌ 失敗
+
+- 参照元: Google Sheets
+- 原因: GOOGLE_SERVICE_ACCOUNT_JSON がJSONとして読めません: Expecting ',' delimiter: line 12 column 38 (char 2360)
+- 対処: サービスアカウントのJSONキーを丸ごと貼り直してください
+
 ## 2026-07-06 08:55 JST — 🧪 ドライラン（投稿はしていません）
 
 - 参照元: CSV (/tmp/dryrun_test.csv)
