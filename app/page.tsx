@@ -1,3 +1,4 @@
+import Link from "next/link";
 import WorkleInteractions from "./components/WorkleInteractions";
 
 export default function Home() {
@@ -259,6 +260,10 @@ export default function Home() {
               </a>
               <p className="starter-cta-note">クレジットカード決済 / 最低契約期間なし / 翌営業日稼働</p>
             </div>
+
+            <p className="starter-detail-link reveal d2">
+              <Link href="/starter">個人開発の営業代行・マーケ外注の詳細ページへ <span className="arr">→</span></Link>
+            </p>
 
           </div>
         </section>
@@ -652,6 +657,7 @@ export default function Home() {
               <div className="foot-col">
                 <h4>Product</h4>
                 <a href="#starter">Starter</a>
+                <Link href="/starter">Starter詳細（個人開発者向け）</Link>
                 <a href="#growth">Growth</a>
                 <a href="#team">実働チーム</a>
                 <a href="#faq">FAQ</a>
