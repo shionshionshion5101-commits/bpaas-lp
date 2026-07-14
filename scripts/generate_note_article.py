@@ -190,6 +190,12 @@ URL: https://...
 
 
 def main() -> None:
+    today = datetime.date.today().isoformat()
+    out_dir = OUTPUT_DIR / today
+    if (out_dir / "article.md").exists():
+        print(f"Today's article already exists ({out_dir}/article.md) — skipping")
+        return
+
     print("Fetching Show HN posts...")
     hn_posts = fetch_show_hn()
     print(f"  {len(hn_posts)} posts")
@@ -212,8 +218,6 @@ def main() -> None:
     for p in products:
         print(f"  {p['rank']}. {p['title']}")
 
-    today = datetime.date.today().isoformat()
-    out_dir = OUTPUT_DIR / today
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print("Fetching OGP images...")
@@ -234,10 +238,10 @@ def main() -> None:
     article_path = out_dir / "article.md"
     article_path.write_text(article, encoding="utf-8")
 
-    files = sorted(out_dir.iterdir())
+    files = sorted(f.name for f in out_dir.iterdir())
     print(f"\nSaved to {out_dir}/")
-    for f in files:
-        print(f"  {f.name}")
+    for name in files:
+        print(f"  {name}")
     print("\n--- preview ---")
     print(article[:500])
 

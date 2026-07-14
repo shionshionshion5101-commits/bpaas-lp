@@ -43,11 +43,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ${{ github.ref_name }}
           git add note-drafts/
           if git diff --cached --quiet; then
             echo "Nothing to commit — draft unchanged"
             exit 0
           fi
           git commit -m "feat(note): 週次記事草稿を生成 [skip ci] [vercel skip]"
-          git pull --rebase origin ${{ github.ref_name }}
           git push origin HEAD:${{ github.ref_name }}
