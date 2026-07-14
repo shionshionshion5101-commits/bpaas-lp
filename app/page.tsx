@@ -53,11 +53,11 @@ export default function Home() {
           <div className="wrap hero-in">
             <h1 className="reveal">
               <span className="ln">いいプロダクトは、ある。</span>
-              <span className="ln">届ける手が、<span style={{ color: "var(--accent)" }}>足りない。</span></span>
+              <span className="ln" style={{ color: "var(--accent)" }}>届ける手が、足りない。</span>
             </h1>
 
             <p className="hero-sub reveal d1">
-              マーケと営業の実務を、まるごと外に出す。<br className="sp-break" />
+              マーケと営業の実務を、まるごと外に出す。<br />
               <span className="nowrap">元メガベンチャー事業開発</span>・<span className="nowrap">大手人材業界トップセールス</span>・<span className="nowrap">外資ITエンジニアの実働チームが、</span><br />
               あなたの代わりに手を動かします。
             </p>
@@ -304,7 +304,7 @@ export default function Home() {
                   <li><span className="n">支援</span>アウトバウンド営業組織の立ち上げ</li>
                 </ul>
                 <p className="axis-card-desc">
-                  アポ獲得はチームが量産。商談・クロージングは代表とトップセールスが直接対応します。
+                  アポ獲得はチームが量産。<br />商談・クロージングは代表とトップセールスが直接対応します。
                 </p>
               </div>
 
@@ -391,7 +391,7 @@ export default function Home() {
                 <div className="growth-step">
                   <div className="gs-num">01</div>
                   <div className="gs-title">無料相談を予約（15分）</div>
-                  <div className="gs-desc">現状をヒアリングし、改善仮説を3つ提示。費用・契約は一切発生しません。</div>
+                  <div className="gs-desc">現状をヒアリングし、改善仮説を3つ提示。<br />費用・契約は一切発生しません。</div>
                 </div>
                 <div className="gs-arrow" aria-hidden="true">→</div>
                 <div className="growth-step">
@@ -403,13 +403,13 @@ export default function Home() {
                 <div className="growth-step">
                   <div className="gs-num">03</div>
                   <div className="gs-title">実務実行（非同期）</div>
-                  <div className="gs-desc">合意後、即日稼働開始。Notionボードで進捗をリアルタイムに確認できます。</div>
+                  <div className="gs-desc">合意後、即日稼働開始。<br />Notionボードで進捗をリアルタイムに確認できます。</div>
                 </div>
                 <div className="gs-arrow" aria-hidden="true">→</div>
                 <div className="growth-step">
                   <div className="gs-num">04</div>
                   <div className="gs-title">週次レポート</div>
-                  <div className="gs-desc">毎週、実施内容・数値・翌週の改善仮説をレポート。意思決定の根拠が手元に残ります。</div>
+                  <div className="gs-desc">毎週、実施内容・数値・翌週の改善仮説をレポート。<br />意思決定の根拠が手元に残ります。</div>
                 </div>
               </div>
 
@@ -443,44 +443,8 @@ export default function Home() {
 
             <div className="team-grid">
 
-              {/* B2Bセールス担当 — 営業代行の顔 */}
-              <article className="team-card reveal">
-                <div className="team-avatar avatar-sales" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-                    <polyline points="16 7 22 7 22 13"/>
-                  </svg>
-                </div>
-                <div className="team-role-label">① 営業代行の顔</div>
-                <div className="team-name">B2Bセールス担当</div>
-                <div className="team-role-tag">b2b sales</div>
-                <div className="team-career">大手人材業界で全国トップクラスの営業実績</div>
-                <p className="team-bio">
-                  リスト構築 → アポ → 商談 → フォローまで、BtoB営業を一気通貫で代行。<br />
-                  広告からDX・ブランディングまで、幅広い商材を売ってきた現場力で、あなたのプロダクトを売り切ります。
-                </p>
-              </article>
-
-              {/* エンジニア兼マーケター — SNSマーケ代行の顔 */}
-              <article className="team-card reveal d1">
-                <div className="team-avatar avatar-eng" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="16 18 22 12 16 6"/>
-                    <polyline points="8 6 2 12 8 18"/>
-                  </svg>
-                </div>
-                <div className="team-role-label">② SNSマーケ代行の顔</div>
-                <div className="team-name">エンジニア兼マーケター</div>
-                <div className="team-role-tag">eng &amp; marketing</div>
-                <div className="team-career">外資大手IT企業でのエンジニア経験・マーケティング実務を兼ね備える</div>
-                <p className="team-bio">
-                  SNS運用・広報戦略・広告プランニングから撮影・編集まで、マーケの実行を丸ごと。<br />
-                  Webアプリ開発・UI/UX・AI駆動開発まで対応し、「作る」と「届ける」を分断せず一人で最後まで。
-                </p>
-              </article>
-
               {/* 片倉詩音 — 統括・戦略設計・クロージング */}
-              <article className="team-card reveal d2">
+              <article className="team-card reveal">
                 <div className="team-avatar avatar-rep" aria-hidden="true">
                   <svg width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 9.5 L9.5 20 L14 12 L18.5 20 L23 9.5"/>
@@ -506,7 +470,48 @@ export default function Home() {
                 <div className="team-career">大手メガベンチャー / 新規事業開発 · スキマバイトプラットフォーム大手でアウトバウンド営業組織の立ち上げを経験</div>
                 <p className="team-bio">
                   事業開発・グロース設計・パートナーシップ構築を担当。<br />
-                  Growthでは「何から手をつけるか」の戦略設計から実行プランの組み立てまで巻き取ります。課題ごと預ければ、事業の伸ばし方ごと設計。
+                  Growthでは「何から手をつけるか」の戦略設計から実行プランの組み立てまで巻き取ります。<br />
+                  課題ごと預ければ、事業の伸ばし方ごと設計。
+                </p>
+              </article>
+
+              {/* B2Bセールス担当 — 営業代行の顔 */}
+              <article className="team-card reveal d1">
+                <div className="team-avatar avatar-sales" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                    <polyline points="16 7 22 7 22 13"/>
+                  </svg>
+                </div>
+                <div className="team-role-label">① 営業代行の顔</div>
+                <div className="team-meta">
+                  <span className="team-name">B2Bセールス担当</span>
+                </div>
+                <div className="team-role-tag">b2b sales</div>
+                <div className="team-career">大手人材業界で全国トップクラスの営業実績</div>
+                <p className="team-bio">
+                  リスト構築 → アポ → 商談 → フォローまで、BtoB営業を一気通貫で代行。<br />
+                  広告からDX・ブランディングまで、幅広い商材を売ってきた現場力で、あなたのプロダクトを売り切ります。
+                </p>
+              </article>
+
+              {/* エンジニア兼マーケター — SNSマーケ代行の顔 */}
+              <article className="team-card reveal d2">
+                <div className="team-avatar avatar-eng" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
+                  </svg>
+                </div>
+                <div className="team-role-label">② SNSマーケ代行の顔</div>
+                <div className="team-meta">
+                  <span className="team-name">エンジニア兼マーケター</span>
+                </div>
+                <div className="team-role-tag">eng &amp; marketing</div>
+                <div className="team-career">外資大手IT企業でのエンジニア経験・マーケティング実務を兼ね備える</div>
+                <p className="team-bio">
+                  SNS運用・広報戦略・広告プランニングから撮影・編集まで、マーケの実行を丸ごと。<br />
+                  Webアプリ開発・UI/UX・AI駆動開発まで対応し、「作る」と「届ける」を分断せず一人で最後まで。
                 </p>
               </article>
 
@@ -641,7 +646,7 @@ export default function Home() {
                 </span>
                 <span className="brand-name">Workle</span>
               </a>
-              <p>マーケと営業の実務を、まるごと外に出す。元メガベンチャー事業開発・大手人材業界トップセールス・外資ITエンジニアの実働チームが、あなたの代わりに手を動かします。</p>
+              <p>マーケと営業の実務を、まるごと外に出す。<br />元メガベンチャー事業開発・大手人材業界トップセールス・外資ITエンジニアの実働チームが、あなたの代わりに手を動かします。</p>
             </div>
             <div className="foot-cols">
               <div className="foot-col">
