@@ -1491,18 +1491,25 @@ img { max-width: 100%; display: block; }
 /* トップ→/starter の内部リンク */
 .starter-detail-link {
   text-align: center;
-  margin: 20px 0 0;
-  font-size: 13px;
-  font-weight: 500;
+  margin: 24px 0 0;
 }
 .starter-detail-link a {
-  color: var(--muted-on-ink);
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 2px;
-  transition: color 0.16s ease, border-color 0.16s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  color: var(--text-on-ink);
+  font-size: 14px;
+  font-weight: 700;
+  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
 }
 .starter-detail-link a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent-line);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  transform: translateY(-1px);
 }
 .starter-detail-link a:hover .arr { transform: translateX(4px); }
+.starter-detail-link .arr { color: var(--accent); }
