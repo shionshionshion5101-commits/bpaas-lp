@@ -1368,3 +1368,122 @@ img { max-width: 100%; display: block; }
 .legal-table th { width: 28%; font-weight: 600; font-size: 13px; color: var(--muted-on-ink); background: var(--ink-2); white-space: nowrap; }
 .legal-table td { color: var(--muted-on-ink); }
 .legal-note { font-size: 12px; color: var(--muted-on-ink); }
+
+/* ============================================================
+   STARTER LP (/starter)
+   ============================================================ */
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.hero-cta-note {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--muted-on-ink);
+  margin: 0;
+}
+
+.pain-list {
+  list-style: none;
+  padding: 0;
+  margin: 36px 0 32px;
+  display: grid;
+  gap: 10px;
+  max-width: 640px;
+}
+.pain-list li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-on-ink);
+  line-height: 1.7;
+}
+.pain-list li::before {
+  content: "×";
+  font-family: var(--f-mono);
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.lp-prose {
+  max-width: 680px;
+  color: var(--muted-on-ink);
+  font-size: 15px;
+  line-height: 1.95;
+  margin: 0;
+  text-wrap: pretty;
+  word-break: auto-phrase;
+}
+
+.price-box {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink-2);
+  padding: 32px 32px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 32px 56px;
+}
+.price-main { white-space: nowrap; }
+/* dark-zone override: .mono-num is tuned for the light zone */
+.price-box .mono-num { color: var(--text-on-ink); }
+.price-box .mono-num-unit { color: var(--muted-on-ink); }
+.price-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.price-points li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-on-ink);
+}
+.price-points li::before {
+  content: "✓";
+  font-family: var(--f-mono);
+  font-weight: 700;
+  color: var(--accent-done);
+  flex-shrink: 0;
+}
+@media (max-width: 560px) {
+  .price-box { padding: 26px 22px; gap: 20px; }
+}
+
+.bip-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 640px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-2);
+  color: var(--text-on-paper);
+  padding: 18px 22px;
+  font-size: 14px;
+  line-height: 1.7;
+  transition: border-color 0.16s ease, transform 0.16s ease;
+}
+.bip-card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-2px);
+}
+.bip-card:hover .arr { transform: translateX(4px); }
+.bip-card svg { flex-shrink: 0; }
+.bip-card b { font-weight: 700; }
+.bip-card .arr { margin-left: auto; color: var(--accent); }

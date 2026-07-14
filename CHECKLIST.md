@@ -97,3 +97,20 @@
 |------|------|------|
 | PV 計測 | Google Analytics 4 または Vercel Analytics | 🔲 |
 | コンバージョン計測 | CTA クリック・フォーム送信のトラッキング | 🔲 |
+
+---
+
+## 2026-07-14 — Starter専用SEO LP（/starter）新設
+
+| 項目 | 詳細 | 状態 |
+|------|------|------|
+| /starter 専用LP | 「個人開発 営業代行」「個人開発 マーケティング 外注」狙いの1枚LP。旧HashRedirectを置換 | ✅ |
+| SEOメタ | title/description/canonical/OGP/Twitterカード | ✅ |
+| 構造化データ | Organization / Service / FAQPage / BreadcrumbList のJSON-LD | ✅ |
+| sitemap.xml / robots.txt | `app/sitemap.ts` / `app/robots.ts` を新設（/admin・/api はクロール拒否） | ✅ |
+| metadataBase | `app/layout.tsx` に追加（OGP URL解決用） | ✅ |
+| 実数の非掲載 | 事例0のため数字は載せず「過程をXで公開」導線に統一（捏造禁止ルール遵守） | ✅ |
+| ビルド/リンタ | `npm run build` ✅ / 新規ファイルのESLintエラー0 | ✅ |
+| 表示確認 | 本番ビルドをローカル起動しデスクトップ/モバイルでスクリーンショット確認 | ✅ |
+| OG画像 | 専用OG画像（1200×630）は未作成。現状はカードのみ | 🔲 |
+| Search Console | デプロイ後に sitemap.xml を送信 | 🔲 |
