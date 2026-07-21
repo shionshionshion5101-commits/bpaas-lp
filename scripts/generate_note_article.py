@@ -8,12 +8,14 @@ Saves article + OGP images to note-drafts/YYYY-MM-DD/
 import os
 import re
 import json
+import asyncio
 import datetime
 from pathlib import Path
 
 import requests
 import anthropic
 from bs4 import BeautifulSoup
+from playwright.async_api import async_playwright
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 HN_ALGOLIA = "https://hn.algolia.com/api/v1/search"
@@ -111,27 +113,40 @@ JSONのみ返してください（コードブロック・説明文不要）:
 
 
 def fetch_ogp_image(url: str, dest: Path, stem: str) -> str | None:
-    """Fetch og:image from url, save to dest/stem.{ext}. Returns filename or None."""
+    """Fetch og:image from url. Falls back to Playwright screenshot if not found."""
     try:
         resp = requests.get(url, headers=HEADERS, timeout=10)
         soup = BeautifulSoup(resp.text, "html.parser")
         tag = soup.find("meta", property="og:image") or soup.find("meta", attrs={"name": "og:image"})
-        if not tag:
-            return None
-        image_url = tag.get("content", "")
-        if not image_url:
-            return None
+        if tag:
+            image_url = tag.get("content", "")
+            if image_url:
+                img_resp = requests.get(image_url, headers=HEADERS, timeout=15)
+                img_resp.raise_for_status()
+                ct = img_resp.headers.get("content-type", "")
+                ext = ".png" if "png" in ct else ".webp" if "webp" in ct else ".gif" if "gif" in ct else ".jpg"
+                path = dest / f"{stem}{ext}"
+                path.write_bytes(img_resp.content)
+                return path.name
+    except Exception as e:
+        print(f"    [WARN] og:image fetch failed: {e}")
 
-        img_resp = requests.get(image_url, headers=HEADERS, timeout=15)
-        img_resp.raise_for_status()
+    # Fallback: Playwright screenshot
+    return asyncio.run(_screenshot(url, dest / f"{stem}.png"))
 
-        ct = img_resp.headers.get("content-type", "")
-        ext = ".png" if "png" in ct else ".webp" if "webp" in ct else ".gif" if "gif" in ct else ".jpg"
-        path = dest / f"{stem}{ext}"
-        path.write_bytes(img_resp.content)
+
+async def _screenshot(url: str, path: Path) -> str | None:
+    try:
+        async with async_playwright() as p:
+            browser = await p.chromium.launch()
+            page = await browser.new_page(viewport={"width": 1280, "height": 720})
+            await page.goto(url, wait_until="networkidle", timeout=20000)
+            await page.screenshot(path=str(path), full_page=False)
+            await browser.close()
+        print(f"    [screenshot] {path.name}")
         return path.name
     except Exception as e:
-        print(f"    [WARN] {e}")
+        print(f"    [WARN] screenshot failed: {e}")
         return None
 
 
