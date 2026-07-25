@@ -1531,7 +1531,7 @@ img { max-width: 100%; display: block; }
    NAV — cream variant
    ============================================================ */
 .nav-cream .brand-name          { color: var(--black); }
-.nav-cream .brand-mark          { background: var(--black); color: #fff; }
+.nav-cream .brand-mark          { background: var(--orange); color: var(--black); }
 .nav-cream .nav-links a         { color: rgba(17,17,17,.52); }
 .nav-cream .nav-links a:hover   { color: var(--black); }
 .nav-cream .nav-ghost-btn       { color: var(--black); border-color: rgba(17,17,17,.22); }
