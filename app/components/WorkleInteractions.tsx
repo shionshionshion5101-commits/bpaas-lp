@@ -6,13 +6,80 @@ export default function WorkleInteractions() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const cleanups: Array<() => void> = [];
 
-    // NAV: background on scroll
+    // NAV: cream theme is permanent (design V2); only toggle the scrolled bg.
     const nav = document.getElementById("nav");
     if (nav) {
-      const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 12);
+      const onScroll = () => {
+        nav.classList.toggle("scrolled", window.scrollY > 12);
+      };
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();
       cleanups.push(() => window.removeEventListener("scroll", onScroll));
+    }
+
+    // HERO STACK: task cards flow QUEUED → IN PROGRESS → DONE every 8s
+    const stack = document.getElementById("hero-stack");
+    if (stack && !reduce) {
+      const SLOTS = ["front", "mid", "back"] as const;
+      const QUEUE_TITLES = [
+        "競合比較テスト 3社",
+        "リスト構築 500件",
+        "LP改善提案",
+        "SNS投稿 20本",
+        "アウトリーチ 50通",
+        "ユーザーテスト 10人",
+        "掲載打診 30件",
+        "B2Bフォーム営業",
+      ];
+      let qi = 0;
+      let cards = Array.from(stack.querySelectorAll<HTMLElement>(".hcard"));
+
+      const setStatus = (el: HTMLElement, status: "queued" | "prog" | "done") => {
+        el.dataset.status = status;
+        const pill = el.querySelector<HTMLElement>(".hc-status");
+        if (pill) {
+          pill.className = "hc-status " + status;
+          pill.textContent = status === "done" ? "DONE ✓" : status === "prog" ? "IN PROGRESS" : "QUEUED";
+        }
+        const bar = el.querySelector<HTMLElement>(".hc-prog i");
+        if (bar && status === "prog") {
+          bar.style.animation = "none";
+          void bar.offsetWidth;
+          bar.style.animation = "";
+        }
+      };
+
+      const layout = () => cards.forEach((el, i) => { el.dataset.slot = SLOTS[i]; });
+
+      const makeCard = (title: string): HTMLElement => {
+        const el = document.createElement("div");
+        el.className = "hcard";
+        el.dataset.slot = "enter";
+        el.dataset.status = "queued";
+        el.innerHTML =
+          '<span class="hc-status queued">QUEUED</span>' +
+          `<p class="hc-title">${title}</p>` +
+          '<div class="hc-prog-wrap"><div class="hc-prog"><i></i></div><span class="hc-meta">計測中</span></div>';
+        stack.appendChild(el);
+        return el;
+      };
+
+      const tick = () => {
+        const leaving = cards[2];
+        leaving.dataset.slot = "leave";
+        setTimeout(() => leaving.remove(), 750);
+
+        setStatus(cards[0], "prog");
+        setStatus(cards[1], "done");
+
+        const nc = makeCard(QUEUE_TITLES[qi++ % QUEUE_TITLES.length]);
+        cards = [nc, cards[0], cards[1]];
+
+        requestAnimationFrame(() => requestAnimationFrame(layout));
+      };
+
+      const timer = setInterval(tick, 8000);
+      cleanups.push(() => clearInterval(timer));
     }
 
     // Smooth-scroll for in-page anchors

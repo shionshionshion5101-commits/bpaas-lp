@@ -1,0 +1,401 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import SiteNav from "../components/SiteNav";
+import SiteFooter from "../components/SiteFooter";
+import WorkleInteractions from "../components/WorkleInteractions";
+
+const PAGE_URL = "https://www.workle-kle.com/test";
+const TALLY_URL = "https://tally.so/r/5BrZLP";
+// TODO: レポートサンプル用のメール取得フォームURLに差し替え（現状は共通問い合わせフォーム）
+const SAMPLE_REPORT_URL = TALLY_URL;
+const X_URL = "https://x.com/Workle_shion";
+
+export const metadata: Metadata = {
+  title: "ユーザーテスト代行 格安 | Workle — 実在の10人が使い、詰まった場所を全部報告",
+  description:
+    "設計・募集・実施・分析まで丸投げできる対面ユーザーテスト代行。実在ユーザーがあなたのサービスを使い、詰まった場所と『なぜ』を報告します。個人開発¥19,800〜 / 企業¥98,000〜。競合比較テストも。",
+  alternates: { canonical: PAGE_URL },
+  openGraph: {
+    title: "ユーザーテスト代行 格安 | Workle",
+    description:
+      "あなたのサービス、実在の10人に使わせて、詰まった場所を全部報告します。個人開発¥19,800〜。",
+    url: PAGE_URL,
+    siteName: "Workle",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "ユーザーテスト代行 格安 | Workle",
+    description: "なぜ使われないのか、実在の10人が答えます。個人開発¥19,800〜。",
+  },
+};
+
+const COMPARE = {
+  cols: ["海外テストPF", "国内調査会社", "セルフ型ツール", "Workle"],
+  rows: [
+    { k: "丸投げ度", v: ["設計・分析は自分", "フルお任せ", "設計・分析は自分", "フルお任せ"] },
+    { k: "1人あたり", v: ["2〜4万円", "—", "5,000円〜", "¥1,980〜"] },
+    { k: "総額目安", v: ["人数×2〜4万円", "数十万円〜/案件", "人数×5,000＋自分の工数", "¥19,800〜（5人）"] },
+    { k: "言語", v: ["英語中心", "日本語", "日本語", "日本語"] },
+    { k: "進め方", v: ["自分で設計", "日程調整あり", "日程調整あり", "非同期で進行"] },
+  ],
+};
+
+const FAQ_ITEMS = [
+  {
+    q: "未公開・未リリースのサービスでもテストできますか？",
+    a: "できます。被験者全員と秘密保持に同意した上で実施するため、クローズドβや未公開プロトタイプでも問題ありません。画面や機能が外部に漏れることはありません。",
+  },
+  {
+    q: "被験者の属性（性別・年代など）は指定できますか？",
+    a: "性別・年代など2条件まで指定可能です（例：30代・ビジネス職）。応募状況により実施日程を調整する場合があります。3条件目以降や希少な条件は、ペルソナ追加指定オプション（+¥5,000/条件）でお受けします。",
+  },
+  {
+    q: "アプリストアのレビュー投稿もお願いできますか？",
+    a: "お受けしません。各ストアの規約とステマ規制（景品表示法）に抵触するため、レビューの投稿代行や星評価の操作は一切行いません。Workleが行うのは、実際に使った上での率直なフィードバックの収集だけです。",
+  },
+  {
+    q: "対面ではなくオンラインで実施できますか？",
+    a: "できます。対面／オンラインはサービスの性質に合わせて選べます。オンラインでも画面共有と発話思考法で「どこで、なぜ詰まったか」を同じ精度で記録します。",
+  },
+  {
+    q: "結果が悪かったら、どうなりますか？",
+    a: "悪い結果こそ価値です。リリース後に静かに離脱していくはずだったユーザーを、公開前に先に発見できたと考えてください。私たちは良い結果を作るのではなく、正確な結果を渡すことに責任を持ちます。",
+  },
+];
+
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.workle-kle.com/#organization",
+      name: "Workle",
+      url: "https://www.workle-kle.com/",
+      sameAs: [X_URL],
+    },
+    {
+      "@type": "Service",
+      name: "Workle ユーザーテスト代行・リサーチ代行",
+      serviceType: "ユーザーテスト代行・UXリサーチ代行",
+      provider: { "@id": "https://www.workle-kle.com/#organization" },
+      areaServed: "JP",
+      audience: { "@type": "Audience", audienceType: "個人開発者・スタートアップ・事業会社" },
+      offers: {
+        "@type": "Offer",
+        price: "19800",
+        priceCurrency: "JPY",
+        description: "対面ユーザーテスト＋改善レポート。個人開発¥19,800〜 / 企業¥98,000〜",
+      },
+      url: PAGE_URL,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQ_ITEMS.map(({ q, a }) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Workle", item: "https://www.workle-kle.com/" },
+        { "@type": "ListItem", position: 2, name: "リサーチ・ユーザーテスト", item: PAGE_URL },
+      ],
+    },
+  ],
+};
+
+export default function TestLandingPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        // Static authored JSON-LD — not user input
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+      />
+
+      <SiteNav
+        links={[
+          { href: "#how", label: "内容" },
+          { href: "#why-price", label: "価格の根拠" },
+          { href: "#price", label: "料金" },
+          { href: "#faq", label: "FAQ" },
+        ]}
+        ghost={{ href: "/", label: "他のサービス" }}
+        cta={{ href: TALLY_URL, label: "空き日程を見る", external: true }}
+      />
+
+      <main id="top">
+
+        {/* §1 HERO */}
+        <section className="sv sv-hero" id="hero">
+          <div className="wrap">
+            <p className="sv-en" aria-hidden="true">TEST IT.</p>
+            <span className="sv-eyebrow">リサーチ・ユーザーテスト代行</span>
+            <h1 className="sv-h" style={{ fontSize: "clamp(25px, 3.9vw, 44px)", maxWidth: 860 }}>
+              あなたのサービス、実在の10人に使わせて、<br className="sp-break" />詰まった場所を全部報告します。
+            </h1>
+            <p className="sv-sub">
+              設計・募集・実施・分析まで丸投げOK。対面ユーザーテスト＋改善レポートで、「なぜ使われないのか」を実際の手と表情から特定します。
+            </p>
+            <div className="sv-chips">
+              <span className="sv-chip">個人開発 <span className="sv-chip-num">¥19,800</span>〜</span>
+              <span className="sv-chip">企業 <span className="sv-chip-num">¥98,000</span>〜</span>
+            </div>
+            <div className="sv-cta-row">
+              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                空き日程を見る <span className="arr">→</span>
+              </a>
+              <a href={SAMPLE_REPORT_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-cream">
+                レポートのサンプルを見る
+              </a>
+            </div>
+            <p className="sv-cta-note">サンプルはメールアドレスの登録でお送りします</p>
+          </div>
+        </section>
+
+        {/* §2 問題提起 */}
+        <section className="sv tight" id="problem">
+          <div className="wrap">
+            <span className="sv-eyebrow">なぜ、この調査が要るのか</span>
+            <h2 className="sv-h">リリースしたのに、使われない。<br />でも「なぜ」が分からない。</h2>
+            <p className="sv-prose">
+              アナリティクスが教えてくれるのは「<strong>どこで</strong>離脱したか」まで。「<strong>なぜ</strong>」は、実際に使う人の手の動きと、詰まった瞬間の表情の中にしかありません。<br /><br />
+              友人に頼めば忖度され、SNSで募っても偏った少数しか集まらない。結果、いちばん知りたい「初見のユーザーが、どこで、なぜ諦めるのか」だけが、ずっと分からないまま残ります。
+            </p>
+          </div>
+        </section>
+
+        {/* §3 サービス内容 3ステップ */}
+        <section className="sv tight" id="how">
+          <div className="wrap">
+            <span className="sv-eyebrow">サービス内容</span>
+            <h2 className="sv-h">あなたがやることは、<br />フォーム入力と、結果を読むこと。</h2>
+            <div className="sv-steps">
+              <div className="sv-step">
+                <div className="sv-step-n">01</div>
+                <h3>フォームで送る</h3>
+                <p>サービスのURL・検証したい仮説・希望する被験者の属性をフォームで送るだけ。仕様書や資料の用意はいりません。</p>
+              </div>
+              <div className="sv-step">
+                <div className="sv-step-n">02</div>
+                <h3>設計・募集・実施</h3>
+                <p>Workleがテストを設計し、被験者を募集・実施します。対面／オンライン、性別・年代など2条件まで指定可能（応募状況により実施日程を調整する場合があります）。</p>
+              </div>
+              <div className="sv-step">
+                <div className="sv-step-n">03</div>
+                <h3>レポート納品</h3>
+                <p>詰まった場所の発見点リストと、優先度つきの改善提案レポートを納品。発言はそのまま引用で残します。</p>
+              </div>
+            </div>
+            <div className="sv-note" style={{ marginTop: 22 }}>
+              あなたがやることは、<strong>フォーム入力と、結果を読むこと</strong>だけ。設計も、募集も、当日の進行も、分析も、こちらで巻き取ります。基本は非同期（フォーム入稿→Notionでのすり合わせ→レポート納品）で進みます。設計内容によっては、オンラインでのご相談も可能です。
+            </div>
+          </div>
+        </section>
+
+        {/* §4 価格の根拠（比較表） */}
+        <section className="sv tight" id="why-price">
+          <div className="wrap">
+            <span className="sv-eyebrow">価格の根拠</span>
+            <h2 className="sv-h">本来、20万円かかる調査です。</h2>
+
+            <div className="sv-compare">
+              <table>
+                <thead>
+                  <tr>
+                    <th />
+                    {COMPARE.cols.map((c, i) => (
+                      <th key={c} className={i === COMPARE.cols.length - 1 ? "cw" : undefined}>{c}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {COMPARE.rows.map((row) => (
+                    <tr key={row.k}>
+                      <th>{row.k}</th>
+                      {row.v.map((val, i) => (
+                        <td key={i} className={i === row.v.length - 1 ? "cw" : undefined}>{val}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
+              <div className="sv-compare-cards">
+                {COMPARE.cols.map((col, ci) => {
+                  const isW = ci === COMPARE.cols.length - 1;
+                  return (
+                    <div key={col} className={`sv-cc${isW ? " cw" : ""}`}>
+                      <p className="sv-cc-title">{col}</p>
+                      {COMPARE.rows.map((row) => (
+                        <div className="sv-cc-row" key={row.k}>
+                          <span className="k">{row.k}</span>
+                          <span className="v">{row.v[ci]}</span>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <p className="sv-prose">
+              安いのは、手を抜くからではありません。<strong>スポットワークでの被験者採用</strong>と、<strong>定型化された調査設計</strong>で、募集と運用のコストを 1/10 に落としたからです。調査そのものの精度は落としていません。
+            </p>
+          </div>
+        </section>
+
+        {/* §5 独自商品: 競合比較テスト */}
+        <section className="sv tight" id="versus">
+          <div className="wrap">
+            <span className="sv-eyebrow">独自メニュー — 競合比較テスト</span>
+            <h2 className="sv-h">なぜ競合が選ばれて、<br />あなたが選ばれないのか。</h2>
+            <p className="sv-sub">
+              同じ10人が、あなたのサービスと競合2つを実際に使い比べ、最後に「どれを使い続けるか」を選びます。選ばれた理由と、選ばれなかった理由を、発言そのままで納品します。機能比較表では絶対に出てこない、意思決定の瞬間が手に入ります。
+            </p>
+            <div className="sv-flow">
+              <div className="sv-flow-node">
+                <span className="n-tag">STEP 01</span>
+                <h3>3サービスを使い比べ</h3>
+                <p>同一被験者が、あなた＋競合2つを同条件で操作。</p>
+              </div>
+              <div className="sv-flow-arrow" aria-hidden="true">→</div>
+              <div className="sv-flow-node">
+                <span className="n-tag">STEP 02</span>
+                <h3>「どれを使い続けるか」</h3>
+                <p>最後に一つを選択。迷った理由まで発話で記録。</p>
+              </div>
+              <div className="sv-flow-arrow" aria-hidden="true">→</div>
+              <div className="sv-flow-node">
+                <span className="n-tag">STEP 03</span>
+                <h3>選定理由を納品</h3>
+                <p>選ばれた／選ばれなかった理由を、発言そのままで。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* §6 料金表（2列） */}
+        <section className="sv tight" id="price">
+          <div className="wrap">
+            <span className="sv-eyebrow">料金</span>
+            <h2 className="sv-h">個人開発者価格と、<br />企業価格。</h2>
+
+            <div className="sv-price-grid">
+              <div className="sv-price-col feat">
+                <div className="sv-price-col-tag">テストパック — 個人開発者向け</div>
+                <div className="sv-price-row">
+                  <span className="pr-name">ライト<small>5人テスト</small></span>
+                  <span className="pr-val">¥19,800</span>
+                </div>
+                <div className="sv-price-row">
+                  <span className="pr-name">10人テスト</span>
+                  <span className="pr-val">¥49,800</span>
+                </div>
+                <p className="sv-price-note">
+                  ※ 録画+発見点リスト納品。事例公開にご協力いただける方向け。毎月2枠限定。
+                </p>
+              </div>
+
+              <div className="sv-price-col">
+                <div className="sv-price-col-tag">検証レポート — 企業向け</div>
+                <div className="sv-price-row">
+                  <span className="pr-name">10人検証<small>フルレポート</small></span>
+                  <span className="pr-val">¥98,000</span>
+                </div>
+                <div className="sv-price-row">
+                  <span className="pr-name">競合比較<small>3サービス使い比べ</small></span>
+                  <span className="pr-val">¥148,000〜</span>
+                </div>
+                <p className="sv-price-note">
+                  ※ 改善提案書・5軸スコアリング付き。NDA締結・請求書払い・結果非公開。
+                </p>
+              </div>
+            </div>
+
+            <div className="sv-def" style={{ marginTop: 16 }}>
+              <div className="sv-price-col-tag">オプション</div>
+              <ul className="sv-def-list">
+                <li><span className="k">ペルソナ追加</span><span>属性の追加指定 <strong>+¥5,000</strong> / 1条件（2条件までは無料）</span></li>
+                <li><span className="k">被験者追加</span><span>5人追加ごと <strong>+¥15,000</strong>〜</span></li>
+                <li><span className="k">特急</span><span>短納期での実施 <strong>+¥10,000</strong></span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* §7 続けたい人へ（月額） */}
+        <section className="sv tight" id="monthly">
+          <div className="wrap">
+            <span className="sv-eyebrow">続けたい人へ — 月額</span>
+            <h2 className="sv-h">直して、また測る。</h2>
+            <p className="sv-sub">
+              一度の検証で終わりではありません。改善して、また同じ精度で測る。このループを月額で回します。
+            </p>
+            <div className="sv-bigprice">
+              <span className="amt">¥50,000</span>
+              <span className="unit">/ 月</span>
+            </div>
+            <div className="sv-def" style={{ marginTop: 20 }}>
+              <ul className="sv-def-list">
+                <li><span className="k">毎月</span><span>5人テストを毎月実施し、改善の効果を継続計測</span></li>
+                <li><span className="k">掲載打診</span><span>メディア・レビュアー <strong>30件</strong> への掲載打診</span></li>
+                <li><span className="k">レポート</span><span>実数レポートを毎月納品（数字は盛りません）</span></li>
+                <li><span className="k">形式</span><span>完全非同期・ミーティングなし・解約自由</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* §8 FAQ */}
+        <section className="sv tight" id="faq">
+          <div className="wrap">
+            <span className="sv-eyebrow">FAQ</span>
+            <h2 className="sv-h">よくある質問</h2>
+            <div className="faq-list" style={{ margin: "clamp(24px,3vw,36px) 0 0" }}>
+              {FAQ_ITEMS.map(({ q, a }) => (
+                <details className="faq-item" key={q}>
+                  <summary className="faq-q">{q}</summary>
+                  <div className="faq-a">
+                    <p>{a}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* §9 FINAL CTA */}
+        <section className="final-v2">
+          <div className="wrap">
+            <div className="final-v2-inner reveal">
+              <p className="final-v2-en" aria-hidden="true">FIND<br />THE WHY.</p>
+              <p className="final-v2-jp">
+                {/* TODO: 実キャパで運用・毎月更新 */}
+                今月の実施枠：残り {"{{SLOTS_LEFT}}"} 件。<br />
+                「なぜ使われないか」を、今月中に手に入れる。
+              </p>
+              <div className="final-v2-cta-row">
+                <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  空き日程を見る <span className="arr">→</span>
+                </a>
+                <a href={SAMPLE_REPORT_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+                  レポートのサンプルを見る
+                </a>
+              </div>
+              <p className="final-v2-note">個人開発¥19,800〜 · 丸投げOK · 非同期で進行</p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <SiteFooter />
+      <WorkleInteractions />
+    </>
+  );
+}

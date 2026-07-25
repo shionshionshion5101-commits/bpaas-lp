@@ -10,9 +10,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${BASE_URL}/starter`,
+      url: `${BASE_URL}/test`,
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/sales`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/sns`,
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/tokushoho`,

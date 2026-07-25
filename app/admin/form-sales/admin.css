@@ -1,0 +1,390 @@
+/* ============================================================
+   FORM SALES CONSOLE — ローカル専用オペレーション画面
+   ダーク運行管理室: LPのトーン(#0F1115 / #ff6a1a)を踏襲した密度高めのモノスペースUI
+   クラス名は fsc- prefix でLPのグローバルCSSと衝突させない
+   ============================================================ */
+
+.fsc {
+  --fsc-bg: #0c0e12;
+  --fsc-panel: #12151b;
+  --fsc-panel-2: #161a21;
+  --fsc-line: #232833;
+  --fsc-line-2: #3a4150;
+  --fsc-text: #d9dce3;
+  --fsc-dim: #8b93a5;
+  --fsc-faint: #5c6373;
+  --fsc-accent: #ff6a1a;
+  --fsc-ok: #19b36b;
+  --fsc-warn: #f5a623;
+  --fsc-danger: #e5484d;
+
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 400px at 70% -10%, rgba(255, 106, 26, 0.07), transparent 60%),
+    var(--fsc-bg);
+  color: var(--fsc-text);
+  font-family: var(--font-jetbrains-mono), 'Noto Sans JP', ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 26px 30px 90px;
+}
+.fsc * { box-sizing: border-box; }
+
+/* ---- ヘッダー ---- */
+.fsc-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--fsc-line);
+  padding-bottom: 16px;
+  margin-bottom: 26px;
+}
+.fsc-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+.fsc-title em { color: var(--fsc-accent); font-style: normal; }
+.fsc-badge {
+  border: 1px solid var(--fsc-accent);
+  color: var(--fsc-accent);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  padding: 2px 9px;
+  text-transform: uppercase;
+}
+.fsc-chips { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.fsc-chip {
+  font-size: 11px;
+  padding: 3px 11px;
+  border: 1px solid var(--fsc-line-2);
+  border-radius: 999px;
+  color: var(--fsc-dim);
+  white-space: nowrap;
+}
+.fsc-chip--ok { border-color: rgba(25, 179, 107, 0.45); color: var(--fsc-ok); }
+.fsc-chip--warn { border-color: rgba(245, 166, 35, 0.5); color: var(--fsc-warn); }
+.fsc-chip--danger { border-color: rgba(229, 72, 77, 0.5); color: var(--fsc-danger); }
+
+/* ---- ステップカード ---- */
+.fsc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+@media (max-width: 1100px) { .fsc-grid { grid-template-columns: repeat(2, 1fr); } }
+.fsc-card {
+  position: relative;
+  background: var(--fsc-panel);
+  border: 1px solid var(--fsc-line);
+  padding: 18px 16px 14px;
+}
+.fsc-card::before {
+  content: attr(data-step);
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  background: var(--fsc-bg);
+  padding: 0 7px;
+  color: var(--fsc-accent);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+}
+.fsc-card h3 { margin: 0 0 2px; font-size: 13px; color: #fff; letter-spacing: 0.04em; }
+.fsc-desc { font-size: 11px; color: var(--fsc-faint); margin: 0 0 10px; }
+.fsc-row { display: flex; gap: 6px; margin-top: 8px; align-items: center; }
+.fsc-counts { margin-top: 12px; border-top: 1px dashed var(--fsc-line); padding-top: 8px; }
+.fsc-count {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--fsc-dim);
+}
+.fsc-count b { color: #fff; font-weight: 500; }
+.fsc-count b.fsc-zero { color: var(--fsc-faint); }
+
+/* ---- 入力・ボタン ---- */
+.fsc-input {
+  background: var(--fsc-bg);
+  border: 1px solid var(--fsc-line-2);
+  color: var(--fsc-text);
+  padding: 6px 9px;
+  font: inherit;
+  font-size: 12px;
+  width: 100%;
+  min-width: 0;
+}
+.fsc-input:focus { outline: none; border-color: var(--fsc-accent); }
+.fsc-input--num { width: 72px; flex: none; }
+.fsc-btn {
+  background: transparent;
+  border: 1px solid var(--fsc-line-2);
+  color: var(--fsc-text);
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.fsc-btn:hover:not(:disabled) { border-color: var(--fsc-accent); color: var(--fsc-accent); }
+.fsc-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.fsc-btn--primary { border-color: var(--fsc-accent); color: var(--fsc-accent); }
+.fsc-btn--primary:hover:not(:disabled) { background: rgba(255, 106, 26, 0.12); }
+.fsc-btn--danger { border-color: var(--fsc-danger); color: var(--fsc-danger); }
+.fsc-btn--danger:hover:not(:disabled) {
+  background: rgba(229, 72, 77, 0.12);
+  border-color: var(--fsc-danger);
+  color: #ff8a8e;
+}
+
+/* ---- LED / ステータス ---- */
+.fsc-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--fsc-line-2);
+  flex: none;
+}
+.fsc-led--run { background: var(--fsc-accent); animation: fscPulse 1s ease-in-out infinite; }
+.fsc-led--ok { background: var(--fsc-ok); }
+.fsc-led--err { background: var(--fsc-danger); }
+@keyframes fscPulse { 50% { opacity: 0.25; } }
+.fsc-status-ok { color: var(--fsc-ok); }
+.fsc-status-ng { color: var(--fsc-danger); }
+
+/* ---- ログターミナル ---- */
+.fsc-terminal {
+  margin-top: 10px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 2px, rgba(255, 255, 255, 0.012) 2px 4px),
+    #0a0c10;
+  border: 1px solid var(--fsc-line);
+  padding: 12px 14px;
+  height: 230px;
+  overflow: auto;
+  font-size: 11.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #aab2c2;
+}
+.fsc-terminal-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--fsc-dim);
+}
+.fsc-terminal-head b { color: #fff; font-weight: 500; }
+
+/* ---- セクション ---- */
+.fsc-section { margin-top: 30px; }
+.fsc-section > h2 {
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--fsc-dim);
+  border-left: 3px solid var(--fsc-accent);
+  padding-left: 10px;
+}
+
+/* ---- タブ + テーブル ---- */
+.fsc-tabs { display: flex; gap: 2px; flex-wrap: wrap; }
+.fsc-tab {
+  padding: 6px 13px;
+  border: 1px solid var(--fsc-line);
+  border-bottom: none;
+  background: #0f1116;
+  color: var(--fsc-dim);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+}
+.fsc-tab--active { background: var(--fsc-panel); color: var(--fsc-accent); border-color: var(--fsc-line-2); }
+.fsc-tab small { color: var(--fsc-faint); margin-left: 5px; }
+.fsc-tablewrap {
+  overflow: auto;
+  border: 1px solid var(--fsc-line);
+  max-height: 430px;
+  background: var(--fsc-panel);
+}
+.fsc-table { border-collapse: collapse; width: 100%; font-size: 11.5px; }
+.fsc-table th {
+  position: sticky;
+  top: 0;
+  background: var(--fsc-panel-2);
+  color: var(--fsc-dim);
+  text-align: left;
+  padding: 7px 12px;
+  white-space: nowrap;
+  font-weight: 500;
+  z-index: 1;
+}
+.fsc-table td {
+  border-top: 1px solid #1c212b;
+  padding: 5px 12px;
+  color: #c6cbd6;
+  max-width: 380px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fsc-table tr:hover td { background: var(--fsc-panel-2); }
+.fsc-empty { padding: 26px; color: var(--fsc-faint); font-size: 12px; }
+
+/* ---- dry-run ギャラリー ---- */
+.fsc-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 13px;
+}
+.fsc-shot { border: 1px solid var(--fsc-line); background: var(--fsc-panel); }
+.fsc-shot--selected { border-color: var(--fsc-accent); }
+.fsc-shot a { display: block; }
+.fsc-shot img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  background: #fff;
+}
+.fsc-shot-meta {
+  display: flex;
+  gap: 8px;
+  padding: 9px 11px;
+  font-size: 11px;
+  align-items: center;
+  cursor: pointer;
+}
+.fsc-shot-meta input { accent-color: var(--fsc-accent); flex: none; }
+.fsc-shot-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+}
+.fsc-shot-detail { padding: 0 11px 9px; font-size: 10.5px; color: var(--fsc-faint); word-break: break-all; }
+.fsc-shot-tmpl { font-size: 9.5px; background: var(--fsc-accent); color: #fff; border-radius: 3px; padding: 1px 5px; margin-left: auto; white-space: nowrap; }
+.fsc-shot-msg { padding: 0 11px 10px; }
+.fsc-shot-msg summary { font-size: 10.5px; color: var(--fsc-accent); cursor: pointer; user-select: none; }
+.fsc-shot-msg pre { margin: 6px 0 0; font-size: 10px; white-space: pre-wrap; word-break: break-all; color: var(--fsc-faint); max-height: 180px; overflow-y: auto; background: var(--fsc-bg); padding: 8px; border-radius: 4px; }
+.fsc-gallery-actions { display: flex; gap: 10px; align-items: center; margin: 14px 0 4px; }
+
+/* ---- 送信モーダル ---- */
+.fsc-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 6, 8, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.fsc-modal {
+  background: var(--fsc-panel);
+  border: 1px solid var(--fsc-danger);
+  padding: 24px;
+  width: 540px;
+  max-width: 92vw;
+}
+.fsc-modal h3 { margin: 0 0 12px; color: var(--fsc-danger); font-size: 14px; letter-spacing: 0.08em; }
+.fsc-modal-preview {
+  background: var(--fsc-bg);
+  border: 1px solid var(--fsc-line);
+  padding: 10px 12px;
+  font-size: 11.5px;
+  color: var(--fsc-dim);
+  margin: 10px 0;
+  white-space: pre-wrap;
+}
+.fsc-modal ul { margin: 8px 0; padding-left: 18px; font-size: 12px; }
+
+/* ---- エラートースト ---- */
+.fsc-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2a1215;
+  border: 1px solid var(--fsc-danger);
+  color: #ffb4b8;
+  padding: 11px 15px;
+  font-size: 12px;
+  z-index: 60;
+  max-width: 480px;
+}
+.fsc-toast button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  margin-left: 12px;
+  text-decoration: underline;
+}
+
+/* ---- 業種・規模フィルタ ---- */
+.fsc-filter-details {
+  margin: 0 0 10px;
+  border: 1px solid var(--fsc-line);
+  background: var(--fsc-panel-2);
+  padding: 8px 10px;
+}
+.fsc-filter-details summary {
+  font-size: 11px;
+  color: var(--fsc-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fsc-filter {
+  border: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.fsc-filter legend {
+  font-size: 11px;
+  color: var(--fsc-dim);
+  padding: 0;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fsc-filter-all {
+  background: none;
+  border: none;
+  color: var(--fsc-accent);
+  font-size: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+.fsc-filter-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.fsc-filter-opt {
+  font-size: 11px;
+  color: var(--fsc-faint);
+  border: 1px solid var(--fsc-line);
+  padding: 3px 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.fsc-filter-opt--on {
+  color: var(--fsc-text);
+  border-color: var(--fsc-line-2);
+  background: var(--fsc-panel);
+}
+.fsc-filter-opt input {
+  display: none;
+}

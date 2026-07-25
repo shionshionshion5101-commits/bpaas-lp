@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Anton } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
@@ -7,6 +7,13 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+const anton = Anton({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-anton",
   display: "swap",
 });
 
@@ -26,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" className={jetbrainsMono.variable}>
+    <html lang="ja" className={`${jetbrainsMono.variable} ${anton.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -36,7 +43,7 @@ export default function RootLayout({
         />
         {/* Zen Kaku Gothic New: headings — Noto Sans JP: body */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
       </head>
