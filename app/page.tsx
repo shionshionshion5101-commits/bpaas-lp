@@ -3,7 +3,6 @@ import SiteNav from "./components/SiteNav";
 import SiteFooter from "./components/SiteFooter";
 import WorkleInteractions from "./components/WorkleInteractions";
 
-const TALLY_URL = "https://tally.so/r/5BrZLP";
 const X_URL = "https://x.com/Workle_shion";
 
 const FAQ_ITEMS = [
@@ -84,7 +83,7 @@ export default function Home() {
           { href: "/sns", label: "SNS運用" },
           { href: "#faq", label: "FAQ" },
         ]}
-        cta={{ href: TALLY_URL, label: "無料相談を予約", external: true }}
+        cta={{ href: "/consult", label: "無料相談を予約" }}
       />
 
       <main id="top">
@@ -199,7 +198,7 @@ export default function Home() {
             <div className="services-v2-head reveal">
               <h2 className="services-v2-title">OUR SERVICES</h2>
               <p className="services-v2-sub">届ける実務を、単品から。3つのメニュー。</p>
-              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="rotating-badge-wrap" aria-label="無料相談を予約する">
+              <Link href="/consult" className="rotating-badge-wrap" aria-label="無料相談を予約する">
                 <svg className="rotating-badge" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="100" cy="100" r="98" fill="#FF5A1F" />
                   <circle cx="100" cy="100" r="9" fill="white" />
@@ -212,7 +211,7 @@ export default function Home() {
                     </textPath>
                   </text>
                 </svg>
-              </a>
+              </Link>
             </div>
 
             <div className="services-v2-grid">

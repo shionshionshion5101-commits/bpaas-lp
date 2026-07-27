@@ -3,11 +3,15 @@ import Link from "next/link";
 import SiteNav from "../components/SiteNav";
 import SiteFooter from "../components/SiteFooter";
 import WorkleInteractions from "../components/WorkleInteractions";
+import { SampleReportModal } from "./SampleReportModal";
 
 const PAGE_URL = "https://www.workle-kle.com/test";
-const TALLY_URL = "https://tally.so/r/5BrZLP";
-// TODO: レポートサンプル用のメール取得フォームURLに差し替え（現状は共通問い合わせフォーム）
-const SAMPLE_REPORT_URL = TALLY_URL;
+const CONSULT_URL = "/consult";
+
+// Stripe Payment Links — set via env vars. Falls back to the booking page when unset.
+const STRIPE_LIGHT_URL = process.env.NEXT_PUBLIC_STRIPE_LIGHT_URL ?? CONSULT_URL;
+const STRIPE_STANDARD_URL = process.env.NEXT_PUBLIC_STRIPE_STANDARD_URL ?? CONSULT_URL;
+
 const X_URL = "https://x.com/Workle_shion";
 
 export const metadata: Metadata = {
@@ -62,6 +66,18 @@ const FAQ_ITEMS = [
   {
     q: "結果が悪かったら、どうなりますか？",
     a: "悪い結果こそ価値です。リリース後に静かに離脱していくはずだったユーザーを、公開前に先に発見できたと考えてください。私たちは良い結果を作るのではなく、正確な結果を渡すことに責任を持ちます。",
+  },
+  {
+    q: "サンプルと同じレポートがもらえますか？",
+    a: "同じ形式でお届けします。サンプルは架空のアプリを題材にしたもので、実際の納品では貴社サービスの検証結果が入ります。",
+  },
+  {
+    q: "スプレッドシートの生データももらえますか？",
+    a: "設計シートと実施記録シートの2種をお渡しします。加工前の記録をそのまま共有しますので、社内で再分析いただけます。",
+  },
+  {
+    q: "支払い方法は？",
+    a: "個人開発者向けプランはクレジットカード決済（Stripe）、企業向けプランは請求書払いに対応しています。",
   },
 ];
 
@@ -120,12 +136,12 @@ export default function TestLandingPage() {
       <SiteNav
         links={[
           { href: "#how", label: "内容" },
-          { href: "#why-price", label: "価格の根拠" },
-          { href: "#price", label: "料金" },
+          { href: "#deliverables", label: "納品物" },
+          { href: "#pricing", label: "料金" },
           { href: "#faq", label: "FAQ" },
         ]}
         ghost={{ href: "/", label: "他のサービス" }}
-        cta={{ href: TALLY_URL, label: "空き日程を見る", external: true }}
+        cta={{ href: CONSULT_URL, label: "無料相談を予約" }}
       />
 
       <main id="top">
@@ -146,14 +162,18 @@ export default function TestLandingPage() {
               <span className="sv-chip">企業 <span className="sv-chip-num">¥98,000</span>〜</span>
             </div>
             <div className="sv-cta-row">
-              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                空き日程を見る <span className="arr">→</span>
+              <a href="#pricing" className="btn btn-primary">
+                プランを見る <span className="arr">→</span>
               </a>
-              <a href={SAMPLE_REPORT_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-cream">
-                レポートのサンプルを見る
-              </a>
+              <button
+                type="button"
+                className="btn btn-ghost-cream"
+                data-action="open-sample-modal"
+              >
+                サンプルレポートを見る
+              </button>
             </div>
-            <p className="sv-cta-note">サンプルはメールアドレスの登録でお送りします</p>
+            <p className="sv-cta-note">実施まで最短7営業日 / 個人開発者向けはその場でお申し込みいただけます</p>
           </div>
         </section>
 
@@ -279,13 +299,80 @@ export default function TestLandingPage() {
           </div>
         </section>
 
-        {/* §6 料金表（2列） */}
-        <section className="sv tight" id="price">
+        {/* §6 納品物 */}
+        <section className="sv tight" id="deliverables">
+          <div className="wrap">
+            <p className="sv-en" aria-hidden="true">DELIVERABLES</p>
+            <span className="sv-eyebrow">納品物</span>
+            <h2 className="sv-h">届くのは、3つです。</h2>
+            <div className="dlv-grid">
+              <div className="dlv-card">
+                <p className="dlv-num">01</p>
+                <h3 className="dlv-title">設計シート<small>スプレッドシート</small></h3>
+                <p className="dlv-body">検証したいタスクと質問項目を、Workleが設計してご共有します。コメントで修正できます。実施前の合意はここで完結します。</p>
+              </div>
+              <div className="dlv-card">
+                <p className="dlv-num">02</p>
+                <h3 className="dlv-title">実施記録シート<small>スプレッドシート</small></h3>
+                <p className="dlv-body">被験者ごとのタスク完遂・つまずき箇所・発言を、当日その場で1人1行に記録。加工前の生データをそのままお渡しします。</p>
+              </div>
+              <div className="dlv-card">
+                <p className="dlv-num">03</p>
+                <h3 className="dlv-title">レポート<small>PDF</small></h3>
+                <p className="dlv-body">サマリー・発見点リスト（重要度別）・改善提案・被験者属性をまとめたA4レポート。録画リンク付き。</p>
+              </div>
+            </div>
+            <p className="dlv-sample-cue">
+              <button
+                type="button"
+                className="dlv-sample-link"
+                data-action="open-sample-modal"
+              >
+                サンプルレポートを見る →
+              </button>
+            </p>
+          </div>
+        </section>
+
+        {/* §7 進め方 */}
+        <section className="sv tight" id="process">
+          <div className="wrap">
+            <p className="sv-en" aria-hidden="true">PROCESS</p>
+            <span className="sv-eyebrow">進め方</span>
+            <h2 className="sv-h">申込から納品まで。</h2>
+            <div className="proc-grid">
+              <div className="proc-step">
+                <p className="proc-num">STEP 01</p>
+                <h3 className="proc-title">申込</h3>
+                <p className="proc-body">個人開発者向けはその場で決済まで完結。企業のお客様は15分の無料相談から。</p>
+              </div>
+              <div className="proc-step">
+                <p className="proc-num">STEP 02</p>
+                <h3 className="proc-title">入稿（フォーム）</h3>
+                <p className="proc-body">サービスURL・検証したいタスク・一番知りたいこと・希望する被験者属性をフォームでご記入いただきます。所要5分。</p>
+              </div>
+              <div className="proc-step">
+                <p className="proc-num">STEP 03</p>
+                <h3 className="proc-title">設計の確認（非同期）</h3>
+                <p className="proc-body">Workleが設計シートを作成し共有します。コメントでご確認ください。48時間ご連絡がなければ確定として進行します。企業のお客様は30分の設計打ち合わせを1回実施します。</p>
+              </div>
+              <div className="proc-step">
+                <p className="proc-num">STEP 04</p>
+                <h3 className="proc-title">実施・納品</h3>
+                <p className="proc-body">被験者を募集し、Workleが立ち会って実施。実施記録シートとPDFレポートを納品します。申込から10営業日が目安です。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* §8 料金表（2系統） */}
+        <section className="sv tight" id="pricing">
           <div className="wrap">
             <span className="sv-eyebrow">料金</span>
             <h2 className="sv-h">個人開発者価格と、<br />企業価格。</h2>
 
             <div className="sv-price-grid">
+              {/* 個人開発者向け — Stripe決済 */}
               <div className="sv-price-col feat">
                 <div className="sv-price-col-tag">テストパック — 個人開発者向け</div>
                 <div className="sv-price-row">
@@ -293,14 +380,40 @@ export default function TestLandingPage() {
                   <span className="pr-val">¥19,800</span>
                 </div>
                 <div className="sv-price-row">
-                  <span className="pr-name">10人テスト</span>
+                  <span className="pr-name">スタンダード<small>10人テスト</small></span>
                   <span className="pr-val">¥49,800</span>
                 </div>
                 <p className="sv-price-note">
                   ※ 録画+発見点リスト納品。事例公開にご協力いただける方向け。毎月2枠限定。
                 </p>
+                <p className="sv-price-note sv-price-note-em">
+                  決済後、入稿フォームのご案内メールが届きます。会議は不要です。
+                </p>
+                <div className="sv-price-cta-group">
+                  <a
+                    href={STRIPE_LIGHT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                    data-action="track-checkout"
+                    data-plan="light"
+                  >
+                    ライトに申し込む <span className="arr">→</span>
+                  </a>
+                  <a
+                    href={STRIPE_STANDARD_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                    data-action="track-checkout"
+                    data-plan="standard"
+                  >
+                    スタンダードに申し込む <span className="arr">→</span>
+                  </a>
+                </div>
               </div>
 
+              {/* 企業向け — 相談経由 */}
               <div className="sv-price-col">
                 <div className="sv-price-col-tag">検証レポート — 企業向け</div>
                 <div className="sv-price-row">
@@ -314,6 +427,19 @@ export default function TestLandingPage() {
                 <p className="sv-price-note">
                   ※ 改善提案書・5軸スコアリング付き。NDA締結・請求書払い・結果非公開。
                 </p>
+                <p className="sv-price-note">
+                  秘密保持契約・請求書払いに対応。設計内容の確認のため、30分のオンライン打ち合わせを1回お願いしています。
+                </p>
+                <div className="sv-price-cta-group">
+                  <Link
+                    href={CONSULT_URL}
+                    className="btn btn-ghost-cream"
+                    data-action="track-consult"
+                    data-location="pricing_enterprise"
+                  >
+                    無料相談を予約（15分）
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -328,7 +454,7 @@ export default function TestLandingPage() {
           </div>
         </section>
 
-        {/* §7 続けたい人へ（月額） */}
+        {/* §9 続けたい人へ（月額） */}
         <section className="sv tight" id="monthly">
           <div className="wrap">
             <span className="sv-eyebrow">続けたい人へ — 月額</span>
@@ -351,7 +477,7 @@ export default function TestLandingPage() {
           </div>
         </section>
 
-        {/* §8 FAQ */}
+        {/* §10 FAQ */}
         <section className="sv tight" id="faq">
           <div className="wrap">
             <span className="sv-eyebrow">FAQ</span>
@@ -369,7 +495,7 @@ export default function TestLandingPage() {
           </div>
         </section>
 
-        {/* §9 FINAL CTA */}
+        {/* §11 FINAL CTA */}
         <section className="final-v2">
           <div className="wrap">
             <div className="final-v2-inner reveal">
@@ -380,12 +506,16 @@ export default function TestLandingPage() {
                 「なぜ使われないか」を、今月中に手に入れる。
               </p>
               <div className="final-v2-cta-row">
-                <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  空き日程を見る <span className="arr">→</span>
+                <a href="#pricing" className="btn btn-primary">
+                  プランを見る <span className="arr">→</span>
                 </a>
-                <a href={SAMPLE_REPORT_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-                  レポートのサンプルを見る
-                </a>
+                <button
+                  type="button"
+                  className="btn btn-ghost"
+                  data-action="open-sample-modal"
+                >
+                  サンプルレポートを見る
+                </button>
               </div>
               <p className="final-v2-note">個人開発¥19,800〜 · 丸投げOK · 非同期で進行</p>
             </div>
@@ -396,6 +526,7 @@ export default function TestLandingPage() {
 
       <SiteFooter />
       <WorkleInteractions />
+      <SampleReportModal />
     </>
   );
 }

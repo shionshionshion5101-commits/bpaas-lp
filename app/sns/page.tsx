@@ -5,7 +5,7 @@ import SiteFooter from "../components/SiteFooter";
 import WorkleInteractions from "../components/WorkleInteractions";
 
 const PAGE_URL = "https://www.workle-kle.com/sns";
-const TALLY_URL = "https://tally.so/r/5BrZLP";
+const CONSULT_URL = "/consult";
 const X_URL = "https://x.com/Workle_shion";
 
 export const metadata: Metadata = {
@@ -79,7 +79,7 @@ export default function SnsLandingPage() {
           { href: "#price", label: "料金" },
         ]}
         ghost={{ href: "/", label: "他のサービス" }}
-        cta={{ href: TALLY_URL, label: "無料相談を予約", external: true }}
+        cta={{ href: CONSULT_URL, label: "無料相談を予約" }}
       />
 
       <main id="top">
@@ -101,9 +101,9 @@ export default function SnsLandingPage() {
               <span className="sv-chip">記事 月2本</span>
             </div>
             <div className="sv-cta-row">
-              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              <Link href={CONSULT_URL} className="btn btn-primary">
                 無料相談を予約する <span className="arr">→</span>
-              </a>
+              </Link>
               <Link href="/sales" className="btn btn-ghost-cream">
                 営業代行と併用する
               </Link>
@@ -254,9 +254,9 @@ export default function SnsLandingPage() {
                 アカウントごと、実務を引き取ります。
               </p>
               <div className="final-v2-cta-row">
-                <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                <Link href={CONSULT_URL} className="btn btn-primary">
                   無料相談を予約する <span className="arr">→</span>
-                </a>
+                </Link>
                 <Link href="/sales" className="btn btn-ghost">
                   営業代行を見る
                 </Link>

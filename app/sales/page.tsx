@@ -5,7 +5,7 @@ import SiteFooter from "../components/SiteFooter";
 import WorkleInteractions from "../components/WorkleInteractions";
 
 const PAGE_URL = "https://www.workle-kle.com/sales";
-const TALLY_URL = "https://tally.so/r/5BrZLP";
+const CONSULT_URL = "/consult";
 const X_URL = "https://x.com/Workle_shion";
 
 export const metadata: Metadata = {
@@ -120,7 +120,7 @@ export default function SalesLandingPage() {
           { href: "#faq", label: "FAQ" },
         ]}
         ghost={{ href: "/", label: "他のサービス" }}
-        cta={{ href: TALLY_URL, label: "無料相談を予約", external: true }}
+        cta={{ href: CONSULT_URL, label: "無料相談を予約" }}
       />
 
       <main id="top">
@@ -142,9 +142,9 @@ export default function SalesLandingPage() {
               <span className="sv-chip">初期費用 0円</span>
             </div>
             <div className="sv-cta-row">
-              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              <Link href={CONSULT_URL} className="btn btn-primary">
                 無料相談を予約する（15分） <span className="arr">→</span>
-              </a>
+              </Link>
               <a href="#apo" className="btn btn-ghost-cream">
                 「アポ」の定義を見る
               </a>
@@ -217,9 +217,9 @@ export default function SalesLandingPage() {
               <span className="sv-chip">初期費用 0円</span>
             </div>
             <div className="sv-cta-row">
-              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              <Link href={CONSULT_URL} className="btn btn-primary">
                 無料相談を予約する <span className="arr">→</span>
-              </a>
+              </Link>
             </div>
             <p className="sv-cta-note">最低契約期間なし · いつでも解約可 · 翌営業日稼働</p>
           </div>
@@ -349,9 +349,9 @@ export default function SalesLandingPage() {
                 商談が増えた分だけ払う営業へ。
               </p>
               <div className="final-v2-cta-row">
-                <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                <Link href={CONSULT_URL} className="btn btn-primary">
                   無料相談を予約する <span className="arr">→</span>
-                </a>
+                </Link>
                 <Link href="/sns" className="btn btn-ghost">
                   SNS運用と併用する
                 </Link>

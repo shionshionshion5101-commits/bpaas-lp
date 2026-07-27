@@ -43,7 +43,7 @@ export default function SiteFooter() {
             </div>
             <div className="foot-col">
               <h4>Contact</h4>
-              <a href="https://tally.so/r/5BrZLP" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+              <Link href="/consult">お問い合わせ・無料相談</Link>
               <a href={X_URL} target="_blank" rel="noopener noreferrer">X (Build in Public)</a>
             </div>
             <div className="foot-col">
