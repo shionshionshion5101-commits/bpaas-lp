@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NavHamburger from "./NavHamburger";
 
 export type NavLink = { href: string; label: string };
 
@@ -76,6 +77,9 @@ export default function SiteNav({ links = [], cta, ghost }: Props) {
                 {cta.label}
               </Link>
             ))}
+          {links.length > 0 && cta && (
+            <NavHamburger links={links} ctaHref={cta.href} ctaLabel={cta.label} />
+          )}
         </div>
       </div>
     </header>

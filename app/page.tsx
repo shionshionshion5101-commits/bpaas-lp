@@ -89,79 +89,80 @@ export default function Home() {
       <main id="top">
 
         {/* ====================================================
-            §1 HERO — H1 は現行コピーを維持、CTAは置かず3カードへ誘導
+            §1 HERO — work queue hero
             ==================================================== */}
         <section className="hero-v2" id="hero">
           <div className="hero-v2-inner">
 
-            <div className="hero-v2-top">
-              <p className="hero-en hero-load" aria-hidden="true">SHIP IT.</p>
-              <div className="hero-load hero-load-d2">
-                <h1 className="hero-h1">
-                  いいプロダクトは、ある。<br />届ける手が、足りない。
-                </h1>
-                <p className="hero-h1-sub">
-                  実在ユーザーによる検証、フォーム営業、SNS運用——届ける実務を、単品から代行します。
-                </p>
+            {/* SHIP IT. */}
+            <p className="hero-en-ship hero-load" aria-hidden="true">SHIP IT.</p>
+
+            {/* Copy block */}
+            <div className="hero-copy hero-load hero-load-d2">
+              <h1 className="hero-h1">
+                いいプロダクトは、ある。<br />届ける手が、足りない。
+              </h1>
+              <p className="hero-h1-sub">
+                実在ユーザーによる検証、フォーム営業、SNS運用——届ける実務を、単品から代行します。
+              </p>
+            </div>
+
+            {/* Central work queue stack */}
+            <div className="hero-stack-wrap hero-load hero-load-d1" id="hero-stack-wrap" aria-hidden="true">
+              <div className="hero-stack" id="hero-stack">
+                <div className="hcard" data-slot="4" data-status="queued">
+                  <span className="hc-status queued">QUEUED</span>
+                  <p className="hc-title">テレアポ 200件</p>
+                </div>
+                <div className="hcard" data-slot="3" data-status="queued">
+                  <span className="hc-status queued">QUEUED</span>
+                  <p className="hc-title">インタビュー書き起こし</p>
+                </div>
+                <div className="hcard" data-slot="2" data-status="queued">
+                  <span className="hc-status queued">QUEUED</span>
+                  <p className="hc-title">X リプライ 100件</p>
+                </div>
+                <div className="hcard" data-slot="1" data-status="queued">
+                  <span className="hc-status queued">QUEUED</span>
+                  <p className="hc-title">LP改善提案</p>
+                </div>
+                <div className="hcard" data-slot="0" data-status="queued">
+                  <span className="hc-status queued">QUEUED</span>
+                  <p className="hc-title">ユーザーテスト 10人</p>
+                </div>
+              </div>
+              <div className="hero-scribble" aria-hidden="true">
+                <svg width="66" height="46" viewBox="0 0 66 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <filter id="scribble-wobble" x="-10%" y="-10%" width="120%" height="120%">
+                      <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="2" seed="4" result="n" />
+                      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" />
+                    </filter>
+                  </defs>
+                  <g filter="url(#scribble-wobble)" stroke="#111111" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none">
+                    <path d="M6 8 C 20 2, 46 6, 58 30" />
+                    <path d="M50 24 L58 31 L61 21" />
+                  </g>
+                </svg>
+                <span className="scribble-word">non-stop</span>
               </div>
             </div>
 
-            <div className="hero-v2-mid">
-              <div className="hero-stack-wrap hero-load hero-load-d1" aria-hidden="true">
-                <div className="hero-stack" id="hero-stack">
-                  {/* front → mid → back の順に流れる（8秒ごと・JSで回転） */}
-                  <div className="hcard" data-slot="front" data-status="queued">
-                    <span className="hc-status queued">QUEUED</span>
-                    <p className="hc-title">掲載打診 30件</p>
-                    <div className="hc-prog-wrap">
-                      <div className="hc-prog"><i /></div>
-                      <span className="hc-meta">計測中</span>
-                    </div>
-                  </div>
-                  <div className="hcard" data-slot="mid" data-status="prog">
-                    <span className="hc-status prog">IN PROGRESS</span>
-                    <p className="hc-title">B2Bフォーム営業</p>
-                    <div className="hc-prog-wrap">
-                      <div className="hc-prog"><i style={{ width: "67%" }} /></div>
-                      <span className="hc-meta">67%</span>
-                    </div>
-                  </div>
-                  <div className="hcard" data-slot="back" data-status="done">
-                    <span className="hc-status done">DONE ✓</span>
-                    <p className="hc-title">ユーザーテスト 10人</p>
-                    <div className="hc-prog-wrap">
-                      <div className="hc-prog"><i /></div>
-                      <span className="hc-meta">計測中</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="hero-scribble" aria-hidden="true">
-                  <svg width="66" height="46" viewBox="0 0 66 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <filter id="scribble-wobble" x="-10%" y="-10%" width="120%" height="120%">
-                        <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="2" seed="4" result="n" />
-                        <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" />
-                      </filter>
-                    </defs>
-                    <g filter="url(#scribble-wobble)" stroke="#111111" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none">
-                      <path d="M6 8 C 20 2, 46 6, 58 30" />
-                      <path d="M50 24 L58 31 L61 21" />
-                    </g>
-                  </svg>
-                  <span className="scribble-word">non-stop</span>
-                </div>
-              </div>
-            </div>
+            {/* THEN SELL IT. */}
+            <p className="hero-en-sell hero-load hero-load-d1" aria-hidden="true">THEN SELL IT.</p>
 
-            <div className="hero-v2-bottom">
-              <a href="#services" className="hero-scroll-cue hero-load hero-load-d2" aria-label="サービス一覧へスクロール">
-                <span className="cue-arrow">↓</span> 3つのサービスを見る
-              </a>
-              <p className="hero-en hero-load hero-load-d1" aria-hidden="true">THEN SELL IT.</p>
-            </div>
+            {/* Scroll cue */}
+            <a href="#services" className="hero-scroll-cue hero-load hero-load-d2" aria-label="サービス一覧へスクロール">
+              <span className="cue-arrow">↓</span> 3つのサービスを見る
+            </a>
 
           </div>
         </section>
+
+        {/* Mobile fixed CTA bar — only on this page */}
+        <div className="hero-mobile-bar" aria-hidden="true">
+          <Link href="/consult" className="btn btn-primary" tabIndex={-1}>無料相談を予約</Link>
+        </div>
 
         {/* MARQUEE */}
         <div className="marquee-v2" aria-hidden="true">

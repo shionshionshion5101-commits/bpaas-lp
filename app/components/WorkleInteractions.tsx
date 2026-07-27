@@ -17,19 +17,19 @@ export default function WorkleInteractions() {
       cleanups.push(() => window.removeEventListener("scroll", onScroll));
     }
 
-    // HERO STACK: task cards flow QUEUED → IN PROGRESS → DONE every 8s
+    // HERO STACK: 5-card work queue, QUEUED → IN PROGRESS → DONE per 3.2s cycle
     const stack = document.getElementById("hero-stack");
-    if (stack && !reduce) {
-      const SLOTS = ["front", "mid", "back"] as const;
+    const stackWrap = document.getElementById("hero-stack-wrap");
+    if (stack) {
       const QUEUE_TITLES = [
-        "競合比較テスト 3社",
-        "リスト構築 500件",
-        "LP改善提案",
-        "SNS投稿 20本",
-        "アウトリーチ 50通",
         "ユーザーテスト 10人",
-        "掲載打診 30件",
-        "B2Bフォーム営業",
+        "フォーム営業 300件",
+        "SNS投稿 20本",
+        "LP改善提案",
+        "競合比較レポート",
+        "テレアポ 200件",
+        "インタビュー書き起こし",
+        "X リプライ 100件",
       ];
       let qi = 0;
       let cards = Array.from(stack.querySelectorAll<HTMLElement>(".hcard"));
@@ -37,19 +37,19 @@ export default function WorkleInteractions() {
       const setStatus = (el: HTMLElement, status: "queued" | "prog" | "done") => {
         el.dataset.status = status;
         const pill = el.querySelector<HTMLElement>(".hc-status");
-        if (pill) {
-          pill.className = "hc-status " + status;
-          pill.textContent = status === "done" ? "DONE ✓" : status === "prog" ? "IN PROGRESS" : "QUEUED";
-        }
-        const bar = el.querySelector<HTMLElement>(".hc-prog i");
-        if (bar && status === "prog") {
-          bar.style.animation = "none";
-          void bar.offsetWidth;
-          bar.style.animation = "";
+        if (!pill) return;
+        pill.className = "hc-status " + status;
+        if (status === "queued") {
+          pill.textContent = "QUEUED";
+        } else if (status === "prog") {
+          pill.textContent = "IN PROGRESS";
+        } else {
+          pill.innerHTML =
+            '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">' +
+            '<polyline points="2,5.5 4.2,7.5 8,3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+            "</svg> DONE";
         }
       };
-
-      const layout = () => cards.forEach((el, i) => { el.dataset.slot = SLOTS[i]; });
 
       const makeCard = (title: string): HTMLElement => {
         const el = document.createElement("div");
@@ -58,28 +58,69 @@ export default function WorkleInteractions() {
         el.dataset.status = "queued";
         el.innerHTML =
           '<span class="hc-status queued">QUEUED</span>' +
-          `<p class="hc-title">${title}</p>` +
-          '<div class="hc-prog-wrap"><div class="hc-prog"><i></i></div><span class="hc-meta">計測中</span></div>';
+          `<p class="hc-title">${title}</p>`;
         stack.appendChild(el);
         return el;
       };
 
-      const tick = () => {
-        const leaving = cards[2];
-        leaving.dataset.slot = "leave";
-        setTimeout(() => leaving.remove(), 750);
+      if (!reduce) {
+        let doneTimer: ReturnType<typeof setTimeout>;
+        let advanceTimer: ReturnType<typeof setTimeout>;
+        let removeTimer: ReturnType<typeof setTimeout>;
 
-        setStatus(cards[0], "prog");
-        setStatus(cards[1], "done");
+        const tick = () => {
+          clearTimeout(doneTimer);
+          clearTimeout(advanceTimer);
+          clearTimeout(removeTimer);
 
-        const nc = makeCard(QUEUE_TITLES[qi++ % QUEUE_TITLES.length]);
-        cards = [nc, cards[0], cards[1]];
+          const front = cards[0];
+          setStatus(front, "prog");
 
-        requestAnimationFrame(() => requestAnimationFrame(layout));
-      };
+          doneTimer = setTimeout(() => {
+            setStatus(front, "done");
 
-      const timer = setInterval(tick, 8000);
-      cleanups.push(() => clearInterval(timer));
+            advanceTimer = setTimeout(() => {
+              front.dataset.slot = "exit";
+              cards[1].dataset.slot = "0";
+              cards[2].dataset.slot = "1";
+              cards[3].dataset.slot = "2";
+              cards[4].dataset.slot = "3";
+
+              const nc = makeCard(QUEUE_TITLES[qi++ % QUEUE_TITLES.length]);
+              requestAnimationFrame(() => requestAnimationFrame(() => { nc.dataset.slot = "4"; }));
+              cards = [cards[1], cards[2], cards[3], cards[4], nc];
+
+              removeTimer = setTimeout(() => front.remove(), 700);
+            }, 500);
+          }, 1500);
+        };
+
+        const heroTimer = setInterval(tick, 3200);
+        cleanups.push(() => {
+          clearInterval(heroTimer);
+          clearTimeout(doneTimer);
+          clearTimeout(advanceTimer);
+          clearTimeout(removeTimer);
+        });
+
+        // Mouse parallax (desktop only)
+        if (stackWrap) {
+          const handleMouse = (e: MouseEvent) => {
+            if (window.innerWidth < 1024) return;
+            const rect = stackWrap.getBoundingClientRect();
+            const dx = (e.clientX - (rect.left + rect.width / 2)) / (window.innerWidth * 0.5);
+            const dy = (e.clientY - (rect.top + rect.height / 2)) / (window.innerHeight * 0.5);
+            stack.style.transform = `rotateY(${dx * 4}deg) rotateX(${-dy * 3}deg)`;
+          };
+          const handleLeave = () => { stack.style.transform = ""; };
+          document.addEventListener("mousemove", handleMouse);
+          document.getElementById("hero")?.addEventListener("mouseleave", handleLeave);
+          cleanups.push(() => {
+            document.removeEventListener("mousemove", handleMouse);
+            document.getElementById("hero")?.removeEventListener("mouseleave", handleLeave);
+          });
+        }
+      }
     }
 
     // Smooth-scroll for in-page anchors
