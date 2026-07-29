@@ -3,6 +3,8 @@ import Link from "next/link";
 import SiteNav from "../components/SiteNav";
 import SiteFooter from "../components/SiteFooter";
 import WorkleInteractions from "../components/WorkleInteractions";
+import Icon from "../components/Icon";
+import Image from "next/image";
 import { SampleReportModal } from "./SampleReportModal";
 
 const PAGE_URL = "https://www.workle-kle.com/test";
@@ -154,7 +156,7 @@ export default function TestLandingPage() {
         <section className="sv sv-hero" id="hero">
           <div className="wrap">
             <p className="sv-en" aria-hidden="true">TEST IT.</p>
-            <span className="sv-eyebrow">リサーチ・ユーザーテスト代行</span>
+            <span className="sv-eyebrow"><Icon name="eye" className="sv-eyebrow-icon" />リサーチ・ユーザーテスト代行</span>
             <h1 className="sv-h" style={{ fontSize: "clamp(27px, 4.2vw, 50px)", maxWidth: 820 }}>
               1回の完璧な調査より、<br />12回の検証。
             </h1>
@@ -180,7 +182,7 @@ export default function TestLandingPage() {
         {/* §2 問題提起 */}
         <section className="sv tight" id="problem">
           <div className="wrap">
-            <span className="sv-eyebrow">なぜ、この調査が要るのか</span>
+            <span className="sv-eyebrow"><Icon name="search" className="sv-eyebrow-icon" />なぜ、この調査が要るのか</span>
             <h2 className="sv-h">リリースしたのに、使われない。<br />でも「なぜ」が分からない。</h2>
             <p className="sv-prose">
               アナリティクスが教えてくれるのは「<strong>どこで</strong>離脱したか」まで。「<strong>なぜ</strong>」は、実際に使う人の手の動きと、詰まった瞬間の表情の中にしかありません。<br /><br />
@@ -192,7 +194,7 @@ export default function TestLandingPage() {
         {/* §3 サービス内容 3ステップ */}
         <section className="sv tight" id="how">
           <div className="wrap">
-            <span className="sv-eyebrow">サービス内容</span>
+            <span className="sv-eyebrow"><Icon name="clipboard" className="sv-eyebrow-icon" />サービス内容</span>
             <h2 className="sv-h">あなたがやることは、<br />フォーム入力と、結果を読むこと。</h2>
             <div className="sv-steps">
               <div className="sv-step">
@@ -220,7 +222,7 @@ export default function TestLandingPage() {
         {/* §4 なぜ何度でも頼めるのか（比較表） */}
         <section className="sv tight" id="why-price">
           <div className="wrap">
-            <span className="sv-eyebrow">なぜ、何度でも頼めるのか</span>
+            <span className="sv-eyebrow"><Icon name="refresh" className="sv-eyebrow-icon" />なぜ、何度でも頼めるのか</span>
             <h2 className="sv-h">調査会社は、<br />年に1回しか呼べません。</h2>
 
             <div className="sv-compare">
@@ -272,7 +274,7 @@ export default function TestLandingPage() {
         {/* §5 独自商品: 競合比較テスト */}
         <section className="sv tight" id="versus">
           <div className="wrap">
-            <span className="sv-eyebrow">独自メニュー — 競合比較テスト</span>
+            <span className="sv-eyebrow"><Icon name="compare" className="sv-eyebrow-icon" />独自メニュー — 競合比較テスト</span>
             <h2 className="sv-h">なぜ競合が選ばれて、<br />あなたが選ばれないのか。</h2>
             <p className="sv-sub">
               同じ10人が、あなたのサービスと競合2つを実際に使い比べ、最後に「どれを使い続けるか」を選びます。選ばれた理由と、選ばれなかった理由を、発言そのままで納品します。機能比較表では絶対に出てこない、意思決定の瞬間が手に入ります。
@@ -314,7 +316,7 @@ export default function TestLandingPage() {
         <section className="sv tight" id="deliverables">
           <div className="wrap">
             <p className="sv-en" aria-hidden="true">DELIVERABLES</p>
-            <span className="sv-eyebrow">納品物</span>
+            <span className="sv-eyebrow"><Icon name="doc" className="sv-eyebrow-icon" />納品物</span>
             <h2 className="sv-h">届くのは、3つです。</h2>
             <div className="dlv-grid">
               <div className="dlv-card">
@@ -333,15 +335,29 @@ export default function TestLandingPage() {
                 <p className="dlv-body">サマリー・発見点リスト（重要度別）・改善提案・被験者属性をまとめたA4レポート。</p>
               </div>
             </div>
-            <p className="dlv-sample-cue">
-              <button
-                type="button"
-                className="dlv-sample-link"
-                data-action="open-sample-modal"
-              >
-                サンプルレポートを見る →
-              </button>
-            </p>
+            <div className="dlv-figure">
+              <div className="dlv-figure-img">
+                <Image
+                  src="/samples/sample-cover.png"
+                  alt="サンプルレポートの表紙"
+                  width={280}
+                  height={396}
+                />
+              </div>
+              <div className="dlv-figure-body">
+                <p className="dlv-figure-tag">SAMPLE</p>
+                <h3>これが、実際に届くレポートです。</h3>
+                <p>架空のアプリを題材にしたサンプル（A4・5ページ）。実際の納品では、貴社サービスの発見点と改善提案が入ります。</p>
+                <button
+                  type="button"
+                  className="dlv-sample-link"
+                  data-action="open-sample-modal"
+                  style={{ alignSelf: "flex-start" }}
+                >
+                  サンプル全文をメールで受け取る →
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -349,7 +365,7 @@ export default function TestLandingPage() {
         <section className="sv tight" id="process">
           <div className="wrap">
             <p className="sv-en" aria-hidden="true">PROCESS</p>
-            <span className="sv-eyebrow">進め方</span>
+            <span className="sv-eyebrow"><Icon name="flag" className="sv-eyebrow-icon" />進め方</span>
             <h2 className="sv-h">申込から納品まで。</h2>
             <div className="proc-grid">
               <div className="proc-step">
@@ -379,22 +395,25 @@ export default function TestLandingPage() {
         {/* §7.5 A レポートで終わらない — 4ステップ */}
         <section className="sv tight" id="why-workle">
           <div className="wrap">
-            <span className="sv-eyebrow">レポートで終わらない</span>
+            <span className="sv-eyebrow"><Icon name="sliders" className="sv-eyebrow-icon" />レポートで終わらない</span>
             <h2 className="sv-h">調査会社は、<br />レポートを出したら終わります。</h2>
             <p className="sv-sub">Workle は、そのあとも手を動かします。</p>
             <div className="sv-steps four" style={{ marginTop: 28 }}>
               <div className="sv-step">
                 <div className="sv-step-n">01</div>
+                <Icon name="eye" className="sv-step-ico" />
                 <h3>検証する</h3>
                 <p>実在ユーザーが使い、詰まった場所を特定。</p>
               </div>
               <div className="sv-step">
                 <div className="sv-step-n">02</div>
+                <Icon name="sliders" className="sv-step-ico" />
                 <h3>直す</h3>
                 <p>発見点をもとに、優先度つきの改善提案。</p>
               </div>
               <div className="sv-step">
                 <div className="sv-step-n">03</div>
+                <Icon name="speaker" className="sv-step-ico" />
                 <h3>届ける</h3>
                 <p>
                   実際にユーザーを連れてくる。
@@ -406,6 +425,7 @@ export default function TestLandingPage() {
               </div>
               <div className="sv-step">
                 <div className="sv-step-n">04</div>
+                <Icon name="refresh" className="sv-step-ico" />
                 <h3>また測る</h3>
                 <p>同じ設計でもう一度検証し、効果を数字で確認。</p>
               </div>
@@ -419,7 +439,7 @@ export default function TestLandingPage() {
         {/* §7.6 B 安心して頼めるように */}
         <section className="sv tight" id="assurance">
           <div className="wrap">
-            <span className="sv-eyebrow">安心して頼めるように</span>
+            <span className="sv-eyebrow"><Icon name="shield" className="sv-eyebrow-icon" />安心して頼めるように</span>
             <h2 className="sv-h">誰が、どんな人に、<br />どう責任を持つか。</h2>
             <div className="dlv-grid" style={{ marginTop: 28 }}>
               <div className="dlv-card">
@@ -444,7 +464,7 @@ export default function TestLandingPage() {
         {/* §8 料金 — 順路（まず1回 → 続ける） */}
         <section className="sv tight" id="pricing">
           <div className="wrap">
-            <span className="sv-eyebrow">料金</span>
+            <span className="sv-eyebrow"><Icon name="yen" className="sv-eyebrow-icon" />料金</span>
             <h2 className="sv-h">まず1回。合えば、続ける。</h2>
             <p className="sv-sub">
               検証は、1回で終わるものではありません。まず1回試して、続ける価値があると思えたら月額に切り替える。それだけです。
@@ -571,7 +591,7 @@ export default function TestLandingPage() {
         {/* §10 FAQ */}
         <section className="sv tight" id="faq">
           <div className="wrap">
-            <span className="sv-eyebrow">FAQ</span>
+            <span className="sv-eyebrow"><Icon name="question" className="sv-eyebrow-icon" />FAQ</span>
             <h2 className="sv-h">よくある質問</h2>
             <div className="faq-list" style={{ margin: "clamp(24px,3vw,36px) 0 0" }}>
               {FAQ_ITEMS.map(({ q, a }) => (

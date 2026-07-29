@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteNav from "../components/SiteNav";
 import SiteFooter from "../components/SiteFooter";
 import WorkleInteractions from "../components/WorkleInteractions";
+import Icon from "../components/Icon";
 
 const PAGE_URL = "https://www.workle-kle.com/sales";
 const CONSULT_URL = "/consult";
@@ -129,7 +130,7 @@ export default function SalesLandingPage() {
         <section className="sv sv-hero" id="hero">
           <div className="wrap">
             <p className="sv-en" aria-hidden="true">SELL IT.</p>
-            <span className="sv-eyebrow">営業代行 — 成果報酬型</span>
+            <span className="sv-eyebrow"><Icon name="phone" className="sv-eyebrow-icon" />営業代行 — 成果報酬型</span>
             <h1 className="sv-h" style={{ fontSize: "clamp(28px, 4.4vw, 50px)", maxWidth: 820 }}>
               営業を雇う前に、<br />試せる営業。
             </h1>
@@ -156,7 +157,7 @@ export default function SalesLandingPage() {
         {/* §2 提供内容 */}
         <section className="sv tight" id="scope">
           <div className="wrap">
-            <span className="sv-eyebrow">提供内容</span>
+            <span className="sv-eyebrow"><Icon name="clipboard" className="sv-eyebrow-icon" />提供内容</span>
             <h2 className="sv-h">アポにつながる実務を、<br />まるごと引き取ります。</h2>
             <div className="sv-steps g4">
               <div className="sv-step">
@@ -189,7 +190,7 @@ export default function SalesLandingPage() {
         {/* §3 成果報酬の定義 */}
         <section className="sv tight" id="apo">
           <div className="wrap">
-            <span className="sv-eyebrow">成果報酬の定義</span>
+            <span className="sv-eyebrow"><Icon name="target" className="sv-eyebrow-icon" />成果報酬の定義</span>
             <h2 className="sv-h">「アポ」の定義を、<br />先に決めます。</h2>
             <p className="sv-sub">
               成果報酬でいちばん揉めるのは「これはアポにカウントするのか」です。契約前に、課金対象を数字で確定させます。
@@ -209,7 +210,7 @@ export default function SalesLandingPage() {
         {/* §3.5 料金 */}
         <section className="sv tight" id="price">
           <div className="wrap">
-            <span className="sv-eyebrow">料金</span>
+            <span className="sv-eyebrow"><Icon name="yen" className="sv-eyebrow-icon" />料金</span>
             <h2 className="sv-h">アポ1件、¥20,000。以上。</h2>
             <div className="sv-chips">
               <span className="sv-chip">固定 <span className="sv-chip-num">¥50,000</span> / 月</span>
@@ -234,7 +235,7 @@ export default function SalesLandingPage() {
         {/* §4 比較表 */}
         <section className="sv tight" id="compare">
           <div className="wrap">
-            <span className="sv-eyebrow">比較</span>
+            <span className="sv-eyebrow"><Icon name="compare" className="sv-eyebrow-icon" />比較</span>
             <h2 className="sv-h">固定費の営業と、<br />何が違うのか。</h2>
 
             <div className="sv-compare">
@@ -284,7 +285,7 @@ export default function SalesLandingPage() {
         {/* §5 お断りする場合 */}
         <section className="sv tight" id="honest">
           <div className="wrap">
-            <span className="sv-eyebrow">先に、正直に</span>
+            <span className="sv-eyebrow"><Icon name="info" className="sv-eyebrow-icon" />先に、正直に</span>
             <h2 className="sv-h">お断りする場合も、<br />あります。</h2>
             <p className="sv-sub">
               成果報酬でお受けする以上、商材とターゲットの相性を、その場で見極めます。次のケースでは、お受けしない判断をすることがあります。
@@ -300,7 +301,7 @@ export default function SalesLandingPage() {
         {/* §6 進め方 */}
         <section className="sv tight" id="flow">
           <div className="wrap">
-            <span className="sv-eyebrow">進め方</span>
+            <span className="sv-eyebrow"><Icon name="flag" className="sv-eyebrow-icon" />進め方</span>
             <h2 className="sv-h">相談から稼働まで、<br />翌営業日。</h2>
             <div className="sv-steps four">
               <div className="sv-step">
@@ -330,7 +331,7 @@ export default function SalesLandingPage() {
         {/* §7 FAQ */}
         <section className="sv tight" id="faq">
           <div className="wrap">
-            <span className="sv-eyebrow">FAQ</span>
+            <span className="sv-eyebrow"><Icon name="question" className="sv-eyebrow-icon" />FAQ</span>
             <h2 className="sv-h">よくある質問</h2>
             <div className="faq-list faq-cream" style={{ margin: "clamp(24px,3vw,36px) 0 0" }}>
               {FAQ_ITEMS.map(({ q, a }) => (

@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteNav from "../components/SiteNav";
 import SiteFooter from "../components/SiteFooter";
 import WorkleInteractions from "../components/WorkleInteractions";
+import Icon from "../components/Icon";
 
 const PAGE_URL = "https://www.workle-kle.com/sns";
 const CONSULT_URL = "/consult";
@@ -88,7 +89,7 @@ export default function SnsLandingPage() {
         <section className="sv sv-hero" id="hero">
           <div className="wrap">
             <p className="sv-en" aria-hidden="true">POST IT.</p>
-            <span className="sv-eyebrow">SNS運用代行 — 実装まで</span>
+            <span className="sv-eyebrow"><Icon name="spark" className="sv-eyebrow-icon" />SNS運用代行 — 実装まで</span>
             <h1 className="sv-h" style={{ fontSize: "clamp(26px, 4vw, 46px)", maxWidth: 760 }}>
               発信が続かない会社の、<br />実行部隊になります。
             </h1>
@@ -115,7 +116,7 @@ export default function SnsLandingPage() {
         {/* §2 提供内容 */}
         <section className="sv tight" id="scope">
           <div className="wrap">
-            <span className="sv-eyebrow">提供内容</span>
+            <span className="sv-eyebrow"><Icon name="clipboard" className="sv-eyebrow-icon" />提供内容</span>
             <h2 className="sv-h">毎月、これだけ手を動かします。</h2>
             <div className="sv-steps">
               <div className="sv-step">
@@ -143,7 +144,7 @@ export default function SnsLandingPage() {
         {/* §3 独自性 */}
         <section className="sv tight" id="why">
           <div className="wrap">
-            <span className="sv-eyebrow">Workleの独自性</span>
+            <span className="sv-eyebrow"><Icon name="star" className="sv-eyebrow-icon" />Workleの独自性</span>
             <h2 className="sv-h">作れるチームだから、<br />提案で終わらない。</h2>
             <p className="sv-sub">
               多くのSNS代行は「投稿の外注」で止まります。Workleは外資ITでの開発経験を持つエンジニア兼マーケターが担当するため、LP改善・計測実装・自動化まで、その場で手を動かして完了させます。「作る」と「届ける」を分断しません。
@@ -227,7 +228,7 @@ export default function SnsLandingPage() {
         {/* §4 料金 + 併用割引 */}
         <section className="sv tight" id="price">
           <div className="wrap">
-            <span className="sv-eyebrow">料金</span>
+            <span className="sv-eyebrow"><Icon name="yen" className="sv-eyebrow-icon" />料金</span>
             <h2 className="sv-h">月¥98,000。<br />実装まで込み。</h2>
             <div className="sv-bigprice">
               <span className="amt">¥98,000</span>
