@@ -38,9 +38,10 @@ export const metadata: Metadata = {
 const COMPARE = {
   cols: ["海外テストPF", "国内調査会社", "セルフ型ツール", "Workle"],
   rows: [
-    { k: "丸投げ度", v: ["設計・分析は自分", "フルお任せ", "設計・分析は自分", "フルお任せ"] },
+    { k: "実施頻度", v: ["都度依頼", "年1〜2回", "都度（自分で）", "毎月でも"] },
     { k: "1人あたり", v: ["2〜4万円", "—", "5,000円〜", "¥1,980〜"] },
     { k: "総額目安", v: ["人数×2〜4万円", "数十万円〜/案件", "人数×5,000＋自分の工数", "¥19,800〜（5人）"] },
+    { k: "検証後の改善", v: ["レポートのみ", "レポートのみ", "生データのみ", "優先度つき改善提案"] },
     { k: "言語", v: ["英語中心", "日本語", "日本語", "日本語"] },
     { k: "進め方", v: ["自分で設計", "日程調整あり", "日程調整あり", "非同期で進行"] },
   ],
@@ -66,6 +67,10 @@ const FAQ_ITEMS = [
   {
     q: "結果が悪かったら、どうなりますか？",
     a: "悪い結果こそ価値です。リリース後に静かに離脱していくはずだったユーザーを、公開前に先に発見できたと考えてください。私たちは良い結果を作るのではなく、正確な結果を渡すことに責任を持ちます。",
+  },
+  {
+    q: "返金保証の条件を教えてください。",
+    a: "10人が実際に使い、優先度をつけるべき発見点が3件に満たなかった場合、全額を返金します。私たちは良い結果を作ることではなく、意味のある発見を渡すことに責任を持つためです。対象は初回の検証で、適用条件は事前にご案内します。",
   },
   {
     q: "サンプルと同じレポートがもらえますか？",
@@ -151,16 +156,12 @@ export default function TestLandingPage() {
           <div className="wrap">
             <p className="sv-en" aria-hidden="true">TEST IT.</p>
             <span className="sv-eyebrow">リサーチ・ユーザーテスト代行</span>
-            <h1 className="sv-h" style={{ fontSize: "clamp(25px, 3.9vw, 44px)", maxWidth: 860 }}>
-              あなたのサービス、実在の10人に使わせて、<br className="sp-break" />詰まった場所を全部報告します。
+            <h1 className="sv-h" style={{ fontSize: "clamp(27px, 4.2vw, 50px)", maxWidth: 820 }}>
+              1回の完璧な調査より、<br className="sp-break" />12回の検証。
             </h1>
             <p className="sv-sub">
-              設計・募集・実施・分析まで丸投げOK。対面ユーザーテスト＋改善レポートで、「なぜ使われないのか」を実際の手と表情から特定します。
+              サービスは毎月変わるのに、調査は年に一度きり。Workleは実在の10人を使い、詰まった場所と「なぜ」を、必要なときに何度でも。設計・募集・実施・分析まで丸投げできます。
             </p>
-            <div className="sv-chips">
-              <span className="sv-chip">個人開発 <span className="sv-chip-num">¥19,800</span>〜</span>
-              <span className="sv-chip">企業 <span className="sv-chip-num">¥98,000</span>〜</span>
-            </div>
             <div className="sv-cta-row">
               <a href="#pricing" className="btn btn-primary">
                 プランを見る <span className="arr">→</span>
@@ -217,11 +218,11 @@ export default function TestLandingPage() {
           </div>
         </section>
 
-        {/* §4 価格の根拠（比較表） */}
+        {/* §4 なぜ何度でも頼めるのか（比較表） */}
         <section className="sv tight" id="why-price">
           <div className="wrap">
-            <span className="sv-eyebrow">価格の根拠</span>
-            <h2 className="sv-h">本来、20万円かかる調査です。</h2>
+            <span className="sv-eyebrow">なぜ、何度でも頼めるのか</span>
+            <h2 className="sv-h">調査会社は、<br />年に1回しか呼べません。</h2>
 
             <div className="sv-compare">
               <table>
@@ -264,7 +265,7 @@ export default function TestLandingPage() {
             </div>
 
             <p className="sv-prose">
-              安いのは、手を抜くからではありません。<strong>スポットワークでの被験者採用</strong>と、<strong>定型化された調査設計</strong>で、募集と運用のコストを 1/10 に落としたからです。調査そのものの精度は落としていません。
+              数十万円の調査は、年に一度が限界です。でも、サービスは毎月変わります。<strong>Workleは固定のオフィスも常勤の調査員も持たないチーム</strong>だから、同じ精度の検証を、必要なときに何度でも回せます。安いのは手を抜くからではなく、抱えている固定費が違うからです。
             </p>
           </div>
         </section>
@@ -365,13 +366,75 @@ export default function TestLandingPage() {
           </div>
         </section>
 
+        {/* §7.5 差別化 — レポートで終わらない */}
+        <section className="sv tight" id="why-workle">
+          <div className="wrap">
+            <span className="sv-eyebrow">レポートで終わらない</span>
+            <h2 className="sv-h">渡して終わり、にしません。</h2>
+            <p className="sv-sub">
+              調査会社の納品物は、たいてい分厚いレポート1冊で終わります。Workleは、詰まった場所を<strong>優先度つきの改善提案</strong>にまで落とし、直したあとの再検証、その先の「実際に届ける」ところまで一緒に考えます。
+            </p>
+            <div className="dlv-grid" style={{ marginTop: 28 }}>
+              <div className="dlv-card">
+                <p className="dlv-num">01</p>
+                <h3 className="dlv-title">被験者の質<small>初見・毎回入れ替え</small></h3>
+                <p className="dlv-body">友人でも既存ファンでもない、初見のユーザーです。スポットワークで毎回異なる人を集めるため、忖度も慣れも入りません。性別・年代など2条件まで指定できます。</p>
+              </div>
+              <div className="dlv-card">
+                <p className="dlv-num">02</p>
+                <h3 className="dlv-title">実施するのは誰か<small>全テスト立ち会い</small></h3>
+                <p className="dlv-body">外注の丸投げではありません。人材業界で営業組織づくりに関わってきた運営者が、すべてのテストに立ち会い、設計から分析まで担当します。だから「なぜ詰まったか」を現場で拾えます。</p>
+              </div>
+              <div className="dlv-card">
+                <p className="dlv-num">03</p>
+                <h3 className="dlv-title">返金保証<small>発見点3件未満なら全額返金</small></h3>
+                <p className="dlv-body">10人が使って、優先度をつけるべき発見点が3件に満たなかったら、全額返金します。私たちは良い結果ではなく、意味のある発見に責任を持ちます。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* §8 料金表（2系統） */}
         <section className="sv tight" id="pricing">
           <div className="wrap">
             <span className="sv-eyebrow">料金</span>
-            <h2 className="sv-h">個人開発者価格と、<br />企業価格。</h2>
+            <h2 className="sv-h">まず、続けられる形から。</h2>
+            <p className="sv-sub">
+              一度きりの調査より、直して測り続けるほうが効きます。だからWorkleは<strong>継続プランを基本</strong>に置いています。もちろん、単発でのお試しもできます。
+            </p>
 
-            <div className="sv-price-grid">
+            {/* 継続プラン — 筆頭・推奨 */}
+            <div className="sv-price-col feat" style={{ marginTop: 28 }}>
+              <div className="sv-price-col-tag">継続検証プラン — おすすめ</div>
+              <div className="sv-bigprice">
+                <span className="amt">¥50,000</span>
+                <span className="unit">/ 月</span>
+              </div>
+              <div className="sv-def" style={{ marginTop: 16 }}>
+                <ul className="sv-def-list">
+                  <li><span className="k">毎月</span><span>5人テストを毎月実施し、改善の効果を継続計測</span></li>
+                  <li><span className="k">掲載打診</span><span>メディア・レビュアー <strong>30件</strong> への掲載打診</span></li>
+                  <li><span className="k">レポート</span><span>実数レポートを毎月納品（数字は盛りません）</span></li>
+                  <li><span className="k">形式</span><span>完全非同期・ミーティングなし・解約自由</span></li>
+                </ul>
+              </div>
+              <p className="sv-price-note sv-price-note-em">
+                直して、また測る。このループを月額で回します。
+              </p>
+              <div className="sv-price-cta-group">
+                <Link
+                  href={CONSULT_URL}
+                  className="btn btn-primary"
+                  data-action="track-consult"
+                  data-location="pricing_monthly"
+                >
+                  継続プランを相談する <span className="arr">→</span>
+                </Link>
+              </div>
+            </div>
+
+            <h3 className="sv-eyebrow" style={{ marginTop: 44, display: "block" }}>単発でまず試す</h3>
+            <div className="sv-price-grid" style={{ marginTop: 12 }}>
               {/* 個人開発者向け — Stripe決済 */}
               <div className="sv-price-col feat">
                 <div className="sv-price-col-tag">テストパック — 個人開発者向け</div>
@@ -413,31 +476,31 @@ export default function TestLandingPage() {
                 </div>
               </div>
 
-              {/* 企業向け — 相談経由 */}
+              {/* 企業向け — 専用ページへ誘導 */}
               <div className="sv-price-col">
                 <div className="sv-price-col-tag">検証レポート — 企業向け</div>
                 <div className="sv-price-row">
-                  <span className="pr-name">10人検証<small>フルレポート</small></span>
+                  <span className="pr-name">初回検証<small>10人・発見フェーズ</small></span>
                   <span className="pr-val">¥98,000</span>
                 </div>
                 <div className="sv-price-row">
-                  <span className="pr-name">競合比較<small>3サービス使い比べ</small></span>
-                  <span className="pr-val">¥148,000〜</span>
+                  <span className="pr-name">継続検証<small>毎月5人・確認フェーズ</small></span>
+                  <span className="pr-val">¥58,000<small>/月</small></span>
                 </div>
                 <p className="sv-price-note">
-                  ※ 改善提案書・5軸スコアリング付き。NDA締結・請求書払い・結果非公開。
+                  ※ NDA締結・請求書払い・結果非公開。競合比較テストや動画つきプランもあります。
                 </p>
-                <p className="sv-price-note">
-                  秘密保持契約・請求書払いに対応。設計内容の確認のため、30分のオンライン打ち合わせを1回お願いしています。
+                <p className="sv-price-note sv-price-note-em">
+                  発見フェーズと確認フェーズの詳しい内容は、企業向けページにまとめています。
                 </p>
                 <div className="sv-price-cta-group">
                   <Link
-                    href={CONSULT_URL}
+                    href="/test-biz"
                     className="btn btn-ghost-cream"
                     data-action="track-consult"
                     data-location="pricing_enterprise"
                   >
-                    無料相談を予約（15分）
+                    企業向けの詳細を見る <span className="arr">→</span>
                   </Link>
                 </div>
               </div>
@@ -449,29 +512,6 @@ export default function TestLandingPage() {
                 <li><span className="k">ペルソナ追加</span><span>属性の追加指定 <strong>+¥5,000</strong> / 1条件（2条件までは無料）</span></li>
                 <li><span className="k">被験者追加</span><span>5人追加ごと <strong>+¥15,000</strong>〜</span></li>
                 <li><span className="k">特急</span><span>短納期での実施 <strong>+¥10,000</strong></span></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* §9 続けたい人へ（月額） */}
-        <section className="sv tight" id="monthly">
-          <div className="wrap">
-            <span className="sv-eyebrow">続けたい人へ — 月額</span>
-            <h2 className="sv-h">直して、また測る。</h2>
-            <p className="sv-sub">
-              一度の検証で終わりではありません。改善して、また同じ精度で測る。このループを月額で回します。
-            </p>
-            <div className="sv-bigprice">
-              <span className="amt">¥50,000</span>
-              <span className="unit">/ 月</span>
-            </div>
-            <div className="sv-def" style={{ marginTop: 20 }}>
-              <ul className="sv-def-list">
-                <li><span className="k">毎月</span><span>5人テストを毎月実施し、改善の効果を継続計測</span></li>
-                <li><span className="k">掲載打診</span><span>メディア・レビュアー <strong>30件</strong> への掲載打診</span></li>
-                <li><span className="k">レポート</span><span>実数レポートを毎月納品（数字は盛りません）</span></li>
-                <li><span className="k">形式</span><span>完全非同期・ミーティングなし・解約自由</span></li>
               </ul>
             </div>
           </div>
