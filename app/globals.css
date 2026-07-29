@@ -2504,6 +2504,16 @@ img { max-width: 100%; display: block; }
   padding: clamp(24px, 3vw, 38px);
   margin: clamp(28px, 3vw, 40px) 0 0;
 }
+/* 料金カード内の内枠は、大枠より一回り小さく・軽く見せる */
+.sv-price-col .sv-def {
+  padding: clamp(15px, 1.8vw, 20px);
+  margin: 14px 0 0;
+  border-radius: 12px;
+  border-width: 1.5px;
+}
+.sv-price-col .sv-def-list { gap: 10px; }
+.sv-price-col .sv-def-list li { font-size: 13.5px; }
+.sv-price-col .sv-def-list li .k { min-width: 62px; }
 .sv-def-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
 .sv-def-list li { display: flex; gap: 14px; align-items: baseline; font-size: 14.5px; line-height: 1.7; color: var(--black); font-weight: 500; }
 .sv-def-list li .k {
@@ -3179,7 +3189,8 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: auto;
+  padding-top: 20px;
 }
 
 .sv-price-note-em {
