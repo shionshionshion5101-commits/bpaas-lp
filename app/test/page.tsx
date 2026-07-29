@@ -330,7 +330,7 @@ export default function TestLandingPage() {
               <div className="dlv-card">
                 <p className="dlv-num">03</p>
                 <h3 className="dlv-title">レポート<small>PDF</small></h3>
-                <p className="dlv-body">サマリー・発見点リスト（重要度別）・改善提案・被験者属性をまとめたA4レポート。録画リンク付き。</p>
+                <p className="dlv-body">サマリー・発見点リスト（重要度別）・改善提案・被験者属性をまとめたA4レポート。</p>
               </div>
             </div>
             <p className="dlv-sample-cue">
@@ -399,7 +399,7 @@ export default function TestLandingPage() {
                 <p>
                   実際にユーザーを連れてくる。
                   <span className="sv-step-links">
-                    <Link href="/sales">フォーム営業 →</Link>
+                    <Link href="/sales">営業 →</Link>
                     <Link href="/sns">SNS運用 →</Link>
                   </span>
                 </p>
@@ -467,8 +467,8 @@ export default function TestLandingPage() {
                   <div className="sv-def" style={{ marginTop: 12 }}>
                     <ul className="sv-def-list">
                       <li><span className="k">人数</span><span>5人</span></li>
-                      <li><span className="k">納品</span><span>録画＋発見点リスト</span></li>
-                      <li><span className="k">条件</span><span>事例および動画としての公開に同意</span></li>
+                      <li><span className="k">納品</span><span>発見点リスト</span></li>
+                      <li><span className="k">条件</span><span>事例としての公開に同意</span></li>
                       <li><span className="k">枠</span><span>月3枠限定</span></li>
                     </ul>
                   </div>
