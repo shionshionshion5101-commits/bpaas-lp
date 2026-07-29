@@ -14,14 +14,14 @@ const STRIPE_LIGHT_URL = process.env.NEXT_PUBLIC_STRIPE_LIGHT_URL ?? CONSULT_URL
 const X_URL = "https://x.com/Workle_shion";
 
 export const metadata: Metadata = {
-  title: "ユーザーテスト代行 格安 | Workle — 実在の10人が使い、詰まった場所を全部報告",
+  title: "ユーザーテスト代行 | Workle — 1回の完璧な調査より、12回の検証。",
   description:
-    "設計・募集・実施・分析まで丸投げできる対面ユーザーテスト代行。実在ユーザーがあなたのサービスを使い、詰まった場所と『なぜ』を報告します。個人開発¥19,800〜 / 企業¥98,000〜。競合比較テストも。",
+    "設計・募集・実施・分析まで丸投げできる対面ユーザーテスト代行。実在ユーザーがあなたのサービスを使い、詰まった場所と『なぜ』を特定。まず1回試して、合えば毎月の検証に。改善提案まで手を動かします。",
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "ユーザーテスト代行 格安 | Workle",
+    title: "ユーザーテスト代行 | Workle",
     description:
-      "あなたのサービス、実在の10人に使わせて、詰まった場所を全部報告します。個人開発¥19,800〜。",
+      "1回の完璧な調査より、12回の検証。実在の10人が使い、詰まった場所と『なぜ』を特定。設計から改善提案まで丸投げできます。",
     url: PAGE_URL,
     siteName: "Workle",
     locale: "ja_JP",
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "ユーザーテスト代行 格安 | Workle",
-    description: "なぜ使われないのか、実在の10人が答えます。個人開発¥19,800〜。",
+    title: "ユーザーテスト代行 | Workle",
+    description: "1回の完璧な調査より、12回の検証。なぜ使われないのか、実在の10人が答えます。",
   },
 };
 
@@ -38,11 +38,11 @@ const COMPARE = {
   cols: ["海外テストPF", "国内調査会社", "セルフ型ツール", "Workle"],
   rows: [
     { k: "実施頻度", v: ["都度依頼", "年1〜2回", "都度（自分で）", "毎月でも"] },
-    { k: "1人あたり", v: ["2〜4万円", "—", "5,000円〜", "¥1,980〜"] },
-    { k: "総額目安", v: ["人数×2〜4万円", "数十万円〜/案件", "人数×5,000＋自分の工数", "¥19,800〜（5人）"] },
     { k: "検証後の改善", v: ["レポートのみ", "レポートのみ", "生データのみ", "優先度つき改善提案"] },
-    { k: "言語", v: ["英語中心", "日本語", "日本語", "日本語"] },
     { k: "進め方", v: ["自分で設計", "日程調整あり", "日程調整あり", "非同期で進行"] },
+    { k: "納期", v: ["数日〜", "数週間〜", "自分の空き次第", "10営業日（最短7）"] },
+    { k: "言語", v: ["英語中心", "日本語", "日本語", "日本語"] },
+    { k: "総額目安", v: ["人数×2〜4万円", "数十万円〜/案件", "人数×5,000＋自分の工数", "¥19,800〜（5人）"] },
   ],
 };
 
@@ -106,7 +106,7 @@ const JSON_LD = {
         "@type": "Offer",
         price: "19800",
         priceCurrency: "JPY",
-        description: "対面ユーザーテスト＋改善レポート。個人開発¥19,800〜 / 企業¥98,000〜",
+        description: "対面ユーザーテスト＋改善レポート。まず1回試して、合えば毎月の継続検証へ。",
       },
       url: PAGE_URL,
     },
@@ -138,13 +138,13 @@ export default function TestLandingPage() {
       />
 
       <SiteNav
+        active="research"
         links={[
           { href: "#how", label: "内容" },
           { href: "#deliverables", label: "納品物" },
           { href: "#pricing", label: "料金" },
           { href: "#faq", label: "FAQ" },
         ]}
-        ghost={{ href: "/", label: "他のサービス" }}
         cta={{ href: CONSULT_URL, label: "無料相談を予約" }}
       />
 
@@ -296,6 +296,17 @@ export default function TestLandingPage() {
                 <p>選ばれた／選ばれなかった理由を、発言そのままで。</p>
               </div>
             </div>
+            <div className="versus-price">
+              <span className="versus-price-val">競合比較テスト <strong>¥198,000</strong><small>（単発）</small></span>
+              <Link
+                href={CONSULT_URL}
+                className="btn btn-ghost-cream"
+                data-action="track-consult"
+                data-location="versus"
+              >
+                競合比較テストを相談する <span className="arr">→</span>
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -365,14 +376,51 @@ export default function TestLandingPage() {
           </div>
         </section>
 
-        {/* §7.5 差別化 — レポートで終わらない */}
+        {/* §7.5 A レポートで終わらない — 4ステップ */}
         <section className="sv tight" id="why-workle">
           <div className="wrap">
             <span className="sv-eyebrow">レポートで終わらない</span>
-            <h2 className="sv-h">渡して終わり、にしません。</h2>
-            <p className="sv-sub">
-              調査会社の納品物は、たいてい分厚いレポート1冊で終わります。Workleは、詰まった場所を<strong>優先度つきの改善提案</strong>にまで落とし、直したあとの再検証、その先の「実際に届ける」ところまで一緒に考えます。
+            <h2 className="sv-h">調査会社は、<br />レポートを出したら終わります。</h2>
+            <p className="sv-sub">Workle は、そのあとも手を動かします。</p>
+            <div className="sv-steps four" style={{ marginTop: 28 }}>
+              <div className="sv-step">
+                <div className="sv-step-n">01</div>
+                <h3>検証する</h3>
+                <p>実在ユーザーが使い、詰まった場所を特定。</p>
+              </div>
+              <div className="sv-step">
+                <div className="sv-step-n">02</div>
+                <h3>直す</h3>
+                <p>発見点をもとに、優先度つきの改善提案。</p>
+              </div>
+              <div className="sv-step">
+                <div className="sv-step-n">03</div>
+                <h3>届ける</h3>
+                <p>
+                  実際にユーザーを連れてくる。
+                  <span className="sv-step-links">
+                    <Link href="/sales">フォーム営業 →</Link>
+                    <Link href="/sns">SNS運用 →</Link>
+                  </span>
+                </p>
+              </div>
+              <div className="sv-step">
+                <div className="sv-step-n">04</div>
+                <h3>また測る</h3>
+                <p>同じ設計でもう一度検証し、効果を数字で確認。</p>
+              </div>
+            </div>
+            <p className="sv-note" style={{ marginTop: 22 }}>
+              <strong>01だけでも、04まででも。</strong>単品から頼めます。
             </p>
+          </div>
+        </section>
+
+        {/* §7.6 B 安心して頼めるように */}
+        <section className="sv tight" id="assurance">
+          <div className="wrap">
+            <span className="sv-eyebrow">安心して頼めるように</span>
+            <h2 className="sv-h">誰が、どんな人に、<br />どう責任を持つか。</h2>
             <div className="dlv-grid" style={{ marginTop: 28 }}>
               <div className="dlv-card">
                 <p className="dlv-num">01</p>
@@ -393,112 +441,130 @@ export default function TestLandingPage() {
           </div>
         </section>
 
-        {/* §8 料金表（2系統） */}
+        {/* §8 料金 — 順路（まず1回 → 続ける） */}
         <section className="sv tight" id="pricing">
           <div className="wrap">
             <span className="sv-eyebrow">料金</span>
-            <h2 className="sv-h">まず、続けられる形から。</h2>
+            <h2 className="sv-h">まず1回。合えば、続ける。</h2>
             <p className="sv-sub">
-              一度きりの調査より、直して測り続けるほうが効きます。だからWorkleは<strong>継続プランを基本</strong>に置いています。もちろん、単発でのお試しもできます。
+              検証は、1回で終わるものではありません。まず1回試して、続ける価値があると思えたら月額に切り替える。それだけです。
             </p>
 
-            {/* 継続プラン — 筆頭・推奨 */}
-            <div className="sv-price-col feat" style={{ marginTop: 28 }}>
-              <div className="sv-price-col-tag">継続検証プラン — おすすめ</div>
-              <div className="sv-bigprice">
-                <span className="amt">¥50,000</span>
-                <span className="unit">/ 月</span>
-              </div>
-              <div className="sv-def" style={{ marginTop: 16 }}>
-                <ul className="sv-def-list">
-                  <li><span className="k">毎月</span><span>5人テストを毎月実施し、改善の効果を継続計測</span></li>
-                  <li><span className="k">掲載打診</span><span>メディア・レビュアー <strong>30件</strong> への掲載打診</span></li>
-                  <li><span className="k">レポート</span><span>実数レポートを毎月納品（数字は盛りません）</span></li>
-                  <li><span className="k">形式</span><span>完全非同期・ミーティングなし・解約自由</span></li>
-                </ul>
-              </div>
-              <p className="sv-price-note sv-price-note-em">
-                直して、また測る。このループを月額で回します。
+            {/* STEP 1 — まず1回やる */}
+            <div className="price-step" style={{ marginTop: 32 }}>
+              <p className="price-step-tag">STEP 1 ｜ まず1回やる</p>
+              <p className="sv-prose" style={{ marginTop: 8 }}>
+                結果を事例として公開させていただける場合、被験者の募集コストの一部を当社が負担できるため、価格が下がります。非公開をご希望の場合は企業向けプランになります。
               </p>
-              <div className="sv-price-cta-group">
-                <Link
-                  href={CONSULT_URL}
-                  className="btn btn-primary"
-                  data-action="track-consult"
-                  data-location="pricing_monthly"
-                >
-                  継続プランを相談する <span className="arr">→</span>
-                </Link>
+              <div className="sv-price-grid" style={{ marginTop: 20 }}>
+                {/* ライト — 公開できる方（個人開発者向け） */}
+                <div className="sv-price-col feat">
+                  <div className="sv-price-col-tag">ライト — 結果を公開できる方</div>
+                  <div className="sv-price-row">
+                    <span className="pr-name">5人テスト<small>個人開発者向け</small></span>
+                    <span className="pr-val">¥19,800</span>
+                  </div>
+                  <div className="sv-def" style={{ marginTop: 12 }}>
+                    <ul className="sv-def-list">
+                      <li><span className="k">人数</span><span>5人</span></li>
+                      <li><span className="k">納品</span><span>録画＋発見点リスト</span></li>
+                      <li><span className="k">条件</span><span>事例および動画としての公開に同意</span></li>
+                      <li><span className="k">枠</span><span>月3枠限定</span></li>
+                    </ul>
+                  </div>
+                  <p className="sv-price-note sv-price-note-em">
+                    決済後、入稿フォームのご案内メールが届きます。会議は不要です。
+                  </p>
+                  <div className="sv-price-cta-group">
+                    <a
+                      href={STRIPE_LIGHT_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary"
+                      data-action="track-checkout"
+                      data-plan="light"
+                    >
+                      その場で決済して申し込む <span className="arr">→</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* 初回検証 — 非公開にしたい方（企業向け） */}
+                <div className="sv-price-col">
+                  <div className="sv-price-col-tag">初回検証 — 結果を非公開にしたい方</div>
+                  <div className="sv-price-row">
+                    <span className="pr-name">10人検証<small>企業向け</small></span>
+                    <span className="pr-val">¥98,000</span>
+                  </div>
+                  <div className="sv-def" style={{ marginTop: 12 }}>
+                    <ul className="sv-def-list">
+                      <li><span className="k">人数</span><span>10人</span></li>
+                      <li><span className="k">納品</span><span>設計シート／実施記録シート／PDFレポート</span></li>
+                      <li><span className="k">条件</span><span>NDA締結・請求書払い・結果非公開</span></li>
+                      <li><span className="k">保証</span><span>発見点3件未満なら全額返金</span></li>
+                    </ul>
+                  </div>
+                  <div className="sv-price-cta-group">
+                    <Link
+                      href={CONSULT_URL}
+                      className="btn btn-ghost-cream"
+                      data-action="track-consult"
+                      data-location="pricing_initial"
+                    >
+                      15分の無料相談から <span className="arr">→</span>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <h3 className="sv-eyebrow" style={{ marginTop: 44, display: "block" }}>単発でまず試す</h3>
-            <div className="sv-price-grid" style={{ marginTop: 12 }}>
-              {/* 個人開発者向け — Stripe決済 */}
-              <div className="sv-price-col feat">
-                <div className="sv-price-col-tag">テストパック — 個人開発者向け</div>
-                <div className="sv-price-row">
-                  <span className="pr-name">ライト<small>5人テスト</small></span>
-                  <span className="pr-val">¥19,800</span>
+            {/* STEP 2 — 続ける */}
+            <div className="price-step price-step-next" style={{ marginTop: 20 }}>
+              <div className="price-step-arrow" aria-hidden="true">↓</div>
+              <p className="price-step-tag">STEP 2 ｜ 続ける</p>
+              <div className="sv-price-col feat" style={{ marginTop: 12 }}>
+                <div className="sv-price-col-tag">継続検証 — 確認フェーズ</div>
+                <div className="sv-bigprice">
+                  <span className="amt">¥58,000</span>
+                  <span className="unit">/ 月</span>
                 </div>
-                <p className="sv-price-note">
-                  ※ 録画+発見点リスト納品。発見の8割は5人で出ます。
+                <p className="sv-prose" style={{ marginTop: 4 }}>
+                  毎月5人。直したものが効いたかを確認するフェーズです。
                 </p>
-                <p className="sv-price-note sv-price-note-em">
-                  決済後、入稿フォームのご案内メールが届きます。会議は不要です。
-                </p>
-                <div className="sv-price-cta-group">
-                  <a
-                    href={STRIPE_LIGHT_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                    data-action="track-checkout"
-                    data-plan="light"
-                  >
-                    ライトに申し込む <span className="arr">→</span>
-                  </a>
+                <div className="sv-def" style={{ marginTop: 16 }}>
+                  <ul className="sv-def-list">
+                    <li><span className="k">毎月</span><span>5人テストを実施し、前月からの変化を比較</span></li>
+                    <li><span className="k">レポート</span><span>優先度つき改善提案レポートを毎月納品</span></li>
+                    <li><span className="k">形式</span><span>完全非同期・ミーティングなし・解約はいつでも</span></li>
+                  </ul>
                 </div>
-              </div>
-
-              {/* 企業向け — 専用ページへ誘導 */}
-              <div className="sv-price-col">
-                <div className="sv-price-col-tag">検証レポート — 企業向け</div>
-                <div className="sv-price-row">
-                  <span className="pr-name">初回検証<small>10人・発見フェーズ</small></span>
-                  <span className="pr-val">¥98,000</span>
+                <div className="sv-note" style={{ marginTop: 16 }}>
+                  <strong>加入条件：初回検証（10人）を実施済みの方。</strong> 継続検証は「直したものが効いたか」を確認するフェーズです。何が問題かを特定する初回検証を経ていないと、比較する基準がないため成立しません。そのため、初回検証を実施いただいた方のみのプランとしています。
                 </div>
-                <div className="sv-price-row">
-                  <span className="pr-name">継続検証<small>毎月5人・確認フェーズ</small></span>
-                  <span className="pr-val">¥58,000<small>/月</small></span>
-                </div>
-                <p className="sv-price-note">
-                  ※ NDA締結・請求書払い・結果非公開。競合比較テストや動画つきプランもあります。
-                </p>
-                <p className="sv-price-note sv-price-note-em">
-                  発見フェーズと確認フェーズの詳しい内容は、企業向けページにまとめています。
-                </p>
                 <div className="sv-price-cta-group">
                   <Link
-                    href="/test-biz"
-                    className="btn btn-ghost-cream"
+                    href={CONSULT_URL}
+                    className="btn btn-primary"
                     data-action="track-consult"
-                    data-location="pricing_enterprise"
+                    data-location="pricing_monthly"
                   >
-                    企業向けの詳細を見る <span className="arr">→</span>
+                    継続プランを相談する <span className="arr">→</span>
                   </Link>
                 </div>
               </div>
             </div>
 
-            <div className="sv-def" style={{ marginTop: 16 }}>
-              <div className="sv-price-col-tag">オプション</div>
-              <ul className="sv-def-list">
-                <li><span className="k">ペルソナ追加</span><span>属性の追加指定 <strong>+¥5,000</strong> / 1条件（2条件までは無料）</span></li>
-                <li><span className="k">被験者追加</span><span>5人追加ごと <strong>+¥15,000</strong>〜</span></li>
-                <li><span className="k">特急</span><span>短納期での実施 <strong>+¥10,000</strong></span></li>
-              </ul>
-            </div>
+            {/* オプション（折りたたみ） */}
+            <details className="price-options" style={{ marginTop: 24 }}>
+              <summary>オプションを見る +</summary>
+              <div className="sv-def" style={{ marginTop: 12 }}>
+                <ul className="sv-def-list">
+                  <li><span className="k">ペルソナ追加</span><span>属性の追加指定 <strong>+¥5,000</strong> / 1条件（2条件までは無料）</span></li>
+                  <li><span className="k">被験者追加</span><span>5人追加ごと <strong>+¥15,000</strong>〜</span></li>
+                  <li><span className="k">特急</span><span>短納期での実施 <strong>+¥10,000</strong></span></li>
+                </ul>
+              </div>
+            </details>
           </div>
         </section>
 
@@ -540,7 +606,7 @@ export default function TestLandingPage() {
                   サンプルレポートを見る
                 </button>
               </div>
-              <p className="final-v2-note">個人開発¥19,800〜 · 丸投げOK · 非同期で進行</p>
+              <p className="final-v2-note">毎月回せる検証 · 申込から10営業日 · 改善提案まで</p>
             </div>
           </div>
         </section>

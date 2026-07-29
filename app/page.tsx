@@ -76,15 +76,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
       />
 
-      <SiteNav
-        links={[
-          { href: "/test", label: "リサーチ" },
-          { href: "/sales", label: "営業代行" },
-          { href: "/sns", label: "SNS運用" },
-          { href: "#faq", label: "FAQ" },
-        ]}
-        cta={{ href: "/consult", label: "無料相談を予約" }}
-      />
+      <SiteNav cta={{ href: "/consult", label: "無料相談を予約" }} />
 
       <main id="top">
 

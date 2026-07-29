@@ -112,6 +112,7 @@ export default function SalesLandingPage() {
       />
 
       <SiteNav
+        active="sales"
         links={[
           { href: "#scope", label: "提供内容" },
           { href: "#apo", label: "成果報酬" },
@@ -119,7 +120,6 @@ export default function SalesLandingPage() {
           { href: "#compare", label: "比較" },
           { href: "#faq", label: "FAQ" },
         ]}
-        ghost={{ href: "/", label: "他のサービス" }}
         cta={{ href: CONSULT_URL, label: "無料相談を予約" }}
       />
 
@@ -222,6 +222,12 @@ export default function SalesLandingPage() {
               </Link>
             </div>
             <p className="sv-cta-note">最低契約期間なし · いつでも解約可 · 翌営業日稼働</p>
+            <div className="sv-def" style={{ marginTop: 20 }}>
+              <div className="sv-price-col-tag">オプション</div>
+              <ul className="sv-def-list">
+                <li><span className="k">掲載打診</span><span>メディア・レビュアー <strong>30件</strong> への掲載打診（月額オプション）</span></li>
+              </ul>
+            </div>
           </div>
         </section>
 

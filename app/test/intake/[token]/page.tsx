@@ -50,14 +50,7 @@ export default async function IntakePage({ params }: PageProps) {
 
   return (
     <>
-      <SiteNav
-        links={[
-          { href: "/sales", label: "営業代行" },
-          { href: "/sns", label: "SNS運用" },
-        ]}
-        ghost={{ href: "/test", label: "サービスページへ" }}
-        cta={{ href: CONSULT_PATH, label: "無料相談を予約" }}
-      />
+      <SiteNav active="research" cta={{ href: CONSULT_PATH, label: "無料相談を予約" }} />
       <main>
         {isSubmitted && existingIntake ? (
           <IntakeReadonly

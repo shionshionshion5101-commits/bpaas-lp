@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       // 旧単独ページはハブ内アンカーへ集約
       { source: "/faq", destination: "/#faq", permanent: true },
       { source: "/team", destination: "/#team", permanent: true },
+      // 企業向けリサーチは /test に統合（価格差の理由をページ内に明記したため分離不要）
+      { source: "/test-biz", destination: "/test#pricing", statusCode: 301 },
     ];
   },
 };

@@ -73,12 +73,12 @@ export default function SnsLandingPage() {
       />
 
       <SiteNav
+        active="sns"
         links={[
           { href: "#scope", label: "内容" },
           { href: "#why", label: "強み" },
           { href: "#price", label: "料金" },
         ]}
-        ghost={{ href: "/", label: "他のサービス" }}
         cta={{ href: CONSULT_URL, label: "無料相談を予約" }}
       />
 

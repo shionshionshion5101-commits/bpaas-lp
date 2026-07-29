@@ -49,11 +49,7 @@ export default async function StatusPage({ params }: PageProps) {
 
   return (
     <>
-      <SiteNav
-        links={[{ href: "/", label: "他のサービス" }]}
-        ghost={{ href: "/test", label: "サービスページへ" }}
-        cta={{ href: CONSULT_PATH, label: "無料相談を予約" }}
-      />
+      <SiteNav active="research" cta={{ href: CONSULT_PATH, label: "無料相談を予約" }} />
       <main>
         {/* HEADER */}
         <section className="status-hero">

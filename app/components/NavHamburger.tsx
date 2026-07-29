@@ -1,19 +1,19 @@
 "use client";
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
-import type { NavLink } from "./SiteNav";
+import { SERVICES, type NavLink } from "./SiteNav";
 
 type Props = {
   links: NavLink[];
-  ctaHref: string;
-  ctaLabel: string;
+  ctaHref?: string;
+  ctaLabel?: string;
 };
 
 export default function NavHamburger({ links, ctaHref, ctaLabel }: Props) {
   const [open, setOpen] = useState(false);
   const close = useCallback(() => setOpen(false), []);
 
-  // Close on route change / escape
+  // Close on escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
     document.addEventListener("keydown", onKey);
@@ -47,25 +47,40 @@ export default function NavHamburger({ links, ctaHref, ctaLabel }: Props) {
         aria-label="ナビゲーションメニュー"
         aria-modal={open}
       >
-        {links.map((l) =>
-          l.href.startsWith("/") && !l.href.includes("#") ? (
-            <Link key={l.href} href={l.href} className="nav-menu-link" onClick={close}>
-              {l.label}
-            </Link>
-          ) : (
-            <a key={l.href} href={l.href} className="nav-menu-link" onClick={close}>
-              {l.label}
-            </a>
-          )
+        <p className="nav-menu-heading">サービス</p>
+        {SERVICES.map((s) => (
+          <Link key={s.href} href={s.href} className="nav-menu-link" onClick={close}>
+            {s.label}
+          </Link>
+        ))}
+
+        {links.length > 0 && (
+          <>
+            <p className="nav-menu-heading">このページ</p>
+            {links.map((l) =>
+              l.href.startsWith("/") && !l.href.includes("#") ? (
+                <Link key={l.href} href={l.href} className="nav-menu-link nav-menu-link-sm" onClick={close}>
+                  {l.label}
+                </Link>
+              ) : (
+                <a key={l.href} href={l.href} className="nav-menu-link nav-menu-link-sm" onClick={close}>
+                  {l.label}
+                </a>
+              )
+            )}
+          </>
         )}
-        <Link
-          href={ctaHref}
-          className="btn btn-primary"
-          onClick={close}
-          style={{ marginTop: 8, padding: "14px 32px", fontSize: 15 }}
-        >
-          {ctaLabel}
-        </Link>
+
+        {ctaHref && ctaLabel && (
+          <Link
+            href={ctaHref}
+            className="btn btn-primary"
+            onClick={close}
+            style={{ marginTop: 16, padding: "14px 32px", fontSize: 15 }}
+          >
+            {ctaLabel}
+          </Link>
+        )}
       </div>
     </>
   );

@@ -77,8 +77,7 @@ export default async function ThanksPage({ searchParams }: PageProps) {
   return (
     <>
       <SiteNav
-        links={[]}
-        ghost={{ href: "/test", label: "サービスページへ" }}
+        active="research"
         cta={
           intakeHref
             ? { href: intakeHref, label: "入稿フォームを開く" }
@@ -177,8 +176,7 @@ function PaymentPending() {
   return (
     <>
       <SiteNav
-        links={[]}
-        ghost={{ href: "/test", label: "サービスページへ" }}
+        active="research"
         cta={{ href: "/test", label: "サービスページへ" }}
       />
       <main>

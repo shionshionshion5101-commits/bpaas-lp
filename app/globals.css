@@ -213,11 +213,11 @@ img { max-width: 100%; display: block; }
   border-bottom-color: var(--line);
 }
 .nav-in {
-  height: 64px;
+  height: 54px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
 }
 
 .brand { display: inline-flex; align-items: center; gap: 10px; }
@@ -238,19 +238,67 @@ img { max-width: 100%; display: block; }
   color: var(--text-on-ink);
 }
 
-.nav-links { display: flex; align-items: center; gap: 28px; }
-.nav-links a {
-  font-size: 14px;
+/* Top tier — global service links */
+.nav-services { display: flex; align-items: center; gap: 22px; }
+.nav-service {
+  position: relative;
+  font-size: 13px;
   color: var(--muted-on-ink);
   transition: color 0.15s;
+  padding: 4px 0;
 }
-.nav-links a:hover { color: var(--text-on-ink); }
+.nav-service:hover { color: var(--text-on-ink); }
+.nav-service.is-active { color: var(--text-on-ink); font-weight: 700; }
+.nav-service.is-active::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -3px;
+  height: 2px; background: var(--accent); border-radius: 2px;
+}
 
 .nav-cta { display: flex; align-items: center; gap: 12px; }
-.nav-ghost-btn { padding: 9px 16px; font-size: 13px; }
+.nav-cta-btn { padding: 8px 15px; font-size: 12.5px; }
 
-@media (max-width: 860px) { .nav-links { display: none; } }
-@media (max-width: 640px) { .nav-ghost-btn { display: none; } }
+/* Bottom tier — page anchors (sticky under the global tier) */
+.nav-anchor { border-top: 1px solid transparent; }
+.nav-anchor-in { height: 42px; display: flex; align-items: center; }
+.nav-anchor-links {
+  display: flex; align-items: center; gap: 26px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.nav-anchor-links::-webkit-scrollbar { display: none; }
+.nav-anchor-links a {
+  font-size: 12.5px;
+  color: var(--muted-on-ink);
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+.nav-anchor-links a:hover { color: var(--text-on-ink); }
+
+/* Mobile-only fixed bottom CTA */
+.nav-mobile-cta {
+  display: none;
+  position: fixed;
+  left: 12px; right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 190;
+  text-align: center;
+  padding: 15px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.28);
+}
+
+@media (max-width: 860px) {
+  .nav-services { display: none; }
+  .nav-cta-btn { display: none; }
+  .nav-mobile-cta { display: block; }
+  .nav-in { height: 52px; }
+}
 
 /* ============================================================
    HERO (dark zone)
@@ -1530,17 +1578,26 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    NAV — cream variant
    ============================================================ */
-.nav-cream .brand-name          { color: var(--black); font-family: var(--f-display-en); font-size: 21px; font-weight: 400; letter-spacing: 0.03em; }
-.nav-cream .brand-mark          { background: var(--orange); color: var(--black); }
-.nav-cream .nav-links a         { color: rgba(17,17,17,.52); }
-.nav-cream .nav-links a:hover   { color: var(--black); }
-.nav-cream .nav-ghost-btn       { color: var(--black); border-color: rgba(17,17,17,.22); }
-.nav-cream .nav-ghost-btn:hover { border-color: var(--black); }
+.nav-cream .brand-name              { color: var(--black); font-family: var(--f-display-en); font-size: 21px; font-weight: 400; letter-spacing: 0.03em; }
+.nav-cream .brand-mark              { background: var(--orange); color: var(--black); }
+.nav-cream .nav-service             { color: rgba(17,17,17,.55); }
+.nav-cream .nav-service:hover       { color: var(--black); }
+.nav-cream .nav-service.is-active   { color: var(--black); }
+.nav-cream .nav-anchor-links a       { color: rgba(17,17,17,.55); }
+.nav-cream .nav-anchor-links a:hover { color: var(--black); }
 .nav-cream.scrolled {
   background: rgba(247,244,238,.92);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   backdrop-filter: blur(18px) saturate(140%);
   border-bottom-color: rgba(17,17,17,.12);
+}
+/* Anchor bar: always a faint delineating background so it reads over the hero */
+.nav-cream .nav-anchor {
+  background: rgba(247,244,238,.72);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  border-top-color: rgba(17,17,17,.07);
+  border-bottom: 1px solid rgba(17,17,17,.07);
 }
 
 /* ============================================================
@@ -1844,27 +1901,43 @@ img { max-width: 100%; display: block; }
 .nav-mobile-menu {
   display: none;
   position: fixed;
-  top: 64px; left: 0; right: 0; bottom: 0;
+  top: 52px; left: 0; right: 0; bottom: 0;
   z-index: 190;
-  background: rgba(247, 244, 238, .97);
+  background: rgba(247, 244, 238, .98);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  padding-bottom: env(safe-area-inset-bottom);
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 28px 28px calc(28px + env(safe-area-inset-bottom));
+  overflow-y: auto;
 }
 .nav-mobile-menu.open { display: flex; }
-.nav-mobile-menu a.nav-menu-link {
-  font-family: var(--f-display-en);
-  font-size: clamp(32px, 9vw, 48px);
-  color: var(--black);
+.nav-menu-heading {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: 1;
+  color: rgba(17,17,17,.42);
+  margin: 20px 0 4px;
+}
+.nav-menu-heading:first-child { margin-top: 0; }
+.nav-mobile-menu a.nav-menu-link {
+  font-family: var(--f-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.2;
   text-decoration: none;
+  padding: 8px 0;
   transition: opacity .15s;
+}
+.nav-mobile-menu a.nav-menu-link-sm {
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(17,17,17,.7);
+  padding: 6px 0;
 }
 .nav-mobile-menu a.nav-menu-link:hover { opacity: .55; }
 
@@ -3691,3 +3764,92 @@ img { max-width: 100%; display: block; }
 @media (max-width: 640px) {
   .intake-readonly-row { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* ============================================================
+   PRICING — 順路（STEP 1 → STEP 2）＋ 折りたたみオプション
+   ============================================================ */
+.price-step-tag {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  color: var(--orange);
+  font-weight: 700;
+  margin: 0;
+}
+.price-step-next {
+  position: relative;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(17,17,17,.18);
+}
+.price-step-arrow {
+  position: absolute;
+  top: -16px; left: 50%;
+  transform: translateX(-50%);
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  background: var(--orange);
+  color: #000;
+  border-radius: 50%;
+  font-size: 18px; font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0,0,0,.14);
+}
+
+/* 折りたたみオプション */
+.price-options {
+  border: 1px solid rgba(17,17,17,.12);
+  border-radius: 12px;
+  padding: 4px 18px;
+  background: rgba(255,255,255,.5);
+}
+.price-options > summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: rgba(17,17,17,.7);
+  padding: 12px 0;
+  font-weight: 600;
+}
+.price-options > summary::-webkit-details-marker { display: none; }
+.price-options[open] > summary { color: var(--black); }
+.price-options > summary:hover { color: var(--black); }
+
+/* 競合比較テストの価格＋CTA */
+.versus-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(17,17,17,.1);
+}
+.versus-price-val {
+  font-size: 16px;
+  color: rgba(17,17,17,.78);
+  font-weight: 600;
+}
+.versus-price-val strong {
+  font-family: var(--f-display-en);
+  font-size: 22px;
+  color: var(--black);
+  font-weight: 700;
+  margin: 0 2px;
+}
+.versus-price-val small { font-size: 12px; color: rgba(17,17,17,.55); margin-left: 4px; }
+
+/* 4ステップ内のサービスリンク（届ける） */
+.sv-step-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 8px;
+}
+.sv-step-links a {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--orange);
+  white-space: nowrap;
+}
+.sv-step-links a:hover { text-decoration: underline; }

@@ -39,10 +39,7 @@ export const metadata: Metadata = {
 export default function ConsultPage() {
   return (
     <>
-      <SiteNav
-        ghost={{ href: "/", label: "他のサービス" }}
-        cta={{ href: "/consult", label: "無料相談を予約" }}
-      />
+      <SiteNav cta={{ href: "/consult", label: "無料相談を予約" }} />
 
       <main id="top">
         <section className="sv sv-hero" id="consult">
