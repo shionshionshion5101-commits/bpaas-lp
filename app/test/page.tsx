@@ -173,7 +173,7 @@ export default function TestLandingPage() {
                 サンプルレポートを見る
               </button>
             </div>
-            <p className="sv-cta-note">実施まで最短7営業日 / 個人開発者向けはその場でお申し込みいただけます</p>
+            <p className="sv-cta-note">申込から10営業日（最短7営業日）/ 個人開発者向けはその場でお申し込みいただけます</p>
           </div>
         </section>
 
@@ -359,7 +359,7 @@ export default function TestLandingPage() {
               <div className="proc-step">
                 <p className="proc-num">STEP 04</p>
                 <h3 className="proc-title">実施・納品</h3>
-                <p className="proc-body">被験者を募集し、Workleが立ち会って実施。実施記録シートとPDFレポートを納品します。申込から10営業日が目安です。</p>
+                <p className="proc-body">被験者を募集し、Workleが立ち会って実施。実施記録シートとPDFレポートを納品します。申込から10営業日（最短7営業日）が目安です。</p>
               </div>
             </div>
           </div>
@@ -384,7 +384,7 @@ export default function TestLandingPage() {
                   <span className="pr-val">¥49,800</span>
                 </div>
                 <p className="sv-price-note">
-                  ※ 録画+発見点リスト納品。事例公開にご協力いただける方向け。毎月2枠限定。
+                  ※ 録画+発見点リスト納品。
                 </p>
                 <p className="sv-price-note sv-price-note-em">
                   決済後、入稿フォームのご案内メールが届きます。会議は不要です。
@@ -501,8 +501,6 @@ export default function TestLandingPage() {
             <div className="final-v2-inner reveal">
               <p className="final-v2-en" aria-hidden="true">FIND<br />THE WHY.</p>
               <p className="final-v2-jp">
-                {/* TODO: 実キャパで運用・毎月更新 */}
-                今月の実施枠：残り {"{{SLOTS_LEFT}}"} 件。<br />
                 「なぜ使われないか」を、今月中に手に入れる。
               </p>
               <div className="final-v2-cta-row">
