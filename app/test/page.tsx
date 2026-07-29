@@ -10,7 +10,6 @@ const CONSULT_URL = "/consult";
 
 // Stripe Payment Links — set via env vars. Falls back to the booking page when unset.
 const STRIPE_LIGHT_URL = process.env.NEXT_PUBLIC_STRIPE_LIGHT_URL ?? CONSULT_URL;
-const STRIPE_STANDARD_URL = process.env.NEXT_PUBLIC_STRIPE_STANDARD_URL ?? CONSULT_URL;
 
 const X_URL = "https://x.com/Workle_shion";
 
@@ -157,7 +156,7 @@ export default function TestLandingPage() {
             <p className="sv-en" aria-hidden="true">TEST IT.</p>
             <span className="sv-eyebrow">リサーチ・ユーザーテスト代行</span>
             <h1 className="sv-h" style={{ fontSize: "clamp(27px, 4.2vw, 50px)", maxWidth: 820 }}>
-              1回の完璧な調査より、<br className="sp-break" />12回の検証。
+              1回の完璧な調査より、<br />12回の検証。
             </h1>
             <p className="sv-sub">
               サービスは毎月変わるのに、調査は年に一度きり。Workleは実在の10人を使い、詰まった場所と「なぜ」を、必要なときに何度でも。設計・募集・実施・分析まで丸投げできます。
@@ -442,12 +441,8 @@ export default function TestLandingPage() {
                   <span className="pr-name">ライト<small>5人テスト</small></span>
                   <span className="pr-val">¥19,800</span>
                 </div>
-                <div className="sv-price-row">
-                  <span className="pr-name">スタンダード<small>10人テスト</small></span>
-                  <span className="pr-val">¥49,800</span>
-                </div>
                 <p className="sv-price-note">
-                  ※ 録画+発見点リスト納品。
+                  ※ 録画+発見点リスト納品。発見の8割は5人で出ます。
                 </p>
                 <p className="sv-price-note sv-price-note-em">
                   決済後、入稿フォームのご案内メールが届きます。会議は不要です。
@@ -462,16 +457,6 @@ export default function TestLandingPage() {
                     data-plan="light"
                   >
                     ライトに申し込む <span className="arr">→</span>
-                  </a>
-                  <a
-                    href={STRIPE_STANDARD_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                    data-action="track-checkout"
-                    data-plan="standard"
-                  >
-                    スタンダードに申し込む <span className="arr">→</span>
                   </a>
                 </div>
               </div>

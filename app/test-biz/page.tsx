@@ -368,10 +368,6 @@ export default function TestBizLandingPage() {
                   <span className="pr-name">初回検証<small>10人・フルレポート</small></span>
                   <span className="pr-val">¥98,000</span>
                 </div>
-                <div className="sv-price-row">
-                  <span className="pr-name">競合比較テスト<small>3サービス使い比べ</small></span>
-                  <span className="pr-val">¥198,000</span>
-                </div>
                 <p className="sv-price-note">
                   ※ 改善提案書・重要度別の発見点リスト付き。NDA締結・請求書払い・結果非公開。
                 </p>
@@ -397,15 +393,11 @@ export default function TestBizLandingPage() {
                   <span className="pr-name">継続検証<small>毎月5人・前月比較つき</small></span>
                   <span className="pr-val">¥58,000<small>/月</small></span>
                 </div>
-                <div className="sv-price-row">
-                  <span className="pr-name">動画つき<small>被験者の操作映像を納品</small></span>
-                  <span className="pr-val">¥88,000<small>/月</small></span>
-                </div>
                 <p className="sv-price-note">
                   ※ 初回検証の実施が条件。完全非同期・解約自由。
                 </p>
                 <p className="sv-price-note">
-                  被験者を5人→10人へ増やす場合は +¥40,000。
+                  競合比較テストや被験者の操作映像つきなど、拡張はオプションでご用意しています。
                 </p>
                 <div className="sv-price-cta-group">
                   <Link
@@ -423,6 +415,8 @@ export default function TestBizLandingPage() {
             <div className="sv-def" style={{ marginTop: 16 }}>
               <div className="sv-price-col-tag">オプション</div>
               <ul className="sv-def-list">
+                <li><span className="k">競合比較テスト</span><span>同じ10人が3サービスを使い比べ <strong>¥198,000</strong></span></li>
+                <li><span className="k">操作映像つき</span><span>継続検証に被験者の操作映像を追加 <strong>+¥30,000</strong>/月</span></li>
                 <li><span className="k">被験者追加</span><span>継続を5人→10人へ <strong>+¥40,000</strong></span></li>
                 <li><span className="k">ペルソナ追加</span><span>属性の追加指定 <strong>+¥5,000</strong> / 1条件（2条件までは無料）</span></li>
                 <li><span className="k">特急</span><span>短納期での実施 <strong>+¥10,000</strong></span></li>
