@@ -38,7 +38,7 @@ export default function SiteFooter() {
             <div className="foot-col">
               <h4>Service</h4>
               <Link href="/test">リサーチ・ユーザーテスト</Link>
-              <Link href="/sales">営業代行</Link>
+              <Link href="/sales">営業立ち上げ</Link>
               <Link href="/sns">SNS運用代行</Link>
             </div>
             <div className="foot-col">

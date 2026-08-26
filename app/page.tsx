@@ -42,8 +42,8 @@ const JSON_LD = {
     },
     {
       "@type": "Service",
-      name: "営業代行（成果報酬型）",
-      serviceType: "営業代行",
+      name: "営業組織の立ち上げ支援",
+      serviceType: "営業組織立ち上げ支援",
       provider: { "@id": "https://www.workle-kle.com/#organization" },
       areaServed: "JP",
       url: "https://www.workle-kle.com/sales",
@@ -104,7 +104,7 @@ export default function Home() {
               <div className="hero-stack" id="hero-stack">
                 <div className="hcard" data-slot="4" data-status="queued">
                   <span className="hc-status queued">QUEUED</span>
-                  <p className="hc-title">テレアポ 200件</p>
+                  <p className="hc-title">営業組織 立ち上げ</p>
                 </div>
                 <div className="hcard" data-slot="3" data-status="queued">
                   <span className="hc-status queued">QUEUED</span>
@@ -165,14 +165,14 @@ export default function Home() {
               "NO MEETINGS",
               "SNS MARKETING 月20本",
               "SHIP IT TODAY →",
-              "B2B OUTBOUND 月500件",
+              "BUILD SALES TEAM WITH SPOT WORKERS",
               "NON-STOP ASYNC",
               "USER TESTING ¥19,800〜",
               "FORM OUTREACH 300社/MO",
               "NO MEETINGS",
               "SNS MARKETING 月20本",
               "SHIP IT TODAY →",
-              "B2B OUTBOUND 月500件",
+              "BUILD SALES TEAM WITH SPOT WORKERS",
               "NON-STOP ASYNC",
             ].map((item, i) => (
               <span key={i} className="marquee-v2-item">
@@ -220,9 +220,9 @@ export default function Home() {
               <Link href="/sales" className="svc-card reveal d1">
                 <div className="svc-card-num">02</div>
                 <div className="svc-card-tag">Sales Outreach</div>
-                <h3 className="svc-card-title">営業代行</h3>
-                <p className="svc-card-desc">商談を、固定＋成果報酬で作ります。</p>
-                <p className="svc-card-price">¥50,000<span className="unit">＋¥20,000/商談</span></p>
+                <h3 className="svc-card-title">営業立ち上げ</h3>
+                <p className="svc-card-desc">スポットワーカーで、営業部隊を作る。</p>
+                <p className="svc-card-price">設計から<span className="unit">全面委託まで</span></p>
                 <span className="svc-card-cta">詳しく見る <span className="arr">→</span></span>
               </Link>
 
@@ -319,7 +319,7 @@ export default function Home() {
                     <polyline points="16 7 22 7 22 13" />
                   </svg>
                 </div>
-                <div className="team-role-label">① 営業代行の顔</div>
+                <div className="team-role-label">① 営業立ち上げの顔</div>
                 <div className="team-meta">
                   <span className="team-name">B2Bセールス担当</span>
                 </div>
@@ -391,7 +391,7 @@ export default function Home() {
               </p>
               <div className="final-v2-cta-row">
                 <Link href="/test" className="btn btn-primary">リサーチ <span className="arr">→</span></Link>
-                <Link href="/sales" className="btn btn-ghost">営業代行 <span className="arr">→</span></Link>
+                <Link href="/sales" className="btn btn-ghost">営業立ち上げ <span className="arr">→</span></Link>
                 <Link href="/sns" className="btn btn-ghost">SNS運用 <span className="arr">→</span></Link>
               </div>
               <p className="final-v2-note">最低契約期間なし · 完全非同期 · 単品から</p>

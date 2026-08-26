@@ -24,7 +24,7 @@ export default function Tokushoho() {
       <main>
         <div className="legal-page wrap">
           <h1 className="legal-title">特定商取引法に基づく表記</h1>
-          <p className="legal-meta">最終更新日：2026年7月7日</p>
+          <p className="legal-meta">最終更新日：2026年8月25日</p>
 
           <table className="legal-table">
             <tbody>
@@ -65,11 +65,17 @@ export default function Tokushoho() {
               <tr>
                 <th>販売価格</th>
                 <td>
-                  各プランページに記載の金額（税込）
+                  各プランページに記載の金額（税別）
                   <br />
-                  Starter：¥50,000/月（税込）
+                  ① 設計を渡す（コンサル）：350,000円（2〜4週間・単発）
                   <br />
-                  Growth：¥300,000/月（税込）
+                  ② 一緒に立ち上げる（伴走）：350,000円〜（内容に応じて実行分を加算）
+                  <br />
+                  ③ まるごと引き受ける（全面委託）：月50,000円 + 成果報酬 20,000円/商談。固定分は月3人日・架電450件目安。4人日目以降の追加は30,000円/人日
+                  <br />
+                  単発のスポット架電：40,000円/人日、最低3人日
+                  <br />
+                  初期費用は0円。すべて税別
                 </td>
               </tr>
               <tr>
@@ -82,7 +88,7 @@ export default function Tokushoho() {
               </tr>
               <tr>
                 <th>サービス提供時期</th>
-                <td>決済完了後、専用Notionボードを発行し、翌営業日から稼働開始。</td>
+                <td>契約成立後、翌営業日以降の指定日。</td>
               </tr>
               <tr>
                 <th>解約・返金について</th>

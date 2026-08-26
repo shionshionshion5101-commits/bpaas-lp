@@ -1208,7 +1208,7 @@ img { max-width: 100%; display: block; }
 .faq-q {
   padding: 18px 22px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 17px;
   cursor: pointer;
   list-style: none;
   display: flex;
@@ -1228,7 +1228,7 @@ img { max-width: 100%; display: block; }
 }
 .faq-item[open] .faq-q::after { content: "−"; }
 .faq-a { padding: 0 22px 18px; border-top: 1px solid var(--line); }
-.faq-a p { color: var(--muted-on-paper); font-size: 14px; margin: 14px 0 0; line-height: 1.8; }
+.faq-a p { color: var(--muted-on-paper); font-size: 16px; margin: 14px 0 0; line-height: 1.8; }
 .faq-a strong { color: var(--text-on-paper); }
 .faq-a a { color: var(--accent); text-decoration: underline; }
 
@@ -2243,11 +2243,11 @@ img { max-width: 100%; display: block; }
 .final-v2-jp {
   font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
   font-weight: 700;
-  font-size: clamp(14px, 1.6vw, 20px);
-  color: rgba(247, 244, 238, .68);
+  font-size: clamp(18px, 1.8vw, 20px);
+  color: rgba(247, 244, 238, .78);
   margin: 0 0 clamp(32px, 4vw, 52px);
-  line-height: 1.65;
-  max-width: 600px;
+  line-height: 1.75;
+  max-width: 34em;
 }
 
 .final-v2-cta-row {
@@ -2259,8 +2259,8 @@ img { max-width: 100%; display: block; }
 
 .final-v2-note {
   font-family: var(--f-mono);
-  font-size: 10.5px;
-  color: rgba(247, 244, 238, .3);
+  font-size: 14px;
+  color: rgba(247, 244, 238, .55);
   margin: 20px 0 0;
   letter-spacing: .06em;
 }
@@ -2310,8 +2310,8 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 8px;
   font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .16em;
+  font-size: clamp(12px, 1vw, 13px);
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--orange);
   margin: 0 0 16px;
@@ -2320,8 +2320,8 @@ img { max-width: 100%; display: block; }
 .sv-h {
   font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
   font-weight: 900;
-  font-size: clamp(24px, 3.6vw, 42px);
-  line-height: 1.28;
+  font-size: clamp(32px, 4.6vw, 48px);
+  line-height: 1.3;
   letter-spacing: .01em;
   color: var(--black);
   margin: 0 0 18px;
@@ -2329,21 +2329,21 @@ img { max-width: 100%; display: block; }
 }
 
 .sv-sub {
-  font-size: clamp(15px, 1.6vw, 18px);
-  max-width: 660px;
+  font-size: clamp(18px, 1.8vw, 20px);
+  max-width: 34em;
   margin: 0;
-  line-height: 1.9;
-  color: rgba(17, 17, 17, .82);
+  line-height: 1.85;
+  color: rgba(17, 17, 17, .85);
   font-weight: 600;
   word-break: auto-phrase;
   text-wrap: pretty;
 }
 
 .sv-prose {
-  max-width: 680px;
+  max-width: 34em;
   color: rgba(17, 17, 17, .84);
-  font-size: 15.5px;
-  line-height: 1.95;
+  font-size: clamp(17px, 1.7vw, 18px);
+  line-height: 1.85;
   margin: 20px 0 0;
   font-weight: 600;
   text-wrap: pretty;
@@ -2399,9 +2399,10 @@ img { max-width: 100%; display: block; }
 .sv-cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin: 30px 0 0; }
 .sv-cta-note {
   font-family: var(--f-mono);
-  font-size: 11.5px;
-  color: rgba(17, 17, 17, .62);
+  font-size: clamp(14px, 1.3vw, 15px);
+  color: rgba(17, 17, 17, .7);
   margin: 14px 0 0;
+  line-height: 1.6;
 }
 
 /* Ghost button on cream */
@@ -2437,14 +2438,14 @@ img { max-width: 100%; display: block; }
 .sv-step h3 {
   font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
   font-weight: 900;
-  font-size: clamp(15px, 1.6vw, 19px);
+  font-size: clamp(20px, 2vw, 22px);
   margin: 0;
   color: var(--black);
 }
 .sv-step p {
-  font-size: 13px;
+  font-size: clamp(14px, 1.4vw, 15px);
   line-height: 1.75;
-  color: rgba(17, 17, 17, .6);
+  color: rgba(17, 17, 17, .72);
   margin: 0;
   font-weight: 500;
   word-break: auto-phrase;
@@ -2512,13 +2513,13 @@ img { max-width: 100%; display: block; }
   border-width: 1.5px;
 }
 .sv-price-col .sv-def-list { gap: 10px; }
-.sv-price-col .sv-def-list li { font-size: 13.5px; }
+.sv-price-col .sv-def-list li { font-size: 14px; }
 .sv-price-col .sv-def-list li .k { min-width: 62px; }
 .sv-def-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
-.sv-def-list li { display: flex; gap: 14px; align-items: baseline; font-size: 14.5px; line-height: 1.7; color: var(--black); font-weight: 500; }
+.sv-def-list li { display: flex; gap: 14px; align-items: baseline; font-size: clamp(16px, 1.5vw, 17px); line-height: 1.8; color: var(--black); font-weight: 500; }
 .sv-def-list li .k {
   font-family: var(--f-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--orange);
@@ -2534,11 +2535,11 @@ img { max-width: 100%; display: block; }
   border-radius: 0 12px 12px 0;
   padding: 22px 26px;
   margin: clamp(28px, 3vw, 40px) 0 0;
-  font-size: 14.5px;
+  font-size: clamp(16px, 1.6vw, 17px);
   line-height: 1.85;
   color: var(--black);
   font-weight: 500;
-  max-width: 720px;
+  max-width: 34em;
 }
 
 /* Price columns (2列) */
@@ -2586,8 +2587,13 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 680px) { .sv-price-grid { grid-template-columns: 1fr; } }
 
+/* Price columns (3列) */
+.sv-price-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .sv-price-grid.cols-3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 680px) { .sv-price-grid.cols-3 { grid-template-columns: 1fr; } }
+
 /* Big single price */
-.sv-bigprice { display: flex; align-items: baseline; gap: 6px; margin: 8px 0 0; }
+.sv-bigprice { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; margin: 8px 0 0; }
 .sv-bigprice .amt {
   font-family: var(--f-mono);
   font-weight: 700;
@@ -2595,8 +2601,117 @@ img { max-width: 100%; display: block; }
   letter-spacing: -.03em;
   line-height: 1;
   color: var(--black);
+  white-space: nowrap;
 }
-.sv-bigprice .unit { font-family: var(--f-mono); font-size: clamp(16px, 2vw, 22px); color: rgba(17,17,17,.5); }
+.sv-bigprice .unit { font-family: var(--f-mono); font-size: clamp(16px, 2vw, 22px); color: rgba(17,17,17,.5); white-space: nowrap; }
+
+/* Mid-size price value (compound / multi-part pricing) */
+.price-amt {
+  font-family: var(--f-mono);
+  font-weight: 700;
+  font-size: clamp(22px, 2.6vw, 30px);
+  letter-spacing: -.02em;
+  line-height: 1.3;
+  color: var(--black);
+  margin: 8px 0 0;
+}
+.price-amt-sub {
+  display: block;
+  font-size: 15px;
+  color: rgba(17, 17, 17, .6);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Proof / track-record card (実績) */
+.proof-card {
+  display: flex;
+  gap: clamp(20px, 3vw, 32px);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.proof-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--orange);
+  color: #fff;
+  border: 2px solid var(--black);
+  flex-shrink: 0;
+}
+.proof-body { flex: 1 1 320px; min-width: 240px; }
+.proof-name-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 0 0 4px; }
+.proof-name {
+  font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--black);
+}
+.proof-x-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  color: var(--orange);
+  font-weight: 700;
+}
+.proof-x-link:hover { text-decoration: underline; }
+.proof-role {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  color: rgba(17, 17, 17, .55);
+  margin: 0 0 4px;
+}
+
+/* Three-ways cards (3つの関わり方) — stacked cards, not a table */
+.way-cards {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.4vw, 28px);
+  margin: clamp(36px, 4vw, 52px) 0 0;
+}
+.way-card {
+  background: #fff;
+  border: 2.5px solid var(--black);
+  border-radius: 20px;
+  padding: clamp(24px, 3vw, 40px);
+}
+.way-card.feat { border-color: var(--orange); box-shadow: 0 0 0 1px var(--orange) inset; }
+.way-card-banner {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .02em;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin: 0 0 18px;
+}
+.way-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 18px;
+  flex-wrap: wrap;
+}
+.way-card-num {
+  font-family: var(--f-display-en);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+  color: var(--orange);
+}
+.way-card-head h3 {
+  font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  font-weight: 900;
+  font-size: clamp(20px, 2vw, 24px);
+  color: var(--black);
+  margin: 0;
+}
 
 /* ---- Comparison table → cards on mobile ---- */
 .sv-compare { margin: clamp(28px, 3vw, 44px) 0 0; }
@@ -2610,16 +2725,16 @@ img { max-width: 100%; display: block; }
 .sv-compare th, .sv-compare td {
   padding: 14px 16px;
   text-align: left;
-  font-size: 13px;
+  font-size: 16px;
   border-bottom: 1px solid rgba(17, 17, 17, .1);
   vertical-align: top;
-  line-height: 1.55;
-  color: rgba(17, 17, 17, .72);
+  line-height: 1.6;
+  color: rgba(17, 17, 17, .78);
 }
 .sv-compare thead th {
   font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .1em;
+  font-size: 12px;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--black);
   background: rgba(17, 17, 17, .04);
@@ -2639,6 +2754,25 @@ img { max-width: 100%; display: block; }
 .sv-compare thead .cw { color: var(--orange) !important; }
 .sv-compare tr:last-child th, .sv-compare tr:last-child td { border-bottom: none; }
 
+/* Emphasized row (e.g. 成果が出なかった時) */
+.sv-compare tr.emph th, .sv-compare tr.emph td { background: rgba(17, 17, 17, .035); font-weight: 700; }
+
+/* Column badge (e.g. まず、ここから) */
+.plan-flag {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 /* Mobile card conversion */
 .sv-compare-cards { display: none; }
 @media (max-width: 720px) {
@@ -2654,7 +2788,7 @@ img { max-width: 100%; display: block; }
   .sv-cc-title {
     font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
     font-weight: 900;
-    font-size: 15px;
+    font-size: 18px;
     color: var(--black);
     margin: 0 0 12px;
   }
@@ -2665,11 +2799,13 @@ img { max-width: 100%; display: block; }
     gap: 14px;
     padding: 9px 0;
     border-top: 1px solid rgba(17,17,17,.1);
-    font-size: 13px;
+    font-size: 16px;
   }
   .sv-cc-row:first-of-type { border-top: none; }
   .sv-cc-row .k { color: rgba(17,17,17,.5); font-weight: 600; flex-shrink: 0; }
   .sv-cc-row .v { color: var(--black); font-weight: 600; text-align: right; }
+  .sv-cc-row.emph { font-weight: 700; }
+  .sv-cc-row.emph .k { color: var(--black); }
 }
 
 /* Hero clears the fixed nav */

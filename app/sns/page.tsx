@@ -106,7 +106,7 @@ export default function SnsLandingPage() {
                 無料相談を予約する <span className="arr">→</span>
               </Link>
               <Link href="/sales" className="btn btn-ghost-cream">
-                営業代行と併用する
+                営業立ち上げと併用する
               </Link>
             </div>
             <p className="sv-cta-note">15分 / オンライン / 費用・契約なし</p>
@@ -238,8 +238,8 @@ export default function SnsLandingPage() {
               アカウント設計・月20本の投稿制作/運用・記事月2本・GA4計測・月次レポートまで含む。初期費用0円・最低契約期間なし・完全非同期。
             </p>
             <p className="sv-cta-note">
-              ※ 営業代行との併用も可能です。詳しくは
-              <Link href="/sales" style={{ color: "var(--orange)", textDecoration: "underline" }}>営業代行ページ</Link>
+              ※ 営業立ち上げとの併用も可能です。詳しくは
+              <Link href="/sales" style={{ color: "var(--orange)", textDecoration: "underline" }}>営業立ち上げページ</Link>
               をご覧ください。
             </p>
           </div>
@@ -259,7 +259,7 @@ export default function SnsLandingPage() {
                   無料相談を予約する <span className="arr">→</span>
                 </Link>
                 <Link href="/sales" className="btn btn-ghost">
-                  営業代行を見る
+                  営業立ち上げを見る
                 </Link>
               </div>
               <p className="final-v2-note">最低契約期間なし · 完全非同期 · 会議は最小限</p>

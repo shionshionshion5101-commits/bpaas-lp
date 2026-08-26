@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.workle-kle.com"),
   title: "Workle — いいプロダクトは、ある。届ける手が、足りない。",
   description:
-    "マーケと営業の実務を、まるごと外に出す。元メガベンチャー事業開発・大手人材業界トップセールス・外資ITエンジニアの実働チームが、あなたの代わりに手を動かします。",
+    "必要な日だけ、マーケと営業の実務を外に出す。元メガベンチャー事業開発・大手人材業界トップセールス・外資ITエンジニアの実働チームが、あなたの代わりに手を動かします。",
   verification: {
     google: "am8KdpmW-IX04lXlUkB5oLB7MGf-83Q1XANY8BMSMVU",
   },

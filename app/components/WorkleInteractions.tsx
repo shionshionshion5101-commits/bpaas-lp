@@ -27,7 +27,7 @@ export default function WorkleInteractions() {
         "SNS投稿 20本",
         "LP改善提案",
         "競合比較レポート",
-        "テレアポ 200件",
+        "営業組織 立ち上げ",
         "インタビュー書き起こし",
         "X リプライ 100件",
       ];

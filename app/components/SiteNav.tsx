@@ -7,7 +7,7 @@ export type ServiceKey = "research" | "sales" | "sns";
 /** Global cross-service links — shown on every page's top tier. */
 export const SERVICES: { href: string; label: string; key: ServiceKey }[] = [
   { href: "/test", label: "リサーチ", key: "research" },
-  { href: "/sales", label: "営業代行", key: "sales" },
+  { href: "/sales", label: "営業立ち上げ", key: "sales" },
   { href: "/sns", label: "SNS運用", key: "sns" },
 ];
 
