@@ -4,6 +4,10 @@
 
 <!-- entries -->
 
+## 2026-08-28 00:59 JST — ⏭ この時間帯の投稿なし
+
+- 参照元: Google Sheets
+
 ## 2026-08-27 22:10 JST — ❌ 失敗
 
 - 参照元: Google Sheets
