@@ -4,6 +4,12 @@
 
 <!-- entries -->
 
+## 2026-08-30 19:11 JST — ❌ 失敗
+
+- 参照元: Google Sheets
+- 原因: Google Sheets APIエラー: APIError: [503]: The service is currently unavailable.
+- 対処: サービスアカウントにシートの編集権限があるか、シートIDが正しいかを確認してください
+
 ## 2026-08-30 17:34 JST — ✅ 投稿成功
 
 - 参照元: Google Sheets
